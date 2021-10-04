@@ -11,11 +11,14 @@ class CentersGrid extends StatelessWidget {
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
       itemCount: Centerss.length,
-      itemBuilder: (ctx, i) => CentersItem(
-        Centerss[i].title,
-        Centerss[i].description,
-        Centerss[i].price,
-        Centerss[i].imageUrl,
+      itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+      value: Centerss[i],
+      child:CentersItem(
+        //Centerss[i].title,
+       // Centerss[i].description,
+      //  Centerss[i].price,
+       // Centerss[i].imageUrl,
+      ),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,

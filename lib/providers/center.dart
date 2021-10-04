@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Centerss {
+class Centerss with ChangeNotifier{
   final String title;
   final String description;
   final int price;
