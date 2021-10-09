@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_screen.dart';
 import 'package:kidzone_app/Screens/register_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +11,9 @@ class CentersDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final centersTitle = ModalRoute.of(context)!.settings.arguments as String;
-    final loadedCenter = Provider.of<Centers>(context,listen: false,
+    final loadedCenter = Provider.of<Centers>(
+      context,
+      listen: false,
     ).findByTitle(centersTitle);
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +38,8 @@ class CentersDetailScreen extends StatelessWidget {
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
             alignment: Alignment.bottomCenter,
-            child: Text("التقييم",
+            child: Text(
+              "التقييم",
             ),
           ),
           Container(
@@ -45,7 +47,6 @@ class CentersDetailScreen extends StatelessWidget {
             padding: EdgeInsets.all(10),
             alignment: Alignment.bottomCenter,
             child: Text("الموقع"),
-
           ),
           GestureDetector(
             onTap: () {
@@ -83,7 +84,6 @@ class CentersDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-
     );
   }
 }

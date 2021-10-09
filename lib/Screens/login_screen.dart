@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Screens/centers_screen.dart';
 import 'package:kidzone_app/Screens/signup_screen.dart';
+import 'package:kidzone_app/Screens/tabs_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -125,7 +126,7 @@ class StartState extends State<LoginScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CentersScreen(),
+                          builder: (context) => TabsScreen(),
                         ));
                     // Write Click Listener Code Here.
                   },

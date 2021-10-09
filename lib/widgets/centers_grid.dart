@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Screens/centers_screen.dart';
+import 'package:kidzone_app/Screens/profile_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:kidzone_app/widgets/centers_item.dart';
 import 'package:provider/provider.dart';
 
 class CentersGrid extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     final centersData = Provider.of<Centers>(context);
