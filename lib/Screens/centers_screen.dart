@@ -1,5 +1,6 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/login_screen.dart';
 import 'package:kidzone_app/widgets/centers_grid.dart';
 
 class CentersScreen extends StatefulWidget {
@@ -9,70 +10,114 @@ class CentersScreen extends StatefulWidget {
 }
 
 class CentersScreenState extends State<CentersScreen> {
-  Icon customIcon = Icon(Icons.search);
-  Widget customSearchCenters= Text('مراكز الحضانة');
+
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar:AppBar(
-      title: customSearchCenters,
+      title: Text('مراكز الحضانة'),
         actions: <Widget>[
-          IconButton(onPressed: (){
-            setState(() {
-              if(this.customIcon.icon==Icons.search){
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(context: context, delegate: DataSearch());
+            },
 
-                this.customIcon= Icon(Icons.cancel);
-                this.customSearchCenters = TextField(
-                  textInputAction: TextInputAction.go,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'البحث عن المركز'
-                  ),
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  ),
-                );
-              }
-              else {
-                this.customIcon= Icon(Icons.search);
-                this.customSearchCenters = Text('مراكز الحضانة');
-              }
-            });
-          },
-            icon: customIcon
               ),
       ],
     ),
-
+      drawer: Drawer(
+      ),
       body: CentersGrid(
       ),
-
   );
-
   }
 class DataSearch extends SearchDelegate<String>{
+  final centers=[
+    'حضانة المنال',
+    'kidsCare' ,
+    'حضانة المنال',
+    'حضانة المنال',
+    'حضانة المنال',
+  ];
+  final recentCenters = [
+    'حضانة المنال',
+    'kidsCare' ,
+    'حضانة المنال',
+    'حضانة المنال',
+    'حضانة المنال',
+  ];
   @override
   List<Widget>? buildActions(BuildContext context) {
-    // TODO: implement buildActions
-    throw UnimplementedError();
+    return [IconButton(onPressed: (){
+    },
+        icon: Icon(Icons.clear),
+    ),
+    ];
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
-    throw UnimplementedError();
+    return null;
   }
+
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
+    return Center(
+
+      child: Container(
+        height: 100,
+        width: 100,
+        child: Card(
+          color: Colors.purple.shade300,
+          child: Center(
+            child: Text(query),
+          ),
+        ),
+      ),
+    );
+
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    throw UnimplementedError();
+
+final suggestionList = query.isEmpty ? recentCenters
+    : centers.where((p)=>p.startsWith(query)).toList();
+return ListView.builder(
+
+  itemBuilder: (context, index) => ListTile(
+    onTap: () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CentersScreen(),
+          ));
+    },
+    leading: Icon(Icons.help_center),
+    title: RichText(
+      text: TextSpan(
+        text: suggestionList[index].substring(0, query.length),
+        style: TextStyle(
+          color: Colors.black,
+              fontWeight: FontWeight.bold),
+
+        children: [
+          TextSpan(
+            text: suggestionList[index].substring(query.length),
+            style: TextStyle(
+              color: Colors.grey
+            ),
+
+          ),
+        ],
+      ),
+
+    ),
+
+  ),
+  itemCount: suggestionList.length,
+);
   }
   
 }
