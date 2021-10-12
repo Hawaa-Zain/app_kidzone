@@ -64,17 +64,12 @@ class CentersDetailScreen extends StatelessWidget {
               height: 54,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [(new Color(0xFF9575CD)), new Color(0xFF9575CD)],
+                    colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight),
                 borderRadius: BorderRadius.circular(100),
                 color: Colors.grey[200],
-                boxShadow: [
-                  BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 100,
-                      color: Color(0xffEEEEEE)),
-                ],
+
               ),
               child: Text(
                 "التسجيل",

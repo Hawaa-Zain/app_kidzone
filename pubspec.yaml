@@ -13,7 +13,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.2
   grouped_list: ^4.1.0

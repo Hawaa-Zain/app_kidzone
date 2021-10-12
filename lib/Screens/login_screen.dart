@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_screen.dart';
 import 'package:kidzone_app/Screens/signup_screen.dart';
 import 'package:kidzone_app/Screens/tabs_screen.dart';
 
@@ -25,7 +24,7 @@ class StartState extends State<LoginScreen> {
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
                     color: new Color(0xFFFFFFFF),
                     gradient: LinearGradient(
-                      colors: [(new Color(0xFFEDE7F6)), new Color(0xFFEDE7F6)],
+                      colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ),
@@ -47,8 +46,8 @@ class StartState extends State<LoginScreen> {
                             margin: EdgeInsets.only(right: 20, top: 20),
                             alignment: Alignment.bottomRight,
                             child: Text(
-                              "Login",
-                              style: TextStyle(fontSize: 20, color: Colors.deepPurple),
+                              "تسجيل دخول",
+                              style: TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           )
                         ],
@@ -70,13 +69,13 @@ class StartState extends State<LoginScreen> {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: Color(0xFF512DA8),
+                    cursorColor: Color(0xFFBBA68C8),
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.email,
-                        color: Color(0xFF512DA8),
+                        color: Color(0xFFBBA68C8),
                       ),
-                      hintText: "Enter Email",
+                      hintText: "البريد الالكتروني ",
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
                     ),
@@ -98,14 +97,14 @@ class StartState extends State<LoginScreen> {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: Color(0xFF512DA8),
+                    cursorColor: Color(0xFFBBA68C8),
                     decoration: InputDecoration(
-                      focusColor: Color(0xFF512DA8),
+                      focusColor: Color(0xFFBBA68C8),
                       icon: Icon(
                         Icons.vpn_key,
-                        color: Color(0xFF512DA8),
+                        color: Color(0xFFBBA68C8),
                       ),
-                      hintText: "Enter Password",
+                      hintText: "كلمة المرور ",
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
                     ),
@@ -118,7 +117,7 @@ class StartState extends State<LoginScreen> {
                     onTap: () {
                       // Write Click Listener Code Here
                     },
-                    child: Text("Forget Password?"),
+                    child: Text("هل نسيت كلمة المرور؟"),
                   ),
                 ),
                 GestureDetector(
@@ -137,7 +136,7 @@ class StartState extends State<LoginScreen> {
                     height: 54,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [(new Color(0xFF9575CD)), new Color(0xFF9575CD)],
+                          colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight),
                       borderRadius: BorderRadius.circular(50),
@@ -150,7 +149,7 @@ class StartState extends State<LoginScreen> {
                       ],
                     ),
                     child: Text(
-                      "LOGIN",
+                      "دخول",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -160,11 +159,11 @@ class StartState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't Have Any Account?  "),
+                      Text("ليس لديك حساب؟ "),
                       GestureDetector(
                         child: Text(
-                          "Register Now",
-                          style: TextStyle(color: Color(0xFF512DA8)),
+                          "سجل الان",
+                          style: TextStyle(color: Color(0xFFBBA68C8)),
                         ),
                         onTap: () {
                           // Write Tap Code Here.
@@ -181,5 +180,4 @@ class StartState extends State<LoginScreen> {
               ],
             )));
   }
-
 }

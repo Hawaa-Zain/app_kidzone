@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Screens/login_screen.dart';
+import 'package:kidzone_app/Screens/welcome_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class InitState extends State<SplashScreen> {
 
   loginRoute() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 
   @override
@@ -38,7 +38,7 @@ class InitState extends State<SplashScreen> {
             decoration: BoxDecoration(
               color: new Color(0xFFFFFFFF),
               gradient: LinearGradient(
-                colors: [(new Color(0xFF9575CD)), (new Color(0xFF9575CD))],
+                colors: [(new Color(0xFFE1BEE7)), (new Color(0xFFE1BEE7))],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),

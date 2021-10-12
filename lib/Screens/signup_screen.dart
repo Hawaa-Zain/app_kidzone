@@ -22,7 +22,7 @@ class InitState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
                     color: new Color(0xFFFFFFFF),
                     gradient: LinearGradient(
-                      colors: [(new Color(0xFFEDE7F6)), new Color(0xFFEDE7F6)],
+                      colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
                     ),
                   ),
                   child: Center(
@@ -42,10 +42,10 @@ class InitState extends State<SignUpScreen> {
                             margin: EdgeInsets.only(right: 20, top: 20),
                             alignment: Alignment.bottomRight,
                             child: Text(
-                              "Register",
+                              "إنشاء حساب جديد",
                               style: TextStyle(
                                 fontSize: 20,
-                                color: Colors.deepPurple,
+                                color: Colors.white,
                               ),
                             ),
                           ),
@@ -68,13 +68,13 @@ class InitState extends State<SignUpScreen> {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: Color(0xFF512DA8),
+                    cursorColor: Color(0xFFBBA68C8),
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.person,
-                        color: Color(0xFF512DA8),
+                        color: Color(0xFFBBA68C8),
                       ),
-                      hintText: "Full Name",
+                      hintText: "الاسم الكامل ",
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
                     ),
@@ -96,13 +96,13 @@ class InitState extends State<SignUpScreen> {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: Color(0xFF512DA8),
+                    cursorColor: Color(0xFFBBA68C8),
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.email,
-                        color: Color(0xFF512DA8),
+                        color: Color(0xFFBBA68C8),
                       ),
-                      hintText: "Email",
+                      hintText: "البريد الالكتروني",
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
                     ),
@@ -124,14 +124,14 @@ class InitState extends State<SignUpScreen> {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: Color(0xFF512DA8),
+                    cursorColor: Color(0xFFBBA68C8),
                     decoration: InputDecoration(
-                      focusColor: Color(0xFF512DA8),
+                      focusColor: Color(0xFFBBA68C8),
                       icon: Icon(
                         Icons.vpn_key,
-                        color: Color(0xFF512DA8),
+                        color: Color(0xFFBBA68C8),
                       ),
-                      hintText: "Enter Password",
+                      hintText: "كلمة المرور ",
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
                     ),
@@ -154,7 +154,7 @@ class InitState extends State<SignUpScreen> {
                     height: 54,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [(new Color(0xFF9575CD)), new Color(0xFF9575CD)],
+                          colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight),
                       borderRadius: BorderRadius.circular(50),
@@ -167,22 +167,21 @@ class InitState extends State<SignUpScreen> {
                       ],
                     ),
                     child: Text(
-                      "REGISTER",
+                      "تسجيل",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10, bottom: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Have Already Member?  "),
+                      Text("لديك حساب ؟  "),
                       GestureDetector(
                           child: Text(
-                            "Login Now",
-                            style: TextStyle(color: Color(0xFF512DA8)),
+                            " تسجيل دخول",
+                            style: TextStyle(color: Color(0xFFBBA68C8)),
                           ),
                           onTap: () {
                             // Write Tap Code Here.

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/widgets/centers_grid.dart';
 
@@ -15,6 +14,7 @@ class CentersScreenState extends State<CentersScreen> {
   Widget build(BuildContext context) => Scaffold(
     appBar:AppBar(
       title: Text('مراكز الحضانة'),
+
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -22,13 +22,11 @@ class CentersScreenState extends State<CentersScreen> {
               showSearch(context: context, delegate: DataSearch());
             },
 
+
               ),
       ],
     ),
-      drawer: Drawer(
-      ),
-      body: CentersGrid(
-      ),
+      body: CentersGrid(),
   );
   }
 class DataSearch extends SearchDelegate<String>{
@@ -49,6 +47,8 @@ class DataSearch extends SearchDelegate<String>{
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [IconButton(onPressed: (){
+      query= " ";
+
     },
         icon: Icon(Icons.clear),
     ),
@@ -63,8 +63,7 @@ class DataSearch extends SearchDelegate<String>{
 
   @override
   Widget buildResults(BuildContext context) {
-    return Center(
-
+    return Container(
       child: Container(
         height: 100,
         width: 100,
@@ -77,6 +76,7 @@ class DataSearch extends SearchDelegate<String>{
       ),
     );
 
+
   }
 
   @override
@@ -87,6 +87,7 @@ final suggestionList = query.isEmpty ? recentCenters
 return ListView.builder(
 
   itemBuilder: (context, index) => ListTile(
+
     onTap: () {
       Navigator.push(
           context,
@@ -119,21 +120,10 @@ return ListView.builder(
   itemCount: suggestionList.length,
 );
   }
-  
+
 }
 
 
-
-
-// Padding(
-//               padding: EdgeInsets.only(right: 20.0),
-//               child: GestureDetector(
-//                 onTap: () {
-//                   Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                       builder: (context) => CentersScreen(),
-//                       ));
 
 
 
