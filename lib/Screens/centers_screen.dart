@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Screens/centers_details_screen.dart';
 import 'package:kidzone_app/widgets/centers_grid.dart';
 
 class CentersScreen extends StatefulWidget {
@@ -47,9 +48,11 @@ class DataSearch extends SearchDelegate<String>{
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [IconButton(onPressed: (){
-      query= " ";
+        Navigator.push(context,
+          MaterialPageRoute(builder: (context)=> CentersDetailScreen()),
+        );
+      },
 
-    },
         icon: Icon(Icons.clear),
     ),
     ];
@@ -88,13 +91,6 @@ return ListView.builder(
 
   itemBuilder: (context, index) => ListTile(
 
-    onTap: () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CentersScreen(),
-          ));
-    },
     leading: Icon(Icons.help_center),
     title: RichText(
       text: TextSpan(

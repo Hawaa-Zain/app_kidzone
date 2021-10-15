@@ -37,7 +37,7 @@ class StartState extends State<LoginScreen> {
                           Container(
                             margin: EdgeInsets.only(top: 50),
                             child: Image.asset(
-                              "assets/images/logo.png",
+                              "assets/images/kidzone.png",
                               height: 90,
                               width: 90,
                             ),
