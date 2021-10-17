@@ -93,8 +93,6 @@ class StartState extends State<WelcomeScreen> {
                 ],
               ),
         ),
-
-
     );
   }
 }
