@@ -48,6 +48,7 @@ class CentersDetailScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Text("الموقع"),
           ),
+            SizedBox(height: 20),
             Center(
               child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -61,7 +62,7 @@ class CentersDetailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
               color: Colors.purple.shade300,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Text(
                 ' التسجيل ',

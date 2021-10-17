@@ -27,7 +27,7 @@ class  AdveScreen extends StatelessWidget {
                       child: Expanded(
                           child: FittedBox(
                             child: Image.asset(
-                              "assets/images/1.png",
+                              "assets/images/adv hugs nursery.jpeg",
                               height: 300,
                               width: 300,
                               fit: BoxFit.cover,
