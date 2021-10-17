@@ -10,7 +10,10 @@ class CentersDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final centersTitle = ModalRoute.of(context)!.settings.arguments as String;
+    final centersTitle = ModalRoute
+        .of(context)!
+        .settings
+        .arguments as String;
     final loadedCenter = Provider.of<Centers>(
       context,
       listen: false,
@@ -48,35 +51,35 @@ class CentersDetailScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Text("الموقع"),
           ),
-            SizedBox(height: 20),
-            Center(
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                  RaisedButton(
-                  onPressed: (){
-            Navigator.push(context,
-            MaterialPageRoute(builder: (context)=> RegisterScreen()),
-            );
-            },
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
-              color: Colors.purple.shade300,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-              child: Text(
-                ' التسجيل ',
-                style: TextStyle(
-                  color: Colors.white,
+          SizedBox(height: 20),
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                    );
+                  },
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+                  color: Colors.purple.shade300,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Text(
+                    ' التسجيل ',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-      ],
           ),
-    ),
 
         ],
-    ),
+      ),
     );
   }
 }
