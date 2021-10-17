@@ -23,8 +23,8 @@ class CentersDetailScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 300,
-            child: Image.network(
-              loadedCenter.imageUrl,
+            child: Image.asset(
+              loadedCenter.imageAssets,
               fit: BoxFit.cover,
             ),
           ),
@@ -74,6 +74,7 @@ class CentersDetailScreen extends StatelessWidget {
       ],
           ),
     ),
+
         ],
     ),
     );

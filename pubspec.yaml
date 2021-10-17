@@ -40,6 +40,11 @@ flutter:
   assets:
     - assets/images/kidzone.png
     - assets/images/adv hugs nursery.jpeg
+    - assets/images/adv kids train.jpeg
+    - assets/images/adv wonderful.jpeg
+    - assets/images/bear hugs nursery.jpeg
+    - assets/images/kids train.jpeg
+    - assets/images/wonderful day.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

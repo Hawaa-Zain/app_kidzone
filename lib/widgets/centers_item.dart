@@ -25,7 +25,7 @@ class CentersItem extends StatelessWidget {
             );
 
           },
-        child: Image.network(center.imageUrl,
+        child: Image.asset(center.imageAssets,
        fit: BoxFit.cover,),
         ),
         footer: GridTileBar(

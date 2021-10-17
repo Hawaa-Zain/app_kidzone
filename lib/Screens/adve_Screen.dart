@@ -32,7 +32,9 @@ class  AdveScreen extends StatelessWidget {
                               width: 300,
                               fit: BoxFit.cover,
                             ),
-                          ))),
+                          )),
+
+                  ),
                 ),
                 elevation: 9,
                 shadowColor: Colors.grey[900],

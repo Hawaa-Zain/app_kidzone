@@ -7,8 +7,20 @@ class Centers with ChangeNotifier {
         title: "Bear Hugs Nursery",
         description: "جدة حي الصفا",
         price: 450,
-        imageUrl:
-            "https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/cc120f95923657.5ea292cb65d2c.jpg"),
+        imageAssets:
+            "assets/images/bear hugs nursery.jpeg"),
+    Centerss(
+        title: "Bear Hugs Nursery",
+        description: "جدة حي الصفا",
+        price: 450,
+        imageAssets:
+        "assets/images/wonderful day.jpeg"),
+    Centerss(
+        title: "Bear Hugs Nursery",
+        description: "جدة حي الصفا",
+        price: 450,
+        imageAssets:
+        "assets/images/kids train.jpeg"),
     ];
 
   List<Centerss> get items {
