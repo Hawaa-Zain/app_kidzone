@@ -23,16 +23,43 @@ class  AdveScreen extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => CentersScreen()));
                   },
                   child: Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(8),
                       child: Expanded(
                           child: FittedBox(
                             child: Image.asset(
                               "assets/images/adv hugs nursery.jpeg",
-                              height: 300,
-                              width: 300,
+                              height: 200,
+                              width: 200,
                               fit: BoxFit.cover,
                             ),
                           )),
+
+                  ),
+                ),
+                elevation: 9,
+                shadowColor: Colors.grey[900],
+                margin: EdgeInsets.all(10),
+              ),
+            ),
+            Center(
+              child: Card(
+                child: InkWell(
+                  splashColor: Colors.black.withAlpha(30),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CentersScreen()));
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Expanded(
+                        child: FittedBox(
+                          child: Image.asset(
+                            "assets/images/adv wonderful.jpeg",
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.cover,
+                          ),
+                        )),
 
                   ),
                 ),
