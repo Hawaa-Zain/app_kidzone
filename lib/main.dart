@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_details_screen.dart';
-import 'package:kidzone_app/Screens/splash_screen.dart';
+import 'package:kidzone_app/Parent/centers_details_screen.dart';
+import 'package:kidzone_app/Parent/splash_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

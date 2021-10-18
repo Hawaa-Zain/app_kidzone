@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/signup_screen.dart';
-import 'package:kidzone_app/Screens/tabs_screen.dart';
+import 'package:kidzone_app/Parent/signup_screen.dart';
+import 'package:kidzone_app/Parent/tabs_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

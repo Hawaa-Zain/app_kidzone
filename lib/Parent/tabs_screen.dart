@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/adve_Screen.dart';
-import 'package:kidzone_app/Screens/centers_screen.dart';
-import 'package:kidzone_app/Screens/chat_screen.dart';
-import 'package:kidzone_app/Screens/profile_screen.dart';
+import 'package:kidzone_app/Parent/adve_Screen.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
+import 'package:kidzone_app/Parent/chat_screen.dart';
+import 'package:kidzone_app/Parent/profile_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   @override

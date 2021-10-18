@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_details_screen.dart';
+import 'package:kidzone_app/Parent/centers_details_screen.dart';
 import 'package:kidzone_app/providers/center.dart';
 import 'package:provider/provider.dart';
 

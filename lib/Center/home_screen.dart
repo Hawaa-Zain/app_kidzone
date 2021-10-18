@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/bostAdv_screens.dart';
-import 'package:kidzone_app/Screens/chat_screens.dart';
-import 'package:kidzone_app/Screens/nursery_screens.dart';
-import 'package:kidzone_app/Screens/profile_screens.dart';
+import 'package:kidzone_app/Center/bostAdv_Screen.dart';
+import 'package:kidzone_app/Center/chat_Screen.dart';
+import 'package:kidzone_app/Center/nursery_screen.dart';
+import 'package:kidzone_app/Center/profile_screen.dart';
 
 
 class HomeScreens extends StatefulWidget {

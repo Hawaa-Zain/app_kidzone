@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/nursery_screens.dart';
+import 'package:kidzone_app/Center/nursery_screen.dart';
 
 class BostAdvScreens extends StatelessWidget {
 

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_details_screen.dart';
+import 'package:kidzone_app/Parent/centers_details_screen.dart';
 import 'package:kidzone_app/widgets/centers_grid.dart';
 
 class CentersScreen extends StatefulWidget {

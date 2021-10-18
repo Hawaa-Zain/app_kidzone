@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/splash_screen.dart';
+import 'package:kidzone_app/Parent/splash_screen.dart';
 
 void main() => runApp(RegisterScreen());
 

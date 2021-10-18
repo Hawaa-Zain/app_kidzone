@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_screen.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
 
 void main() => runApp(AdveScreen());
 
