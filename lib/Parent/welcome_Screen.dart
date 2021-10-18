@@ -66,9 +66,9 @@ class StartState extends State<WelcomeScreen> {
                   ),
                 ),
               ),
-    SizedBox(height: 20),
-    Center(
-    child: Column(
+            SizedBox(height: 20),
+            Center(
+            child: Column(
     mainAxisSize: MainAxisSize.min,
     children: [
     RaisedButton(
