@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/adve_Screen.dart';
 import 'package:kidzone_app/Screens/centers_details_screen.dart';
-import 'package:kidzone_app/Screens/centers_screen.dart';
-import 'package:kidzone_app/Screens/profile_screen.dart';
 import 'package:kidzone_app/Screens/splash_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';

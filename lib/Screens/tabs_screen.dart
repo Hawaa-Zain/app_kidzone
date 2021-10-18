@@ -34,7 +34,7 @@ final screens = [
       iconSize: 20,
       //selectedFontSize: 25,
       //unselectedFontSize: 16,
-      showSelectedLabels: false,
+      showSelectedLabels: true,
       showUnselectedLabels: false,
       currentIndex: currentIndex,
         onTap: (index)=> setState(() =>currentIndex= index),

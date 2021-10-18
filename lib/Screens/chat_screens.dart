@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class  ChatScreen extends StatefulWidget {
+class  ChatScreens extends StatefulWidget {
 
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<ChatScreens> createState() => _ChatScreensState();
 }
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreensState extends State<ChatScreens> {
   TextEditingController msg = TextEditingController();
 
   @override
@@ -22,7 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              ''
+                ''
             ),
             ShowMessage(),
             Row(
@@ -32,30 +32,30 @@ class _ChatScreenState extends State<ChatScreen> {
                     decoration: BoxDecoration(
                       border: Border(
                         top: BorderSide(
-                color: Colors.purple.shade300,
-              width: 0.2,
-            ),
-            ),
+                          color: Colors.purple.shade300,
+                          width: 0.2,
+                        ),
                       ),
+                    ),
 
-                  child: TextField(
-                    controller: msg,
-                    decoration: InputDecoration(
-                        hintText: "أكتب الرسالة..."
+                    child: TextField(
+                      controller: msg,
+                      decoration: InputDecoration(
+                          hintText: "أكتب الرسالة..."
+                      ),
                     ),
                   ),
-                ),
                 ),
                 IconButton(
                     onPressed: (){
                       if (msg.text.isNotEmpty){
-                           msg.clear();
+                        msg.clear();
                       }
                     },
                     icon: Icon(Icons.send,
-                    color: Colors.purple.shade300,))
+                      color: Colors.purple.shade300,))
               ],
-              ),
+            ),
           ],
         ),
       );

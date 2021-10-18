@@ -23,7 +23,6 @@ class CentersScreenState extends State<CentersScreen> {
               showSearch(context: context, delegate: DataSearch());
             },
 
-
               ),
       ],
     ),

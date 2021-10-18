@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Screens/home_screens.dart';
 import 'package:kidzone_app/Screens/login_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -49,7 +50,7 @@ class StartState extends State<WelcomeScreen> {
               RaisedButton(
                 onPressed: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=> LoginScreen()),
+                    MaterialPageRoute(builder: (context)=> HomeScreens()),
                   );
                 },
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
