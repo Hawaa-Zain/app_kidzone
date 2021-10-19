@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Parent/widgets/centers_item.dart';
 import 'package:kidzone_app/providers/centers.dart';
-import 'package:kidzone_app/widgets/centers_item.dart';
 import 'package:provider/provider.dart';
 
 class CentersGrid extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     final centersData = Provider.of<Centers>(context);
@@ -14,13 +12,13 @@ class CentersGrid extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       itemCount: Centerss.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-      value: Centerss[i],
-      child:CentersItem(
-        //Centerss[i].title,
-       // Centerss[i].description,
-      //  Centerss[i].price,
-       // Centerss[i].imageUrl,
-      ),
+        value: Centerss[i],
+        child: CentersItem(
+            //Centerss[i].title,
+            // Centerss[i].description,
+            //  Centerss[i].price,
+            // Centerss[i].imageUrl,
+            ),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,

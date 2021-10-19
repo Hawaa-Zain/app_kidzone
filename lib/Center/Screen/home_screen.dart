@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/adve_Screen.dart';
-import 'package:kidzone_app/Parent/centers_screen.dart';
-import 'package:kidzone_app/Parent/chat_screen.dart';
-import 'package:kidzone_app/Parent/profile_screen.dart';
+import 'package:kidzone_app/Center/Screen/postAdv_Screen.dart';
+import 'package:kidzone_app/Center/Screen/chat_Screen.dart';
+import 'package:kidzone_app/Center/Screen/nursery_screen.dart';
+import 'package:kidzone_app/Center/Screen/profile_screen.dart';
 
-class TabsScreen extends StatefulWidget {
+class HomeScreens extends StatefulWidget {
   @override
-  _TabsScreen createState() => _TabsScreen();
+  _HomeScreens createState() => _HomeScreens();
 }
 
-class _TabsScreen extends State<TabsScreen> {
+class _HomeScreens extends State<HomeScreens> {
   int currentIndex = 0;
   final screens = [
-    CentersScreen(),
-    AdveScreen(),
-    ChatScreen(),
-    ProfileScreen(),
+    NurseryScereens(),
+    PostAdvScreens(),
+    ChatScreens(),
+    ProfileScreens(),
   ];
 
   @override
@@ -32,19 +32,19 @@ class _TabsScreen extends State<TabsScreen> {
           iconSize: 20,
           //selectedFontSize: 25,
           //unselectedFontSize: 16,
-          showSelectedLabels: true,
+          showSelectedLabels: false,
           showUnselectedLabels: false,
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'الرئيسية',
+              label: 'طلبات التسجيل',
               backgroundColor: Colors.purple.shade300,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.post_add),
-              label: 'الاعلانات',
+              label: 'نشر اعلان',
               backgroundColor: Colors.purple.shade300,
             ),
             BottomNavigationBarItem(
