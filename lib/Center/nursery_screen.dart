@@ -13,7 +13,7 @@ class  _NurseryScereensState extends State< NurseryScereens> {
   Widget build(BuildContext context) =>
       Scaffold(
         appBar: AppBar(
-          title: Text('الصفحة الرئيسئة'),
+          title: Text('الصفحة الرئيسية'),
         ),
       );
 }

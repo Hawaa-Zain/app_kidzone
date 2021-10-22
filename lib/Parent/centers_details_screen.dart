@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kidzone_app/Parent/register_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';
 
-class CentersDetailScreen extends StatelessWidget {
+class CentersDetailScreen extends StatefulWidget {
   //late final String title;
   // CentersDetailScreen(this.title);
   static String routName = '/centers-detail';
-  String read =' تستقبل الحضانة الأطفال من عمر ثلاث أشهر إلى ست سنوات ولديهم باقات تشمل رعاية نهارية فقط ,وباقات تشمل رعاية نهارية بالإضافة إلى الأكل وتغيير الحفاضات ,وباقة العناية تشمل رعاية نهارية بالإضافة إلى الأكل وتغيير الحفاضات ومراقبة الطفل في أي وقت وايضا رعاية مسائية خلال عطلات نهاية الأسبوع. ';
+
+  @override
+  State<CentersDetailScreen> createState() => _CentersDetailScreenState();
+}
+
+class _CentersDetailScreenState extends State<CentersDetailScreen> {
+  String read = ' تستقبل الحضانة الأطفال من عمر ثلاث أشهر إلى ست سنوات رعاية نهارية بالإضافة إلى الأكل وتغيير الحفاضات ومراقبة الطفل في أي وقت وايضا رعاية مسائية خلال عطلات نهاية الأسبوع. ';
+
+  double rating = 0;
+
   @override
   Widget build(BuildContext context) {
     final centersTitle = ModalRoute
@@ -31,15 +41,33 @@ class CentersDetailScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(height: 10),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('تقييم الحضانة',
+                style: TextStyle(fontSize: 25,
+                color: Colors.purple.shade300),
+              ),
+              Center(
+                child: RatingBar.builder(
+                  maxRating: 1,
+                    itemBuilder: (context, _)=> Icon(Icons.star,color: Colors.yellow),
+                    onRatingUpdate: (rating)=> setState(() {
+                      this.rating=rating;
+    },
+    ),
+                ),
+              ),
+            ],
+          ),
           SingleChildScrollView(
             child: Container(
               child: Text(read,
-              style: TextStyle(
-                color: Colors.purple.shade500,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),),
+                style: TextStyle(
+                  color: Colors.purple.shade500,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),),
             ),
           ),
           Container(
@@ -47,25 +75,24 @@ class CentersDetailScreen extends StatelessWidget {
             padding: EdgeInsets.all(10),
             alignment: Alignment.bottomCenter,
             child: Text("موقع الحضانة: جدة حي الزهراء",
-            style: TextStyle(
-              color: Colors.purple.shade500,
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),),
+              style: TextStyle(
+                color: Colors.purple.shade500,
+                fontWeight: FontWeight.bold,
+                fontSize: 10,
+              ),),
           ),
-      Container(
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(10),
-        alignment: Alignment.bottomCenter,
-        child: Text("للتواصل والإستفسار على الرقم: 0544699331",
-          style: TextStyle(
-            color: Colors.purple.shade500,
-            fontWeight: FontWeight.bold,
-            fontSize: 10,
+          Container(
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            alignment: Alignment.bottomCenter,
+            child: Text("للتواصل والإستفسار على الرقم: 0544699331",
+              style: TextStyle(
+                color: Colors.purple.shade500,
+                fontWeight: FontWeight.bold,
+                fontSize: 10,
+              ),
+            ),
           ),
-        ),
-      ),
-          SizedBox(height: 20),
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -90,10 +117,42 @@ class CentersDetailScreen extends StatelessWidget {
                 ),
               ],
             ),
+
           ),
 
         ],
+
       ),
     );
   }
+
+ void showRating() => showDialog(context: context,
+     builder: (context)=> AlertDialog(
+       title: Text('Rate This App'),
+       content: Column(
+         crossAxisAlignment: CrossAxisAlignment.center,
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: [
+           Text('please leave a star rating',
+           style: TextStyle(
+             fontSize: 20,
+           ),
+           ),
+           const SizedBox(height: 32),
+         ],
+       ),
+       actions: [
+         TextButton(onPressed: ()=> Navigator.pop,
+             child: Text(
+               'Ok',
+               style: TextStyle(
+                 fontSize: 20,
+               ),
+             ),
+         ),
+       ],
+     ),
+ );
+}
+setState(Null Function() param0) {
 }
