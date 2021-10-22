@@ -4,18 +4,17 @@ import 'package:kidzone_app/Parent/register_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';
 
-class CentersDetailScreen extends StatefulWidget {
+class CenterDetails extends StatefulWidget {
   //late final String title;
   // CentersDetailScreen(this.title);
   static String routName = '/centers-detail';
 
   @override
-  State<CentersDetailScreen> createState() => _CentersDetailScreenState();
+  State<CenterDetails> createState() => _CenterDetailsState();
 }
 
-class _CentersDetailScreenState extends State<CentersDetailScreen> {
+class _CenterDetailsState extends State<CenterDetails> {
   String read = ' تستقبل الحضانة الأطفال من عمر ثلاث أشهر إلى ست سنوات رعاية نهارية بالإضافة إلى الأكل وتغيير الحفاضات ومراقبة الطفل في أي وقت وايضا رعاية مسائية خلال عطلات نهاية الأسبوع. ';
-
   double rating = 0;
 
   @override
@@ -46,16 +45,16 @@ class _CentersDetailScreenState extends State<CentersDetailScreen> {
             children: [
               Text('تقييم الحضانة',
                 style: TextStyle(fontSize: 25,
-                color: Colors.purple.shade300),
+                    color: Colors.purple.shade300),
               ),
               Center(
                 child: RatingBar.builder(
                   maxRating: 1,
-                    itemBuilder: (context, _)=> Icon(Icons.star,color: Colors.yellow),
-                    onRatingUpdate: (rating)=> setState(() {
-                      this.rating=rating;
-    },
-    ),
+                  itemBuilder: (context, _)=> Icon(Icons.star,color: Colors.yellow),
+                  onRatingUpdate: (rating)=> setState(() {
+                    this.rating=rating;
+                  },
+                  ),
                 ),
               ),
             ],
@@ -126,33 +125,33 @@ class _CentersDetailScreenState extends State<CentersDetailScreen> {
     );
   }
 
- void showRating() => showDialog(context: context,
-     builder: (context)=> AlertDialog(
-       title: Text('Rate This App'),
-       content: Column(
-         crossAxisAlignment: CrossAxisAlignment.center,
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-           Text('please leave a star rating',
-           style: TextStyle(
-             fontSize: 20,
-           ),
-           ),
-           const SizedBox(height: 32),
-         ],
-       ),
-       actions: [
-         TextButton(onPressed: ()=> Navigator.pop,
-             child: Text(
-               'Ok',
-               style: TextStyle(
-                 fontSize: 20,
-               ),
-             ),
-         ),
-       ],
-     ),
- );
+  void showRating() => showDialog(context: context,
+    builder: (context)=> AlertDialog(
+      title: Text('Rate This App'),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('please leave a star rating',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(height: 32),
+        ],
+      ),
+      actions: [
+        TextButton(onPressed: ()=> Navigator.pop,
+          child: Text(
+            'Ok',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }
 setState(Null Function() param0) {
 }

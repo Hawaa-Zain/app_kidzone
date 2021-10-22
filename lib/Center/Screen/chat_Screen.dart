@@ -1,29 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class  ChatScreens extends StatefulWidget {
-
+class ChatScreens extends StatefulWidget {
   @override
   State<ChatScreens> createState() => _ChatScreensState();
 }
+
 class _ChatScreensState extends State<ChatScreens> {
   TextEditingController msg = TextEditingController();
 
   @override
-  Widget build(BuildContext context) =>
-      Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(
-            'المحادثة',
-          ),
+          title: Text('المحادثة'),
+          backgroundColor: Colors.purple[300],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-                ''
-            ),
+            Text(''),
             ShowMessage(),
             Row(
               children: [
@@ -37,49 +33,43 @@ class _ChatScreensState extends State<ChatScreens> {
                         ),
                       ),
                     ),
-
                     child: TextField(
                       controller: msg,
-                      decoration: InputDecoration(
-                          hintText: "أكتب الرسالة..."
-                      ),
+                      decoration: InputDecoration(hintText: "أكتب الرسالة..."),
                     ),
                   ),
                 ),
                 IconButton(
-                    onPressed: (){
-                      if (msg.text.isNotEmpty){
+                    onPressed: () {
+                      if (msg.text.isNotEmpty) {
                         msg.clear();
                       }
                     },
-                    icon: Icon(Icons.send,
-                      color: Colors.purple.shade300,))
+                    icon: Icon(
+                      Icons.send,
+                      color: Colors.purple.shade300,
+                    ))
               ],
             ),
           ],
         ),
       );
 }
+
 class ShowMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return ListView.builder(
-              itemBuilder: (context, i) {
-                return ListTile(
-                  title: Text('messages'),
-                );
-              }
-          );
-        }
-    );
+    return StreamBuilder(builder: (context, snapshot) {
+      if (!snapshot.hasData) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+      return ListView.builder(itemBuilder: (context, i) {
+        return ListTile(
+          title: Text('messages'),
+        );
+      });
+    });
   }
-
 }
