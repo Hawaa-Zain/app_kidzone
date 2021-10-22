@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/login_screen.dart';
+import 'package:kidzone_app/Screens/chat_screen.dart';
 import 'package:kidzone_app/Screens/welcome_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +22,8 @@ class InitState extends State<SplashScreen> {
 
   loginRoute() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen
+      ()));
   }
 
   @override
@@ -46,7 +47,7 @@ class InitState extends State<SplashScreen> {
           ),
           Center(
             child: Container(
-              child: Image.asset("assets/images/logo.png"),
+              child: Image.asset("assets/images/kidzone.png"),
             ),
           )
         ],

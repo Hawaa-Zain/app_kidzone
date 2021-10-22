@@ -23,8 +23,8 @@ class CentersDetailScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 300,
-            child: Image.network(
-              loadedCenter.imageUrl,
+            child: Image.asset(
+              loadedCenter.imageAssets,
               fit: BoxFit.cover,
             ),
           ),
@@ -48,37 +48,35 @@ class CentersDetailScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Text("الموقع"),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => RegisterScreen(),
-                  ));
-              // Write Click Listener Code Here.
+            SizedBox(height: 20),
+            Center(
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                  RaisedButton(
+                  onPressed: (){
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context)=> RegisterScreen()),
+            );
             },
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(left: 30, right: 30, top: 78),
-              padding: EdgeInsets.only(left: 30, right: 30),
-              height: 54,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight),
-                borderRadius: BorderRadius.circular(100),
-                color: Colors.grey[200],
-
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+              color: Colors.purple.shade300,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Text(
-                "التسجيل",
-                style: TextStyle(color: Colors.black),
+                ' التسجيل ',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
+      ],
           ),
+    ),
+
         ],
-      ),
+    ),
     );
   }
 }

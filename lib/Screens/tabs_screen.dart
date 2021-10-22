@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Screens/adve_Screen.dart';
 import 'package:kidzone_app/Screens/centers_screen.dart';
+import 'package:kidzone_app/Screens/chat_screen.dart';
 import 'package:kidzone_app/Screens/profile_screen.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -13,8 +14,9 @@ class _TabsScreen extends State<TabsScreen> {
 int currentIndex= 0;
 final screens = [
   CentersScreen(),
-  ProfileScreen(),
   AdveScreen(),
+  ChatScreen(),
+  ProfileScreen(),
 
 ];
 
@@ -41,12 +43,16 @@ final screens = [
         label: 'Home',
           backgroundColor: Colors.purple.shade300,
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.person),
-          label: ' Person',
+        BottomNavigationBarItem(icon: Icon(Icons.post_add),
+          label: 'Chat',
           backgroundColor: Colors.purple.shade300,
         ),
         BottomNavigationBarItem(icon: Icon(Icons.chat),
           label: 'Chat',
+          backgroundColor: Colors.purple.shade300,
+        ),
+        BottomNavigationBarItem(icon: Icon(Icons.person),
+          label: ' Person',
           backgroundColor: Colors.purple.shade300,
         ),
       ],

@@ -27,6 +27,19 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+<!--&lt;!&ndash; Add for Firebase Storage: https://pub.dev/packages/firebase_storage &ndash;&gt;-->
+<!--<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>-->
+
+<!-- Add for Cloud Firestore: https://pub.dev/packages/cloud_firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+<!-- Add for Firebase Auth: https://pub.dev/packages/firebase_auth -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -94,5 +107,20 @@
       loadMainDartJs();
     }
   </script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyBdOn0ZKK7QI8tJ5fokyHu2sdN2Fdtwe6s",
+  authDomain: "appkidzone.firebaseapp.com",
+  projectId: "appkidzone",
+  storageBucket: "appkidzone.appspot.com",
+  messagingSenderId: "202231326577",
+  appId: "1:202231326577:web:61d2887d374391bc7d38d0",
+  measurementId: "G-WE55SJXNTY"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+</script>
+
 </body>
 </html>
