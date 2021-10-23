@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/centers_details_screen.dart';
+import 'package:kidzone_app/Parent/center_details.dart';
 import 'package:kidzone_app/providers/center.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +21,7 @@ class CentersItem extends StatelessWidget {
       child: GridTile(
         child: GestureDetector(
           onTap: (){
-            Navigator.of(context).pushNamed(CentersDetailScreen.routName,arguments: center.title,
+            Navigator.of(context).pushNamed(CenterDetails.routName,arguments: center.title,
             );
 
           },

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/chat_screen.dart';
-import 'package:kidzone_app/Screens/welcome_Screen.dart';
+import 'package:kidzone_app/Parent/welcome_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

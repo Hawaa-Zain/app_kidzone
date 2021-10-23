@@ -10,13 +10,13 @@ class Centers with ChangeNotifier {
         imageAssets:
             "assets/images/bear hugs nursery.jpeg"),
     Centerss(
-        title: "Bear Hugs Nursery",
+        title: "Wonderful Day",
         description: "جدة حي الصفا",
         price: 450,
         imageAssets:
         "assets/images/wonderful day.jpeg"),
     Centerss(
-        title: "Bear Hugs Nursery",
+        title: "Kids Train",
         description: "جدة حي الصفا",
         price: 450,
         imageAssets:

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Screens/adve_Screen.dart';
-import 'package:kidzone_app/Screens/centers_details_screen.dart';
-import 'package:kidzone_app/Screens/centers_screen.dart';
-import 'package:kidzone_app/Screens/profile_screen.dart';
-import 'package:kidzone_app/Screens/splash_screen.dart';
+import 'package:kidzone_app/Parent/center_details.dart';
+import 'package:kidzone_app/Parent/splash_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -40,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
           home: SplashScreen(),
           routes: {
-            CentersDetailScreen.routName: (ctx) => CentersDetailScreen(),
+            CenterDetails.routName: (ctx) => CenterDetails(),
           }),
     );
   }

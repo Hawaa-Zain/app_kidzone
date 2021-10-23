@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kidzone_app/Screens/login_screen.dart';
+import 'package:kidzone_app/Parent/login_screen.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   static const String screenRoute = 'signup_screen';
