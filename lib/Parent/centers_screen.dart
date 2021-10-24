@@ -16,7 +16,12 @@ class CentersScreenState extends State<CentersScreen> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+            },
+          ),
+          IconButton(onPressed: (){
+          },
+              icon: Icon(Icons.add_alert_rounded),
           ),
         ],
       ),
