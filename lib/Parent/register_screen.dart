@@ -27,7 +27,7 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 hintText: "شهر/سنة...",
                 labelText: "العمر:",
