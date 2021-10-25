@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/kid_details.dart';
 
 class RequestGrid extends StatelessWidget {
   RequestGrid({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class RequestGrid extends StatelessWidget {
     return ClipRRect(
         child: Container(
       width: 400,
-      height: 250,
+      height: 200,
       padding: new EdgeInsets.all(10.0),
       child: Card(
         shape: RoundedRectangleBorder(
@@ -21,18 +22,31 @@ class RequestGrid extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const ListTile(
+             ListTile(
               leading: Icon(Icons.person, size: 30),
               title: Text('اسم الطفل',
                   style:
                       TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
+        trailing: ButtonBar(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => KidsDetails(),
+                    ));
+              },
+              child: const Text("تفاصيل الطفل"),
+              textColor: Colors.black,
+              color: Colors.purple[200],
+              padding: EdgeInsets.all(9),
             ),
-            const ListTile(
-              leading: Icon(Icons.date_range_outlined, size: 30),
-              title: Text(' العمر  \ تاريخ الميلاد',
-                  style:
-                      TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-            ),
+          ],
+        ),
+      ),
+
             ButtonBar(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
@@ -41,14 +55,14 @@ class RequestGrid extends StatelessWidget {
                   child: const Text('قبول'),
                   textColor: Colors.black,
                   color: Colors.purple[200],
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(5),
                 ),
                 RaisedButton(
                   onPressed: () {},
                   child: const Text('رفض'),
                   textColor: Colors.black,
                   color: Colors.purple[200],
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(5),
                 )
               ],
             )

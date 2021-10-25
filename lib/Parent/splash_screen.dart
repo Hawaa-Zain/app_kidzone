@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/centers_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +21,7 @@ class InitState extends State<SplashScreen> {
 
   loginRoute() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => CentersScreen
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen
       ()));
   }
 

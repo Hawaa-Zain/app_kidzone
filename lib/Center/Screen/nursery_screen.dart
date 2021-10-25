@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/widget/Request_grid.dart';
 
-class NurseryScereens extends StatefulWidget {
+class NurseryScreens extends StatefulWidget {
   @override
-  _NurseryScereensState createState() => _NurseryScereensState();
+  _NurseryScreenState createState() => _NurseryScreenState();
 }
 
-class _NurseryScereensState extends State<NurseryScereens> {
+class _NurseryScreenState extends State<NurseryScreens> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(

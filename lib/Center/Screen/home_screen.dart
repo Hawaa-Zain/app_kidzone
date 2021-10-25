@@ -12,7 +12,7 @@ class HomeScreens extends StatefulWidget {
 class _HomeScreens extends State<HomeScreens> {
   int currentIndex = 0;
   final screens = [
-    NurseryScereens(),
+    NurseryScreens(),
     PostAdvScreens(),
     ChatScreens(),
     ProfileScreens(),
