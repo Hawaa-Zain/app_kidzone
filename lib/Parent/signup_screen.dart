@@ -40,7 +40,7 @@ class InitState extends State<SignUpScreen> {
         print(result);
 
         //if (result != null) {
-          FirebaseFirestore.instance.collection('users').doc(user!.uid).set({
+          FirebaseFirestore.instance.collection('Parent').doc(user!.uid).set({
             'name': _name,
             'role': 'Parent',
             'email': _email,
