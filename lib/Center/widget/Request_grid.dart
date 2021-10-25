@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RquestsGrid extends StatelessWidget {
-  RquestsGrid({Key? key}) : super(key: key);
+class RequestGrid extends StatelessWidget {
+  RequestGrid({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

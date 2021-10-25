@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/home_screen.dart';
 import 'package:kidzone_app/Center/Screen/login_center.dart';
 import 'package:kidzone_app/Parent/login_screen.dart';
 

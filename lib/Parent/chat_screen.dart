@@ -35,7 +35,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         ),
                       ),
                     ),
-                    child: TextField(
+                    child: TextFormField(
                       controller: msg,
                       decoration: InputDecoration(hintText: "أكتب الرسالة..."),
                     ),

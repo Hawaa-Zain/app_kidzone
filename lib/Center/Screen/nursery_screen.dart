@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/widget/Rquest_grid.dart';
+import 'package:kidzone_app/Center/widget/Request_grid.dart';
 
 class NurseryScereens extends StatefulWidget {
   @override
@@ -13,6 +13,6 @@ class _NurseryScereensState extends State<NurseryScereens> {
           title: Text('طلبات التسجيل '),
           backgroundColor: Colors.purple[300],
         ),
-        body: RquestsGrid(),
+        body: RequestGrid(),
       );
 }
