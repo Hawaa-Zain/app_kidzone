@@ -6,33 +6,49 @@ class KidsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SizedBox(
-        height: 400,
-      child: Card(
-      margin: EdgeInsets.all(15),
-      color: Colors.purple[50],
-      shadowColor: Colors.black,
-      elevation: 30,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-           ListTile(
-            leading: Icon(Icons.person, color: Colors.purple[300], size: 30,),
+    return SingleChildScrollView(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+          Card(
+            margin: EdgeInsets.all(15),
+            color: Colors.purple[50],
+            shadowColor: Colors.black,
+            elevation: 30,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  leading: Icon(
+                    Icons.person,
+                    color: Colors.purple[300],
+                    size: 30,
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.date_range_outlined,
+                    color: Colors.purple[300],
+                    size: 30,
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.phone,
+                    color: Colors.purple[300],
+                    size: 30,
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.app_registration,
+                    color: Colors.purple[300],
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
           ),
-           ListTile(
-            leading: Icon(Icons.date_range_outlined, color: Colors.purple[300], size: 30,),
-          ),
-           ListTile(
-            leading: Icon(Icons.phone,color: Colors.purple[300], size: 30,),
-          ),
-           ListTile(
-            leading: Icon(Icons.app_registration, color: Colors.purple[300], size: 30,),
-          ),
-        ],
-      ),
-    ),
-    ));
-
+        ]));
   }
 }
