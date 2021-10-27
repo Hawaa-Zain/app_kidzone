@@ -15,7 +15,7 @@ class RegisterScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(8),
           child: Column(children: [
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 hintText: "اسم الطفل الثلاثي...",
                 labelText: "الإسم:",
@@ -27,7 +27,7 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 hintText: "شهر/سنة...",
                 labelText: "العمر:",
@@ -39,7 +39,7 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 hintText: "رقم ولي أمر الطفل",
                 labelText: "التواصل:",
@@ -50,7 +50,7 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 hintText: " ساعة/يومي/شهر/ترم؟.....",
                 labelText: "التسجيل:",

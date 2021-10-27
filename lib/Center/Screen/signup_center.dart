@@ -4,7 +4,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Center/Screen/login_center.dart';
-import 'package:kidzone_app/Parent/login_screen.dart';
 
 class SignUpCenter extends StatefulWidget {
   static const String screenRoute = 'signup_center';
@@ -41,24 +40,25 @@ class InitState extends State<SignUpCenter> {
         setState(() => loading = true);
         try {
           var result = await FirebaseAuth.instance
-              .createUserWithEmailAndPassword(email: _email, password: _password);
+              .createUserWithEmailAndPassword(
+                  email: _email, password: _password);
 
           //if (result != null) {
-            FirebaseFirestore.instance.collection('Centers').doc(user!.uid).set({
-              'name': _name,
-              'role': 'Center',
-              'email': _email,
-              'userID': user.uid,
-            });
-            Fluttertoast.showToast(
-              msg: "تم التسجيل بنجاح",
-              backgroundColor: Color(0xFFFFCC80),
-              textColor: Colors.black,
-              fontSize: 20.0,
-            );
-            var router = MaterialPageRoute(
-                builder: (BuildContext context) => LoginCenter());
-            Navigator.of(context).push(router);
+          FirebaseFirestore.instance.collection('Centers').doc(user!.uid).set({
+            'name': _name,
+            'role': 'Center',
+            'email': _email,
+            'userID': user.uid,
+          });
+          Fluttertoast.showToast(
+            msg: "تم التسجيل بنجاح",
+            backgroundColor: Color(0xFFFFCC80),
+            textColor: Colors.black,
+            fontSize: 20.0,
+          );
+          var router = MaterialPageRoute(
+              builder: (BuildContext context) => LoginCenter());
+          Navigator.of(context).push(router);
           //} else {
           //   setState(() => loading = false);
           //   print('user not found');
@@ -72,19 +72,19 @@ class InitState extends State<SignUpCenter> {
     return Scaffold(
         body: SingleChildScrollView(
             child: Form(
-              key: _formKey,
-              child: Column(
-      children: [
-        Container(
-          height: 300,
-          decoration: BoxDecoration(
+      key: _formKey,
+      child: Column(
+        children: [
+          Container(
+            height: 300,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
               color: new Color(0xFFFFFFFF),
               gradient: LinearGradient(
                 colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
               ),
-          ),
-          child: Center(
+            ),
+            child: Center(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,14 +109,14 @@ class InitState extends State<SignUpCenter> {
                   ),
                 ),
               ],
-          )),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 70),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
+            )),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 70),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: Colors.grey[200],
               boxShadow: [
@@ -125,8 +125,8 @@ class InitState extends State<SignUpCenter> {
                     blurRadius: 50,
                     color: Color(0xffEEEEEE)),
               ],
-          ),
-          child: TextFormField(
+            ),
+            child: TextFormField(
               validator: (String? value) {
                 if (value!.isEmpty) {
                   return 'الإسم مطلوب';
@@ -146,14 +146,14 @@ class InitState extends State<SignUpCenter> {
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),
+            ),
           ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: Colors.grey[200],
               boxShadow: [
@@ -162,8 +162,8 @@ class InitState extends State<SignUpCenter> {
                     blurRadius: 50,
                     color: Color(0xffEEEEEE)),
               ],
-          ),
-          child: TextFormField(
+            ),
+            child: TextFormField(
               validator: (String? value) {
                 if (value!.isEmpty) {
                   return 'البريد الإلكتروني مطلوب';
@@ -183,14 +183,14 @@ class InitState extends State<SignUpCenter> {
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),
+            ),
           ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: Color(0xffEEEEEE),
               boxShadow: [
@@ -199,8 +199,8 @@ class InitState extends State<SignUpCenter> {
                     blurRadius: 100,
                     color: Color(0xffEEEEEE)),
               ],
-          ),
-          child: TextFormField(
+            ),
+            child: TextFormField(
               validator: (String? value) {
                 if (value!.isEmpty) {
                   return 'الرقم السري مطلوب';
@@ -222,14 +222,14 @@ class InitState extends State<SignUpCenter> {
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),
+            ),
           ),
-        ),
-        GestureDetector(
-          onTap: () {
+          GestureDetector(
+            onTap: () {
               validateAndSubmit();
               // Write Click Listener Code Here.
-          },
-          child: Container(
+            },
+            child: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: 20, right: 20, top: 70),
               padding: EdgeInsets.only(left: 20, right: 20),
@@ -252,11 +252,11 @@ class InitState extends State<SignUpCenter> {
                 "تسجيل",
                 style: TextStyle(color: Colors.white),
               ),
+            ),
           ),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: 10, bottom: 10),
-          child: Row(
+          Container(
+            margin: EdgeInsets.only(top: 10, bottom: 10),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("لديك حساب ؟  "),
@@ -274,10 +274,10 @@ class InitState extends State<SignUpCenter> {
                           ));
                     })
               ],
-          ),
-        )
-      ],
-    ),
-            )));
+            ),
+          )
+        ],
+      ),
+    )));
   }
 }
