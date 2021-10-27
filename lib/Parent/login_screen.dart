@@ -6,6 +6,8 @@ import 'package:kidzone_app/Parent/profile_screen.dart';
 import 'package:kidzone_app/Parent/signup_screen.dart';
 import 'package:kidzone_app/Parent/tabs_screen.dart';
 
+import 'centers_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StartState();
@@ -63,7 +65,7 @@ class StartState extends State<LoginScreen> {
 
             //if (result.credential!.signInMethod.isNotEmpty) {
             Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => ProfileScreen()));
+                MaterialPageRoute(builder: (context) => TabsScreen()));
             // var router = MaterialPageRoute(
             //     builder: (BuildContext context) => ProfileScreen());
             // Navigator.of(context).push(router);
