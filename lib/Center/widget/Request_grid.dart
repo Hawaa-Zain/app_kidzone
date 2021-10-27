@@ -30,7 +30,6 @@ class RequestGrid extends StatelessWidget {
                                   fontSize: 15.0, fontWeight: FontWeight.bold)),
                           trailing: SizedBox(
                             height: 100,
-                            width: 200,
                             child: ButtonBar(
                               mainAxisSize: MainAxisSize.max,
                               children: <Widget>[

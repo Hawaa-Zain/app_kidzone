@@ -40,12 +40,12 @@ class _TabsScreen extends State<TabsScreen> {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'طلبات التسجيل',
+          label: 'مراكز الحضانة ',
           backgroundColor: Colors.purple.shade300,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.post_add),
-          label: 'نشر اعلان',
+          label: 'الإعلانات',
           backgroundColor: Colors.purple.shade300,
         ),
         BottomNavigationBarItem(

@@ -6,7 +6,6 @@ import 'package:kidzone_app/Parent/signup_screen.dart';
 import 'package:kidzone_app/Parent/tab_screen.dart';
 
 
-import 'centers_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
