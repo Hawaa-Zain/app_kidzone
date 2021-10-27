@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/Screen/kid_details.dart';
 
-class RequestGrid extends StatelessWidget {
-  RequestGrid({Key? key}) : super(key: key);
+class KidsOrder extends StatelessWidget {
+  KidsOrder({Key? key}) : super(key: key);
 
-  final myKids = List<String>.generate(5, (i) => 'Product $i');
+  final myKids = List<String>.generate(7, (i) => 'Product $i');
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,7 @@ class RequestGrid extends StatelessWidget {
               return SizedBox(
                   height: 200,
                   child: Card(
+                    key: UniqueKey(),
                       shadowColor: Colors.black.withAlpha(300),
                       child: Padding(
                         padding: const EdgeInsets.all(19),

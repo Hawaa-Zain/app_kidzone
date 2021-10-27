@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/nursery_screen.dart';
+import 'package:kidzone_app/Center/Screen/kids%20_Register%20_Order.dart';
 import 'package:kidzone_app/Center/Screen/postAdv_Screen.dart';
 import 'package:kidzone_app/Center/Screen/chat_Screen.dart';
 import 'package:kidzone_app/Center/Screen/profile_screen.dart';
@@ -12,7 +12,7 @@ class HomeScreens extends StatefulWidget {
 class _HomeScreens extends State<HomeScreens> {
   int currentIndex = 0;
   final screens = [
-    NurseryScreens(),
+    KidsRegisterOrder(),
     PostAdvScreens(),
     ChatScreens(),
     ProfileScreens(),
