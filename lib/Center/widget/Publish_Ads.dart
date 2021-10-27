@@ -4,6 +4,57 @@ import 'package:flutter/material.dart';
 class PublishAds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Column(children: <Widget>[
+      Center(
+        child: SizedBox(
+            height: 300,
+            width: 400,
+            child: Card(
+              color: Colors.white10,
+              shadowColor: Colors.black.withAlpha(30),
+              child: InkWell(
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Expanded(
+                      child: FittedBox(
+                    child: IconButton(
+                      icon: Icon(Icons.photo_library,
+                          color: Colors.purple[200], size: 10),
+                      onPressed: () {
+                        //write your code//
+                      },
+                    ),
+                  )),
+                ),
+              ),
+            )),
+      ),
+      SizedBox(height: 230),
+      Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            RaisedButton(
+              onPressed: () {
+                //write your code//
+              },
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 100),
+              color: Colors.purple.shade300,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: Text(
+                ' نشر ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ]);
   }
 }
