@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatefulWidget {
+class Comments extends StatefulWidget {
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<Comments> createState() => _CommentsState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _CommentsState extends State<Comments> {
   TextEditingController msg = TextEditingController();
 
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text('المحادثة'),
+      title: Text('التعليقات'),
       backgroundColor: Colors.purple[300],
     ),
     body: Column(
@@ -35,7 +35,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
                 child: TextFormField(
                   controller: msg,
-                  decoration: InputDecoration(hintText: "أكتب الرسالة..."),
+                  decoration: InputDecoration(hintText: "أترك تعليقاً..."),
                 ),
               ),
             ),

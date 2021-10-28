@@ -4,23 +4,24 @@ import 'package:kidzone_app/providers/center.dart';
 class Centers with ChangeNotifier {
   List<Centerss> _items = [
     Centerss(
-        title: "Bear Hugs Nursery",
+        title: "حضانة عناق الدببة",
         description: "جدة حي الصفا",
         price: 450,
         imageAssets:
             "assets/images/bear hugs nursery.jpeg"),
     Centerss(
-        title: "Wonderful Day",
+        title: "حضانة اليوم الرائع",
         description: "جدة حي الصفا",
         price: 450,
         imageAssets:
         "assets/images/wonderful day.jpeg"),
     Centerss(
-        title: "Kids Train",
+        title: "حضانة قطار الصغار",
         description: "جدة حي الصفا",
         price: 450,
         imageAssets:
         "assets/images/kids train.jpeg"),
+
     ];
 
   List<Centerss> get items {
@@ -33,5 +34,6 @@ Centerss findByTitle(String title){
   void addCenter() {
     //_items.add(value);
     notifyListeners();
+
   }
 }

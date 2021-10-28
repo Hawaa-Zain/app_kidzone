@@ -17,7 +17,7 @@ class CentersGrid extends StatelessWidget {
             //Centerss[i].title,
             // Centerss[i].description,
             //  Centerss[i].price,
-            // Centerss[i].imageUrl,
+        //  Centerss[i].imageAssets,
             ),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
