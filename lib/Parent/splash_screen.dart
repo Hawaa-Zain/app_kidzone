@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/home_screen.dart';
+import 'package:kidzone_app/Center/Screen/nursery_screen.dart';
+import 'package:kidzone_app/Parent/tab_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 
 class SplashScreen extends StatefulWidget {

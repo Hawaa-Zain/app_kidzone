@@ -29,7 +29,7 @@ class PublishAds extends StatelessWidget {
               ),
             )),
       ),
-      SizedBox(height: 230),
+      SizedBox(height: 180),
       Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -38,7 +38,7 @@ class PublishAds extends StatelessWidget {
               onPressed: () {
                 //write your code//
               },
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 100),
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 70),
               color: Colors.purple.shade300,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -55,6 +55,7 @@ class PublishAds extends StatelessWidget {
           ],
         ),
       ),
+
     ]);
   }
 }
