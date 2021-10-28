@@ -54,7 +54,7 @@ class RegisterScreen extends StatelessWidget {
               TextStyle(fontSize: 15, color: Colors.purple.shade300),
               border: OutlineInputBorder(),
               prefixIcon:
-              Icon(Icons.child_care, color: Colors.purple.shade300),
+              Icon(Icons.group_outlined, color: Colors.purple.shade300),
             ),
           ),
           SizedBox(height: 10),
@@ -63,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
               hintText: "شهر/سنة...",
               labelText: "العمر:",
               labelStyle:
-              TextStyle(fontSize: 25, color: Colors.purple.shade300),
+              TextStyle(fontSize: 15, color: Colors.purple.shade300),
               border: OutlineInputBorder(),
               prefixIcon: Icon(Icons.date_range_outlined,
                   color: Colors.purple.shade300),
@@ -92,7 +92,7 @@ class RegisterScreen extends StatelessWidget {
               Icon(Icons.app_registration, color: Colors.purple.shade300),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 100),
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -104,7 +104,7 @@ class RegisterScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => SplashScreen()),
                     );
                   },
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+                  padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
                   color: Colors.purple.shade300,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),

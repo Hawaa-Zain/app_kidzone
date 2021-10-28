@@ -5,7 +5,7 @@ import 'package:kidzone_app/Center/Screen/kid_details.dart';
 class KidsOrder extends StatelessWidget {
   KidsOrder({Key? key}) : super(key: key);
 
-  final myKids = List<String>.generate(7, (i) => 'Product $i');
+  final myKids = List<String>.generate(5, (i) => 'KidsOrder $i');
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,6 @@ class KidsOrder extends StatelessWidget {
               return SizedBox(
                   height: 200,
                   child: Card(
-                    key: UniqueKey(),
                       shadowColor: Colors.black.withAlpha(300),
                       child: Padding(
                         padding: const EdgeInsets.all(19),
@@ -51,7 +50,7 @@ class KidsOrder extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                    height: 100,
+                                    height: 50,
                                     child: ButtonBar(
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[

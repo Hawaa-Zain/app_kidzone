@@ -7,12 +7,12 @@ class CentersGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final centersData = Provider.of<Centers>(context);
-    final Centerss = centersData.items;
+    final centerss = centersData.items;
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
-      itemCount: Centerss.length,
+      itemCount: centerss.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-        value: Centerss[i],
+        value: centerss[i],
         child: CentersItem(
             //Centerss[i].title,
             // Centerss[i].description,

@@ -89,7 +89,7 @@ class _CenterDetailsState extends State<CenterDetails> {
                       MaterialPageRoute(builder: (context) => RegisterScreen()),
                     );
                   },
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+                  padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
                   color: Colors.purple.shade300,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
