@@ -1,23 +1,39 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/kid_details.dart';
+
 
 class KidsOrder extends StatelessWidget {
-  KidsOrder({Key? key}) : super(key: key);
-
-  final myKids = List<String>.generate(5, (i) => 'KidsOrder $i');
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ListView.builder(
-            itemCount: myKids.length,
-            itemBuilder: (context, index) {
-              return SizedBox(
-                  height: 200,
-                  child: Card(
-                      shadowColor: Colors.black.withAlpha(300),
-                      child: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('طلبات التسجيل '),
+        backgroundColor: Colors.purple[300],
+      ),
+      body: ListView.builder(
+        itemCount: 3,
+        shrinkWrap: true,
+        itemBuilder: (
+            BuildContext context, int indx) => Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          child: Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: 100,
+                        height: 100,
+                        color: Colors.white,
                         padding: const EdgeInsets.all(19),
                         child: ListTile(
                           leading: Icon(
@@ -28,53 +44,67 @@ class KidsOrder extends StatelessWidget {
                           title: Text('اسم الطفل',
                               style: TextStyle(
                                   fontSize: 15.0, fontWeight: FontWeight.bold)),
-                          trailing: SizedBox(
-                            height: 100,
-                            child: ButtonBar(
-                              mainAxisSize: MainAxisSize.max,
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text('معلومات الطفل',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),),
+                            Container(
+                              alignment: Alignment.bottomLeft,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10,
+                              ),
+                              child: RaisedButton(
+                                onPressed: (){},
+                                color: Colors.purple.shade300,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Text('تفاصيل الطفل'),
+                              ),
+                            ),
+                            ButtonBar(
+                              mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 RaisedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => KidsDetails(),
-                                        ));
-                                  },
-                                  child: const Text("تفاصيل الطفل"),
-                                  textColor: Colors.black,
-                                  color: Colors.purple[100],
-                                  padding: EdgeInsets.all(9),
+                                  onPressed: () {},
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
+                                  child: const Text('قبول'),
+                                  textColor: Colors.black,
+                                  color: Colors.purple[200],
+                                  padding: EdgeInsets.all(2),
                                 ),
-                                SizedBox(
-                                    height: 50,
-                                    child: ButtonBar(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        RaisedButton(
-                                          onPressed: () {},
-                                          child: const Text('قبول'),
-                                          textColor: Colors.black,
-                                          color: Colors.purple[200],
-                                          padding: EdgeInsets.all(2),
-                                        ),
-                                        RaisedButton(
-                                          onPressed: () {},
-                                          child: const Text('رفض'),
-                                          textColor: Colors.black,
-                                          color: Colors.purple[200],
-                                          padding: EdgeInsets.all(2),
-                                        )
-                                      ],
-                                    ))
+                                RaisedButton(
+                                  onPressed: () {},
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: const Text('رفض'),
+                                  textColor: Colors.black,
+                                  color: Colors.purple[200],
+                                  padding: EdgeInsets.all(2),
+                                )
                               ],
                             ),
-                          ),
-                        ),
-                      )));
-            }));
+                          ]
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

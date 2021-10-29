@@ -21,7 +21,7 @@ class CentersScreenState extends State<CentersScreen> {
           ),
           IconButton(onPressed: (){
           },
-              icon: Icon(Icons.add_alert_rounded),
+              icon: Icon(Icons.notifications),
           ),
         ],
       ),
