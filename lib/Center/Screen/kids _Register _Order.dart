@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/order.dart';
+import 'package:kidzone_app/Center/widget/order.dart';
 
 class KidsRegisterOrder extends StatefulWidget {
   @override

@@ -7,7 +7,7 @@ class PostAdvScreens extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('نشر اعلان '),
-          backgroundColor: Colors.purple[200],
+          backgroundColor: Colors.purple[300],
         ),
         body: PublishAds());
   }
