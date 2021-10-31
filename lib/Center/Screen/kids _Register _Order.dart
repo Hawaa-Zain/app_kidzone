@@ -14,7 +14,9 @@ class _KidsRegisterOrder extends State<KidsRegisterOrder> {
         title: Text('طلبات التسجيل '),
         backgroundColor: Colors.purple[300],
       ),
-      body: Order(),
+      body: Container(
+
+      ),
 
     );
   }

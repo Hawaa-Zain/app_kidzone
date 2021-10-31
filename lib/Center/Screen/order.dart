@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
   }
   class  _OrderState extends State<Order>{
 @override
-  Widget build(BuildContext context) =>Scaffold(
-    body: ListView.builder(
+  Widget build(BuildContext context) =>
+     ListView.builder(
       itemCount: 3,
       shrinkWrap: true,
       itemBuilder: (
@@ -100,7 +100,6 @@ import 'package:flutter/material.dart';
           ),
     ),
       ),
-    ),
     ),
       );
     }
