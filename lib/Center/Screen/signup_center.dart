@@ -1,9 +1,15 @@
+
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kidzone_app/Center/Screen/login_center.dart';
+
+User? user = FirebaseAuth.instance.currentUser;
 
 class SignUpCenter extends StatefulWidget {
   static const String screenRoute = 'signup_center';
@@ -16,12 +22,25 @@ class InitState extends State<SignUpCenter> {
   late String _email;
   late String _password;
   bool loading = false;
+  File? _image;
+
+  // method for pick image
+  void pickImage() async {
+    var image = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
+      maxWidth: 150,
+    );
+    setState(() {
+      _image = File(image!.path);
+    });
+  }
 
   @override
   Widget build(BuildContext context) => initWidget();
 
   Widget initWidget() {
-    User? user = FirebaseAuth.instance.currentUser;
+
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
     bool validateAndSave() {
@@ -42,13 +61,21 @@ class InitState extends State<SignUpCenter> {
           var result = await FirebaseAuth.instance
               .createUserWithEmailAndPassword(
                   email: _email, password: _password);
+          final ref = FirebaseStorage.instance
+              .ref()
+              .child('user_image')
+              .child(result.user!.uid + '.jpg');
+          await ref.putFile(_image!);
+          final url = await ref.getDownloadURL();
 
           //if (result != null) {
           FirebaseFirestore.instance.collection('Centers').doc(user!.uid).set({
+            "state": "Active",
             'name': _name,
             'role': 'Center',
             'email': _email,
-            'userID': user.uid,
+            'image_url': url,
+            'userID': user!.uid,
           });
           Fluttertoast.showToast(
             msg: "تم التسجيل بنجاح",
@@ -110,6 +137,19 @@ class InitState extends State<SignUpCenter> {
                 ),
               ],
             )),
+          ),
+          CircleAvatar(
+            radius: 40.0,
+            backgroundColor: Colors.black38,
+            backgroundImage: _image != null
+                ? FileImage(_image!)
+                : AssetImage('assets/images/kidzone.png') as ImageProvider, // if statment
+          ),
+          FlatButton.icon(
+            textColor: Colors.black38,
+            onPressed: pickImage,
+            icon: Icon(Icons.image),
+            label: Text('اضافة صورة'),
           ),
           Container(
             alignment: Alignment.center,

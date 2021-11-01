@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Parent/login_screen.dart';
 
-
+User? user = FirebaseAuth.instance.currentUser;
 class SignUpScreen extends StatefulWidget {
   static const String screenRoute = 'signup_screen';
   @override
@@ -16,7 +16,7 @@ class InitState extends State<SignUpScreen> {
   late String _email;
   late String _password;
   bool loading = false;
-  User? user = FirebaseAuth.instance.currentUser;
+
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 

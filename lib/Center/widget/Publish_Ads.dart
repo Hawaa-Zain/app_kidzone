@@ -19,7 +19,7 @@ class PublishAds extends StatelessWidget {
                       child: FittedBox(
                     child: IconButton(
                       icon: Icon(Icons.photo_library,
-                          color: Colors.purple[200], size: 10),
+                          color: Colors.purple[300], size: 10),
                       onPressed: () {
                         //write your code//
                       },
