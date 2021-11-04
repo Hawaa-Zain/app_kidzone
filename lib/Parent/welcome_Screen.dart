@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Admin/Screen_Admin/Login_admin.dart';
 import 'package:kidzone_app/Center/Screen/login_center.dart';
 import 'package:kidzone_app/Parent/login_screen.dart';
 
@@ -8,6 +9,7 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class StartState extends State<WelcomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +17,7 @@ class StartState extends State<WelcomeScreen> {
         child: Column(
           children: [
             Container(
-              height: 300,
+              height: 200,
               decoration: BoxDecoration(
                 borderRadius:
                     BorderRadius.only(bottomLeft: Radius.circular(90)),
@@ -94,14 +96,39 @@ class StartState extends State<WelcomeScreen> {
                               color: Colors.white,
                             ),
                           ),
-                        ),
+                          ),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: 5),
+                   Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 130),
+                          child:InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginAdmin()),
+                                  );
+                                },
+                           child: ClipRRect(
+                            child: Image.asset(
+                            "assets/images/kidzone00.png",
+                            height: 130,
+                            width: 180,
+                          ),
+                        ),)),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
+            ),],
         ),
       ),
     );

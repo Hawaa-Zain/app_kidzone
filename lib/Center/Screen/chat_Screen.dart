@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/home_screen.dart';
 
 class ChatScreens extends StatefulWidget {
   @override
@@ -14,6 +15,15 @@ class _ChatScreensState extends State<ChatScreens> {
         appBar: AppBar(
           title: Text('المحادثة'),
           backgroundColor: Colors.purple[300],
+          leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreens()),
+              );
+            },
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

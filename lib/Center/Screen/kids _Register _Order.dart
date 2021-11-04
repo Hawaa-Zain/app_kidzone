@@ -13,6 +13,7 @@ class _KidsRegisterOrder extends State<KidsRegisterOrder> {
       appBar: AppBar(
         title: Text('طلبات التسجيل '),
         backgroundColor: Colors.purple[300],
+        automaticallyImplyLeading: false,
       ),
       body: Order(),
     );

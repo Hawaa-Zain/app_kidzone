@@ -13,6 +13,7 @@ class CentersScreenState extends State<CentersScreen> {
       appBar: AppBar(
         title: Text('مراكز الحضانة'),
         backgroundColor: Colors.purple[300],
+        automaticallyImplyLeading: false,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),

@@ -1,12 +1,14 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
 
-TextEditingController dateController = TextEditingController();
-
+TextEditingController birthDateController = TextEditingController();
+TextEditingController  dateBookingController = TextEditingController();
+TextEditingController  timeBookingController = TextEditingController();
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -59,6 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       labelStyle:
                       TextStyle(fontSize: 15, color: Colors.purple.shade300),
                       border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.all(8),
                       prefixIcon:
                       Icon(Icons.group_outlined, color: Colors.purple.shade300),
                     ),
@@ -96,13 +99,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
-                    controller: dateController,
+                    controller: birthDateController,
                     decoration: InputDecoration(
                       hintText: "يوم/شهر/سنة",
-                      labelText: "العمر",
+                      labelText: "تاريخ ميلاد الطفل",
                       labelStyle:
                       TextStyle(fontSize: 15, color: Colors.purple.shade300),
                       border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.all(8),
                       suffixIcon: InkWell(
 
                           onTap: () {
@@ -119,6 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       labelStyle:
                       TextStyle(fontSize: 15, color: Colors.purple.shade300),
                       border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.all(8),
                       prefixIcon: Icon(
                           Icons.phone, color: Colors.purple.shade300),
                     ),
@@ -155,6 +160,137 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         }).toList(),
                   ),
 
+                  SizedBox(height: 10),
+                  Column(
+                      children: <Widget>[
+                        Center(
+                          child: Container(
+                            height: 200,
+                            width: 450,
+                            child: Card(
+                              margin: EdgeInsets.all(3),
+                              elevation: 8,
+                              shadowColor: Colors.black.withAlpha(30),
+                              shape: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(color: Colors.purple,
+                                    width: 1),
+                              ),
+                              child: Column(
+                                  children: [
+                                    Text("   * اذا قمت باختيار( ساعات معينة / "
+                                        "يوم )"
+                                        "  الرجاء اختيار الوقت و التاريخ",
+                                      style: const TextStyle(
+                                        height: 3,
+                                        fontSize: 13.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.red,
+                                      ),),
+                                    SizedBox(height: 10),
+                                    Row(
+                                        children:[
+                                          Text('  تاريخ الحجز :  ',
+                                            style:TextStyle(fontSize: 14.5,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                          SizedBox(
+                                            width:200,
+                                            child:TextFormField(
+                                              controller: dateBookingController,
+                                              decoration: InputDecoration(
+                                                hintText: "",
+                                                labelStyle:
+                                                TextStyle(fontSize: 15, color: Colors.purple.shade300),
+                                                border: OutlineInputBorder(),
+                                                contentPadding: EdgeInsets
+                                                    .all(8),
+                                                suffixIcon: InkWell(
+
+                                                    onTap: () {
+                                                      _showDateBookingPicker();
+
+                                                    },
+                                                    child: Icon(
+                                                      Icons.calendar_today_outlined,
+                                                        color: Colors.black,
+                                                    size: 20,)
+                                                ),
+                                              ),),
+
+                                          ),
+
+
+                                        ]
+                                    ),
+                                    SizedBox(height: 15),
+                                    Row(
+                                        children:[
+                                          Text('   الساعة : من  ',
+                                              style:TextStyle(fontSize: 14.5,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold)),
+                                          SizedBox(
+                                            width:90,
+                                            child:TextFormField(
+                                              controller: timeBookingController,
+                                              decoration: InputDecoration(
+                                                hintText: "",
+                                                labelStyle:
+                                                TextStyle(fontSize: 15, color: Colors.purple.shade300),
+                                                border: OutlineInputBorder(),
+                                                contentPadding: EdgeInsets
+                                                    .all(8),
+                                                suffixIcon: InkWell(
+
+                                                    onTap: () {
+
+                                                      _showTimeBooking();
+                                                    },
+                                                    child: Icon(
+                                                      Icons.timer,
+                                                      color: Colors.black,
+                                                      size: 20,)
+                                                ),
+                                              ),),
+
+                                          ),
+                                          SizedBox(width:30,),
+                                          Text(' إلى   ',
+                                              style:TextStyle(fontSize: 14.5,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold)),
+                                          SizedBox(
+                                            width:90,
+                                            child:TextFormField(
+                                              decoration: InputDecoration(
+                                                hintText: "",
+                                                labelStyle:
+                                                TextStyle(fontSize: 15, color: Colors.purple.shade300),
+                                                border: OutlineInputBorder(),
+                                                contentPadding: EdgeInsets
+                                                    .all(8),
+                                                suffixIcon: InkWell(
+
+                                                    onTap: () {
+
+                                                    },
+                                                    child: Icon(
+                                                      Icons.timer,
+                                                      color: Colors.black,
+                                                      size: 20,)
+                                                ),
+                                              ),),
+
+                                          ),
+
+
+                                        ]
+                                    )
+                                  ]),),),
+                        ),
+
+                      ]),
                   SizedBox(height: 100),
                   Center(
                     child: Column(
@@ -162,7 +298,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         RaisedButton(
                           onPressed: () {
-                            _showDatePicker();
+
                           },
                           padding: EdgeInsets.symmetric(
                               vertical: 6.5, horizontal: 80),
@@ -207,11 +343,58 @@ class _RegisterScreenState extends State<RegisterScreen> {
       //TODO: handle selected date
       if (selectedDate != null) {
         final f = new DateFormat('yyyy/MM/dd ');
-        dateController.text = f.format(selectedDate).toString();
+        birthDateController.text = f.format(selectedDate).toString();
+      }
+    });
+  }
+  void _showDateBookingPicker() {
+    showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2020, 1),
+        lastDate: DateTime(2030, 12),
+        builder: (context, picker) {
+          return Theme(
+            //TODO: change colors
+            data: ThemeData.dark().copyWith(
+              colorScheme: ColorScheme.light(
+                primary: Colors.purple.shade300,
+              ),
+              dialogBackgroundColor: Colors.white,
+            ),
+            child: picker!,
+          );
+        }).then((selectedDateBooking) {
+      //TODO: handle selected date
+      if (selectedDateBooking != null) {
+        final f = new DateFormat('yyyy/MM/dd ');
+        dateBookingController.text = f.format(selectedDateBooking).toString();
       }
     });
   }
 
+  void _showTimeBooking() async {
+    final TimeOfDay ? SelectedTimeBooking =
+   await  showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+    builder: (context, picker) {
+      return Theme(
+        //TODO: change colors
+        data: ThemeData.dark().copyWith(
+          colorScheme: ColorScheme.light(
+            primary: Colors.purple.shade300,
+          ),
+          dialogBackgroundColor: Colors.white,
+        ),
+        child: picker!,
+      );
+    }).then((selectedTimeBooking){
+    if (selectedTimeBooking != null) {
+     final f =  new DateFormat('hh:mm');
+    }});
+  }
 
 }
+
 
