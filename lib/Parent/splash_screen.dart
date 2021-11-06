@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
-import 'package:kidzone_app/Center/widget/order_Kids.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -40,7 +38,7 @@ class InitState extends State<SplashScreen> {
             decoration: BoxDecoration(
               color: new Color(0xFFFFFFFF),
               gradient: LinearGradient(
-                colors: [(new Color(0xFFE1BEE7)), (new Color(0xFFE1BEE7))],
+                colors: [(new Color(0xFFFFFFFF)), (new Color(0xFFFFFFFF))],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -48,7 +46,7 @@ class InitState extends State<SplashScreen> {
           ),
           Center(
             child: Container(
-              child: Image.asset("assets/images/kidzone.png"),
+              child: Image.asset("assets/images/kidzoneLogo0.png"),
             ),
           )
         ],

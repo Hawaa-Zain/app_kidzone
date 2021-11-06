@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class KidsDetails extends StatelessWidget {
+class KidDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
             child: Column(children: [
               Container(
-                height: 200,
+                height: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
@@ -39,6 +39,7 @@ class KidsDetails extends StatelessWidget {
                       ],
                     )),
               ),
+              SizedBox(height: 60),
               Container(
                 alignment: Alignment.topCenter,
                 child: Card(

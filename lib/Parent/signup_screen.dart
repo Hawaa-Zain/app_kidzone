@@ -15,6 +15,8 @@ class InitState extends State<SignUpScreen> {
   late String _name;
   late String _email;
   late String _password;
+
+
   bool loading = false;
 
 
@@ -44,7 +46,7 @@ class InitState extends State<SignUpScreen> {
             'name': _name,
             'role': 'Parent',
             'email': _email,
-            'userID': user!.uid
+            'userID': user!.uid,
           });
           Fluttertoast.showToast(
             msg: "تم التسجيل بنجاح",
@@ -77,12 +79,16 @@ class InitState extends State<SignUpScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 300,
+                    height: 150,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(60),
+                          bottomRight: Radius.circular(60)),
                       color: new Color(0xFFFFFFFF),
                       gradient: LinearGradient(
                         colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                       ),
                     ),
                     child: Center(
@@ -91,16 +97,8 @@ class InitState extends State<SignUpScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 50),
-                              child: Image.asset(
-                                "assets/images/kidzone.png",
-                                height: 90,
-                                width: 90,
-                              ),
-                            ),
-                            Container(
                               margin: EdgeInsets.only(right: 20, top: 20),
-                              alignment: Alignment.bottomRight,
+                              alignment: Alignment.center,
                               child: Text(
                                 "إنشاء حساب جديد",
                                 style: TextStyle(
@@ -181,6 +179,45 @@ class InitState extends State<SignUpScreen> {
                           color: Color(0xFFBBA68C8),
                         ),
                         hintText: "البريد الالكتروني",
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    height: 54,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Color(0xffEEEEEE),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 20),
+                            blurRadius: 100,
+                            color: Color(0xffEEEEEE)),
+                      ],
+                    ),
+                    child: TextFormField(
+                      validator: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'رقم ولي الأمر مطلوب';
+                        }
+                        return null;
+                      },
+                      onSaved: (String? value) {
+                        _password = value!;
+                      },
+                      obscureText: true,
+                      cursorColor: Color(0xFFBBA68C8),
+                      decoration: InputDecoration(
+                        focusColor: Color(0xFFBBA68C8),
+                        icon: Icon(
+                          Icons.phone_android,
+                          color: Color(0xFFBBA68C8),
+                        ),
+                        hintText: "رقم ولي الأمر",
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
                       ),

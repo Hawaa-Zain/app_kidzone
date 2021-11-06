@@ -28,8 +28,8 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                 height: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(70),
-                      bottomRight: Radius.circular(70)),
+                      bottomLeft: Radius.circular(60),
+                      bottomRight: Radius.circular(60)),
                   color: new Color(0xFFFFFFFF),
                   gradient: LinearGradient(
                     colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],

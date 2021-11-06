@@ -56,9 +56,8 @@ class _OrderKidsState extends State<OrderKids> {
                             child: RaisedButton(
                               onPressed: (){
                                 Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => KidsDetails()),
-                                );},
-                              color: Colors.purple.shade300,
+                                MaterialPageRoute(builder: (context) => KidDetails()),
+                                );}, color: Colors.purple.shade300,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
                               ),

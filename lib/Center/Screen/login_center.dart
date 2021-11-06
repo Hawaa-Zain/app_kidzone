@@ -114,37 +114,29 @@ class StartState extends State<LoginCenter> {
               child: Column(
       children: [
         Container(
-          height: 300,
+          height: 200,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-              color: new Color(0xFFFFFFFF),
-              gradient: LinearGradient(
-                colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
+            color: new Color(0xFFFFFFFF),
+            gradient: LinearGradient(
+              colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
           child: Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 50),
-                  child: Image.asset(
-                    "assets/images/kidzone.png",
-                    height: 90,
-                    width: 90,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 20, top: 20),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "تسجيل دخول",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 20, top: 20),
-                  alignment: Alignment.bottomRight,
-                  child: Text(
-                    "تسجيل دخول",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                )
               ],
           )),
         ),

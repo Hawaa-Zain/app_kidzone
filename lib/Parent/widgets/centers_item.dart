@@ -31,7 +31,7 @@ class CentersItem extends StatelessWidget {
                   child: GridTile(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (_) => CenterDetails(cendoc)),
                         );
