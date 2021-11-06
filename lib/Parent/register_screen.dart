@@ -8,7 +8,8 @@ import 'package:intl/intl.dart';
 
 TextEditingController birthDateController = TextEditingController();
 TextEditingController  dateBookingController = TextEditingController();
-TextEditingController  timeBookingController = TextEditingController();
+TextEditingController  StartTimeBookingController = TextEditingController();
+TextEditingController EndTimeBookingController = TextEditingController();
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         body: SingleChildScrollView(
             child: Column(children: [
               Container(
-                height: 200,
+                height: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(70),
@@ -63,7 +64,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       border: OutlineInputBorder(),
                       contentPadding: EdgeInsets.all(8),
                       prefixIcon:
-                      Icon(Icons.group_outlined, color: Colors.purple.shade300),
+                      Icon(Icons.person_outlined, color: Colors.purple
+                          .shade300),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -110,7 +112,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       suffixIcon: InkWell(
 
                           onTap: () {
-                            _showDatePicker();
+                            _showBirthDatePicker();
                           },
                           child: Icon(Icons.calendar_today_outlined,
                               color: Colors.purple.shade300)),
@@ -165,10 +167,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: <Widget>[
                         Center(
                           child: Container(
-                            height: 200,
+                            height: 250,
                             width: 450,
                             child: Card(
-                              margin: EdgeInsets.all(3),
+                              margin: EdgeInsets.all(0.2),
                               elevation: 8,
                               shadowColor: Colors.black.withAlpha(30),
                               shape: OutlineInputBorder(
@@ -217,23 +219,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                     size: 20,)
                                                 ),
                                               ),),
-
-                                          ),
-
-
-                                        ]
-                                    ),
-                                    SizedBox(height: 15),
+                                          ),]),
+                                    SizedBox(height: 10),
                                     Row(
                                         children:[
-                                          Text('   الساعة : من  ',
+                                          Text(' وقت دخول الطفل:   ',
                                               style:TextStyle(fontSize: 14.5,
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold)),
                                           SizedBox(
-                                            width:90,
+                                            width:150,
                                             child:TextFormField(
-                                              controller: timeBookingController,
+                                              controller: StartTimeBookingController,
                                               decoration: InputDecoration(
                                                 hintText: "",
                                                 labelStyle:
@@ -244,8 +241,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 suffixIcon: InkWell(
 
                                                     onTap: () {
+                                                      _showStartTimeBooking(context);
 
-                                                      _showTimeBooking();
                                                     },
                                                     child: Icon(
                                                       Icons.timer,
@@ -253,16 +250,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                       size: 20,)
                                                 ),
                                               ),),
-
-                                          ),
-                                          SizedBox(width:30,),
-                                          Text(' إلى   ',
+                                          ),]),
+                                    SizedBox(height: 10),
+                                    Row(
+                                        children:[
+                                          Text(' وقت خروج الطفل:   ',
                                               style:TextStyle(fontSize: 14.5,
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold)),
                                           SizedBox(
-                                            width:90,
+                                            width:150,
                                             child:TextFormField(
+                                              controller: EndTimeBookingController,
                                               decoration: InputDecoration(
                                                 hintText: "",
                                                 labelStyle:
@@ -273,6 +272,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 suffixIcon: InkWell(
 
                                                     onTap: () {
+                                                      _showEndTimeBooking(context);
 
                                                     },
                                                     child: Icon(
@@ -281,17 +281,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                       size: 20,)
                                                 ),
                                               ),),
+                                          ),]),
 
-                                          ),
-
-
-                                        ]
-                                    )
                                   ]),),),
                         ),
 
                       ]),
-                  SizedBox(height: 100),
+                  SizedBox(height: 5),
                   Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -322,7 +318,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
 
-  void _showDatePicker() {
+  void _showBirthDatePicker() {
     showDatePicker(
         context: context,
         initialDate: DateTime.now(),
@@ -373,28 +369,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
-  void _showTimeBooking() async {
-    final TimeOfDay ? SelectedTimeBooking =
-   await  showTimePicker(
+  void _showStartTimeBooking(BuildContext context) async {
+    TimeOfDay selectedTime = TimeOfDay.now();
+    showTimePicker(
         context: context,
-        initialTime: TimeOfDay.now(),
-    builder: (context, picker) {
-      return Theme(
-        //TODO: change colors
-        data: ThemeData.dark().copyWith(
-          colorScheme: ColorScheme.light(
-            primary: Colors.purple.shade300,
-          ),
-          dialogBackgroundColor: Colors.white,
-        ),
-        child: picker!,
-      );
-    }).then((selectedTimeBooking){
-    if (selectedTimeBooking != null) {
-     final f =  new DateFormat('hh:mm');
-    }});
+        initialTime: selectedTime,
+        builder: (context,picker){
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+            child: picker!,
+          );
+        }
+    ).then((time) {
+      if (time != null) {
+        StartTimeBookingController.text = (time.format(context,)).toString();
+      }
+    });
   }
-
+  void _showEndTimeBooking(BuildContext context) async {
+    TimeOfDay selectedTime = TimeOfDay.now();
+    showTimePicker(
+        context: context,
+        initialTime: selectedTime,
+        builder: (context,picker){
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+            child: picker!,
+          );
+        }
+    ).then((time) {
+      if (time != null) {
+        EndTimeBookingController.text = (time.format(context,)).toString();
+      }
+    });
+  }
 }
 
 

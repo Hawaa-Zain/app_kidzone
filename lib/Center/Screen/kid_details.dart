@@ -45,36 +45,50 @@ class KidsDetails extends StatelessWidget {
           margin: EdgeInsets.all(30),
           color: Colors.white,
           shadowColor: Colors.black,
-          elevation: 30,
+          elevation: 25,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
                 leading: Icon(
-                  Icons.group_outlined,
+                  Icons.person_outlined,
                   color: Colors.purple[300],
-                  size: 30,
+                  size: 25,
                 ),
               ),
               ListTile(
                 leading: Icon(
-                  Icons.date_range_outlined,
+                  Icons.calendar_today_outlined,
                   color: Colors.purple[300],
-                  size: 30,
+                  size: 25,
                 ),
               ),
               ListTile(
                 leading: Icon(
                   Icons.phone,
                   color: Colors.purple[300],
-                  size: 30,
+                  size: 25,
                 ),
               ),
               ListTile(
                 leading: Icon(
                   Icons.assignment_turned_in_outlined,
                   color: Colors.purple,
-                  size: 30,
+                  size: 25,
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.calendar_today_outlined,
+                  color: Colors.purple,
+                  size: 25,
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.timer,
+                  color: Colors.purple,
+                  size: 25,
                 ),
               ),
             ],

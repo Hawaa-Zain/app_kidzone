@@ -4,14 +4,13 @@ import 'package:kidzone_app/Parent/centers_screen.dart';
 void main() => runApp(AdveScreen());
 
 class AdveScreen extends StatelessWidget {
-  get image => null;
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text('الإعلانات '),
           backgroundColor: Colors.purple[300],
-        ),
+          ),
         body: Column(
           children: <Widget>[
             Center(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Admin/Screen_Admin/Center_order_details.dart';
 
 
 class OrderCenter extends StatefulWidget {
@@ -6,6 +7,7 @@ class OrderCenter extends StatefulWidget {
   State<OrderCenter> createState() => _OrderCenter();
 }
 class _OrderCenter extends State<OrderCenter> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,17 +36,11 @@ class _OrderCenter extends State<OrderCenter> {
 
                               Column(
                                 children: <Widget>[
-                                  SizedBox(height: 33),
-                                  IconButton(
-                                      icon:  Icon(Icons.group),
-                                      onPressed: (){},
-                                      color: Colors.purple.shade300),
-                                  Text("اسم الحضانة",
-                                    style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                  ),),
+                                  SizedBox(height: 15),
+                                  Icon(Icons.group_outlined,
+                                    color: Colors.purple.shade300,
+                                    size: 30,
+                                  ),
                                 ],
                               )
                             ]
@@ -59,58 +55,19 @@ class _OrderCenter extends State<OrderCenter> {
                                   horizontal: 10, vertical: 10,
                                 ),
                                 child: RaisedButton(
-                                  onPressed: () {},
+                                  onPressed: (){
+                                    Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) =>
+                                          CenterOrderDetails()),
+                                    );},
                                   color: Colors.purple.shade300,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5),
                                   ),
-                                  child: Text('تفاصيل الطفل'),
-                                ),
-                              ),
-
-                              ButtonBar(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  RaisedButton(
-                                    onPressed: () {},
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: const Text('قبول'),
-                                    textColor: Colors.black,
-                                    color: Colors.purple[200],
-                                    padding: EdgeInsets.all(2),
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {},
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: const Text('رفض'),
-                                    textColor: Colors.black,
-                                    color: Colors.purple[200],
-                                    padding: EdgeInsets.all(2),
-                                  )
-                                ],
-                              ),
-
-
-
-                            ]
-                        ),
-
-                      ],
-                    ),
-
-                  )
-              )
-          )
-      ),
-
-
-
-
-    );
-
+                                  child: Text('تفاصيل مركز الحضانة',),
+                                  textColor:Colors.white,
+                                ),),]),
+                      ],),),),),
+      ),);
   }
 }

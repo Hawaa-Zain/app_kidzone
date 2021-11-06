@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/Screen/kid_details.dart';
 
-class Order extends StatefulWidget {
+class OrderKids extends StatefulWidget {
   @override
-  State<Order> createState() => _OrderState();
+  State<OrderKids> createState() => _OrderKidsState();
 }
-class _OrderState extends State<Order> {
+class _OrderKidsState extends State<OrderKids> {
+
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -33,18 +34,12 @@ class _OrderState extends State<Order> {
                         children: <Widget>[
 
                      Column(
-
                       children: <Widget>[
-                        SizedBox(height: 33),
-                        IconButton(
-                         icon:  Icon(Icons.group_outlined),
-                            onPressed: (){},
-                            color: Colors.purple.shade300),
-                        Text("اسم الطفل",style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 14,
-                        ),),
+                        SizedBox(height: 15),
+                       Icon(Icons.group_outlined,
+                            color: Colors.purple.shade300,
+                         size: 30,
+                       ),
                   ],
       )
                     ]
@@ -62,12 +57,13 @@ class _OrderState extends State<Order> {
                               onPressed: (){
                                 Navigator.push(context,
                                 MaterialPageRoute(builder: (context) => KidsDetails()),
-      );},
+                                );},
                               color: Colors.purple.shade300,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
                               ),
-                              child: Text('تفاصيل الطفل'),
+                              child: Text('تفاصيل الطفل',),
+                              textColor:Colors.white,
                             ),
                           ),
 

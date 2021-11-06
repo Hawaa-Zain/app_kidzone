@@ -1,6 +1,5 @@
 
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -103,7 +102,7 @@ class InitState extends State<SignUpCenter> {
       child: Column(
         children: [
           Container(
-            height: 300,
+            height: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
               color: new Color(0xFFFFFFFF),
@@ -139,7 +138,7 @@ class InitState extends State<SignUpCenter> {
             )),
           ),
           CircleAvatar(
-            radius: 40.0,
+            radius: 60.0,
             backgroundColor: Colors.black38,
             backgroundImage: _image != null
                 ? FileImage(_image!)
@@ -169,7 +168,7 @@ class InitState extends State<SignUpCenter> {
             child: TextFormField(
               validator: (String? value) {
                 if (value!.isEmpty) {
-                  return 'الإسم مطلوب';
+                  return 'اسم مركز الحضانة مطلوب';
                 }
                 return null;
               },
@@ -179,10 +178,10 @@ class InitState extends State<SignUpCenter> {
               cursorColor: Color(0xFFBBA68C8),
               decoration: InputDecoration(
                 icon: Icon(
-                  Icons.person,
+                  Icons.group_outlined,
                   color: Color(0xFFBBA68C8),
                 ),
-                hintText: "الاسم الكامل ",
+                hintText: "اسم مركز الحضانة  ",
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),
@@ -219,7 +218,192 @@ class InitState extends State<SignUpCenter> {
                   Icons.email,
                   color: Color(0xFFBBA68C8),
                 ),
-                hintText: "البريد الالكتروني",
+                hintText: "البريد الإلكتروني",
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.grey[200],
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: Color(0xffEEEEEE)),
+              ],
+            ),
+            child: TextFormField(
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return 'الرقم  مطلوب';
+                }
+                return null;
+              },
+              onSaved: (String? value) {
+                _email = value!;
+              },
+              cursorColor: Color(0xFFBBA68C8),
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.phone,
+                  color: Color(0xFFBBA68C8),
+                ),
+                hintText: " رقم للتواصل",
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.grey[200],
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: Color(0xffEEEEEE)),
+              ],
+            ),
+            child: TextFormField(
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return 'الحي مطلوب';
+                }
+                return null;
+              },
+              onSaved: (String? value) {
+                _name = value!;
+              },
+              cursorColor: Color(0xFFBBA68C8),
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.location_on,
+                  color: Color(0xFFBBA68C8),
+                ),
+                hintText: "الحي  ",
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.grey[200],
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: Color(0xffEEEEEE)),
+              ],
+            ),
+            child: TextFormField(
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return '  مطلوب';
+                }
+                return null;
+              },
+              onSaved: (String? value) {
+                _email = value!;
+              },
+              cursorColor: Color(0xFFBBA68C8),
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.access_time,
+                  color: Color(0xFFBBA68C8),
+                ),
+                hintText: " ساعات العمل ",
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.grey[200],
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: Color(0xffEEEEEE)),
+              ],
+            ),
+            child: TextFormField(
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return '  مطلوب';
+                }
+                return null;
+              },
+              onSaved: (String? value) {
+                _email = value!;
+              },
+              cursorColor: Color(0xFFBBA68C8),
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.child_friendly_outlined,
+                  color: Color(0xFFBBA68C8),
+                ),
+                hintText: " سن القبول  ",
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 54,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.grey[200],
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: Color(0xffEEEEEE)),
+              ],
+            ),
+            child: TextFormField(
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return '  مطلوب';
+                }
+                return null;
+              },
+              onSaved: (String? value) {
+                _email = value!;
+              },
+              cursorColor: Color(0xFFBBA68C8),
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.attach_money_outlined,
+                  color: Color(0xFFBBA68C8),
+                ),
+                hintText: " الرسوم  ",
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),
@@ -243,7 +427,7 @@ class InitState extends State<SignUpCenter> {
             child: TextFormField(
               validator: (String? value) {
                 if (value!.isEmpty) {
-                  return 'الرقم السري مطلوب';
+                  return 'كلمة المرور مطلوبة';
                 }
                 return null;
               },

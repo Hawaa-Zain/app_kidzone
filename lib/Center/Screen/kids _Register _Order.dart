@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/widget/order.dart';
+import 'package:kidzone_app/Center/widget/order_Kids.dart';
 
 class KidsRegisterOrder extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _KidsRegisterOrder extends State<KidsRegisterOrder> {
         backgroundColor: Colors.purple[300],
         automaticallyImplyLeading: false,
       ),
-      body: Order(),
+      body: OrderKids(),
     );
   }
 }
