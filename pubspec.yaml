@@ -58,6 +58,8 @@ flutter:
     - assets/images/kids train.jpeg
     - assets/images/wonderful day.jpeg
     - assets/images/kidzone00.png
+    - assets/images/kidzoneLogo.png
+    - assets/images/kidzoneLogo0.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/home_screen.dart';
+import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
 
-class ChatScreens extends StatefulWidget {
+class CenterChatScreens extends StatefulWidget {
   @override
-  State<ChatScreens> createState() => _ChatScreensState();
+  State<CenterChatScreens> createState() => _CenterChatScreens();
 }
 
-class _ChatScreensState extends State<ChatScreens> {
+class _CenterChatScreens extends State<CenterChatScreens> {
   TextEditingController msg = TextEditingController();
 
   @override
@@ -20,7 +20,7 @@ class _ChatScreensState extends State<ChatScreens> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreens()),
+                MaterialPageRoute(builder: (context) => CentersTapsScreens()),
               );
             },
           ),

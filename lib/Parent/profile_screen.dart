@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
-import 'login_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -105,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           // add then in signout..
                           await FirebaseAuth.instance.signOut().then((value) {
                             Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context) => LoginScreen()));
+                                MaterialPageRoute(builder: (context) => ParentLoginScreen()));
                           });
                         },
                       ),

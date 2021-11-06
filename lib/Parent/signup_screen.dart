@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kidzone_app/Parent/login_screen.dart';
+import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
 User? user = FirebaseAuth.instance.currentUser;
 class SignUpScreen extends StatefulWidget {
@@ -53,7 +53,7 @@ class InitState extends State<SignUpScreen> {
             fontSize: 20.0,
           );
           var router = MaterialPageRoute(
-              builder: (BuildContext context) => LoginScreen());
+              builder: (BuildContext context) => ParentLoginScreen());
           Navigator.of(context).push(router);
         //} else {
         //   setState(() => loading = false);
@@ -271,7 +271,7 @@ class InitState extends State<SignUpScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => LoginScreen(),
+                                    builder: (context) => ParentLoginScreen(),
                                   ));
                             })
                       ],

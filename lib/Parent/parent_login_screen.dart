@@ -7,12 +7,12 @@ import 'package:kidzone_app/Parent/tab_screen.dart';
 
 
 
-class LoginScreen extends StatefulWidget {
+class ParentLoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StartState();
 }
 
-class StartState extends State<LoginScreen> {
+class StartState extends State<ParentLoginScreen> {
 
   late String? _email;
   late String? _password;
@@ -91,7 +91,7 @@ class StartState extends State<LoginScreen> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => LoginScreen(),
+              builder: (context) => ParentLoginScreen(),
             ),
           );
 

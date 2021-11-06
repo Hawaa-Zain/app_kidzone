@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/adve_Screen.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
-import 'package:kidzone_app/Parent/chat_screen.dart';
+import 'package:kidzone_app/Parent/parent_chat_screen.dart';
 import 'package:kidzone_app/Parent/profile_screen.dart';
 
 
@@ -15,7 +15,7 @@ class _TabsScreen extends State<TabsScreen> {
   final screens = [
    CentersScreen(),
     AdveScreen(),
-    ChatScreen(),
+    ParentChatScreen(),
     ProfileScreen(),
   ];
 

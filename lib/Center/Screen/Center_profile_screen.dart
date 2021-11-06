@@ -1,17 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'login_center.dart';
 
-class ProfileScreens extends StatefulWidget {
-  const ProfileScreens({Key? key}) : super(key: key);
+class CenterProfileScreens extends StatefulWidget {
+  const CenterProfileScreens({Key? key}) : super(key: key);
 
   @override
-  State<ProfileScreens> createState() => _ProfileScreensState();
+  State<CenterProfileScreens> createState() => _CenterProfileScreens();
 }
 
-class _ProfileScreensState extends State<ProfileScreens> {
+class _CenterProfileScreens extends State<CenterProfileScreens> {
   late User _user;
 
   @override

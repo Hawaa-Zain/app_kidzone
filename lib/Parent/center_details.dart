@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/register_screen.dart';
+import 'package:kidzone_app/Parent/kids_register_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
 import 'package:provider/provider.dart';
 
@@ -82,6 +82,7 @@ class _CenterDetailsState extends State<CenterDetails> {
             children: <Widget>[
               Container(
                 height: 300,
+                width: 400,
                 child: Image.network(
                   widget.cendoc["image_url"],
                   fit: BoxFit.cover,
@@ -110,7 +111,7 @@ class _CenterDetailsState extends State<CenterDetails> {
                     RaisedButton(
                       onPressed: () {
                         Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => RegisterScreen()),
+                          MaterialPageRoute(builder: (context) => KidsRegisterScreen()),
                         );
                       },
                       padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Admin/Screen_Admin/Login_admin.dart';
 import 'package:kidzone_app/Center/Screen/login_center.dart';
-import 'package:kidzone_app/Parent/login_screen.dart';
+import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -13,41 +13,40 @@ class StartState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.only(bottomLeft: Radius.circular(90)),
-                color: new Color(0xFFFFFFFF),
-                gradient: LinearGradient(
-                  colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              child: Center(
+             child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: 50),
-                      child: Image.asset(
-                        "assets/images/kidzone.png",
-                        height: 90,
-                        width: 90,
-                      ),
-                    ),
+                        margin: EdgeInsets.only(top: 100),
+                        child:InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginAdmin()),
+                            );
+                          },
+                          child: ClipRRect(
+                            child: Image.asset(
+                              "assets/images/kidzoneLogo0.png",
+                              height: 250,
+                              width: 300,
+
+                            ),
+                          ),)),
                   ],
                 ),
               ),
+
             ),
-            SizedBox(
-              height: 100,
-            ),
+            SizedBox(height: 150,),
             Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -59,7 +58,7 @@ class StartState extends State<WelcomeScreen> {
                         MaterialPageRoute(builder: (context) => LoginCenter()),
                       );
                     },
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal:120),
                     color: Colors.purple.shade300,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -81,11 +80,11 @@ class StartState extends State<WelcomeScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginScreen()),
+                                  builder: (context) => ParentLoginScreen()),
                             );
                           },
                           padding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 95),
+                              vertical: 20, horizontal: 130),
                           color: Colors.purple.shade300,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -94,38 +93,14 @@ class StartState extends State<WelcomeScreen> {
                             'ولي الأمر',
                             style: TextStyle(
                               color: Colors.white,
+
                             ),
                           ),
                           ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 5),
-                   Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 130),
-                          child:InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginAdmin()),
-                                  );
-                                },
-                           child: ClipRRect(
-                            child: Image.asset(
-                            "assets/images/kidzone00.png",
-                            height: 130,
-                            width: 180,
-                          ),
-                        ),)),
-                      ],
-                    ),
-                  ),
+
                 ],
               ),
             ),],

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatefulWidget {
+class ParentChatScreen extends StatefulWidget {
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<ParentChatScreen> createState() => _ParentChatScreen();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ParentChatScreen extends State<ParentChatScreen> {
   TextEditingController msg = TextEditingController();
 
   @override

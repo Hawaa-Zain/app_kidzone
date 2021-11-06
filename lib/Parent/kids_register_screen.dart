@@ -11,12 +11,12 @@ TextEditingController  dateBookingController = TextEditingController();
 TextEditingController  StartTimeBookingController = TextEditingController();
 TextEditingController EndTimeBookingController = TextEditingController();
 
-class RegisterScreen extends StatefulWidget {
+class KidsRegisterScreen extends StatefulWidget {
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<KidsRegisterScreen> createState() => _KidsRegisterScreen();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _KidsRegisterScreen extends State<KidsRegisterScreen> {
 
   @override
   Widget build(BuildContext context) {

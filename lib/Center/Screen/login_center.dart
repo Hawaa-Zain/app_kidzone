@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kidzone_app/Center/Screen/home_screen.dart';
+import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
 import 'package:kidzone_app/Center/Screen/signup_center.dart';
-import 'package:kidzone_app/Parent/login_screen.dart';
+import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
 class LoginCenter extends StatefulWidget {
   @override
@@ -65,7 +65,7 @@ class StartState extends State<LoginCenter> {
 
             //if (result.credential!.signInMethod.isNotEmpty) {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => HomeScreens()));
+                  MaterialPageRoute(builder: (context) => CentersTapsScreens()));
               // var router = MaterialPageRoute(
               //     builder: (BuildContext context) => ProfileScreen());
               // Navigator.of(context).push(router);
@@ -92,12 +92,12 @@ class StartState extends State<LoginCenter> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => LoginScreen(),
+              builder: (context) => ParentLoginScreen(),
             ),
           );
 
           Fluttertoast.showToast(
-            msg: "الايميل غير تابع لمركز",
+            msg: "البريد الإلكتروني غير تابع لمركز",
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 20.0,
@@ -204,7 +204,7 @@ class StartState extends State<LoginCenter> {
               obscureText: true,
               validator: (String? value) {
                 if (value!.isEmpty) {
-                  return 'الرقم السري مطلوب';
+                  return ' كلمة المرور مطلوبة';
                 }
                 return null;
               },

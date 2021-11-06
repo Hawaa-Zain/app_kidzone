@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/Screen/kids%20_Register%20_Order.dart';
 import 'package:kidzone_app/Center/Screen/postAdv_Screen.dart';
-import 'package:kidzone_app/Center/Screen/chat_Screen.dart';
-import 'package:kidzone_app/Center/Screen/profile_screen.dart';
+import 'package:kidzone_app/Center/Screen/Center_chat_Screen.dart';
+import 'package:kidzone_app/Center/Screen/Center_profile_screen.dart';
 
-class HomeScreens extends StatefulWidget {
+class CentersTapsScreens extends StatefulWidget {
   @override
-  _HomeScreens createState() => _HomeScreens();
+  _CentersTapsScreens createState() => _CentersTapsScreens();
 }
 
-class _HomeScreens extends State<HomeScreens> {
+class _CentersTapsScreens extends State<CentersTapsScreens> {
   int currentIndex = 0;
   final screens = [
     KidsRegisterOrder(),
     PostAdvScreens(),
-    ChatScreens(),
-    ProfileScreens(),
+    CenterChatScreens(),
+    CenterProfileScreens(),
   ];
 
   @override
