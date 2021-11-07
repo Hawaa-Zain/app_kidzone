@@ -65,9 +65,13 @@ class _OrderCenter extends State<OrderCenter> {
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Text('تفاصيل مركز الحضانة',),
-                                  textColor:Colors.white,
-                                ),),]),
-                      ],),),),),
-      ),);
+                                  textColor:Colors.white,),
+                              ),]
+                        ),],
+                    ),
+                  ),
+              ),),
+      ),
+    );
   }
 }

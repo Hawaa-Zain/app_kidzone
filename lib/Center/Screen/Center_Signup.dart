@@ -6,7 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kidzone_app/Center/Screen/login_center.dart';
+import 'package:kidzone_app/Center/Screen/Center_Login.dart';
 
 User? user = FirebaseAuth.instance.currentUser;
 
@@ -125,46 +125,44 @@ class InitState extends State<SignUpCenter> {
                                 "إنشاء حساب جديد",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.white,
+                                  color: Colors.white,),
                                 ),
-                              ),
-                            ),
-                          ],
-                        )),
+                            ),],
+                        )
+                    ),
                   ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 115,
-                width: 115,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  fit: StackFit.expand,
-                  children: [
-                  CircleAvatar(
-                  radius: 40,
-                  backgroundColor: Colors.grey[200],
-                  backgroundImage: _image != null
-                      ? FileImage(_image!)
-                      : AssetImage('') as ImageProvider,
-                  // if statment
-                  ),
-                  Positioned(
-                        bottom: -15,
-                        right: -10,
-                        child: FlatButton.icon(
-                          textColor: Colors.purple.shade300,
-                          onPressed: pickImage,
-                          icon: Icon(Icons.camera_alt_outlined,
-                          size: 30),
-                          label: Text('',style: TextStyle(
+                  SizedBox(height: 20),
+                  SizedBox(
+                    height: 115,
+                    width: 115,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      fit: StackFit.expand,
+                      children: [
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey[200],
+                          backgroundImage: _image != null
+                              ? FileImage(_image!)
+                              : AssetImage('') as ImageProvider,
+                          // if statment
+                      ),
+                        Positioned(
+                          bottom: -15,
+                          right: -10,
+                          child: FlatButton.icon(
+                            textColor: Colors.purple.shade300,
+                            onPressed: pickImage,
+                            icon: Icon(Icons.camera_alt_outlined,
+                                size: 30),
+                            label: Text('',style: TextStyle(
                               color: Colors.black54,
-                            fontSize: 6,
-                          ),),
-                        ),
+                              fontSize: 6,),
+                            ),
+                          ),
+                        ),],
+                    ),
                   ),
-                  ],
-                ),
-              ),
                   Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -177,7 +175,8 @@ class InitState extends State<SignUpCenter> {
                         BoxShadow(
                             offset: Offset(0, 10),
                             blurRadius: 50,
-                            color: Color(0xffEEEEEE)),
+                            color: Color(0xffEEEEEE)
+                        ),
                       ],
                     ),
                     child: TextFormField(
@@ -235,8 +234,7 @@ class InitState extends State<SignUpCenter> {
                         ),
                         hintText: "البريد الإلكتروني",
                         enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                      ),
+                        focusedBorder: InputBorder.none,),
                     ),
                   ),
                   Container(
@@ -509,14 +507,14 @@ class InitState extends State<SignUpCenter> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => LoginCenter(),
-                                  ));
-                            })
-                      ],
+                                    builder: (context) => LoginCenter(),)
+                              );}
+                        )],
                     ),
-                  )
-                ],
+                  )],
               ),
-            )));
+            )
+        )
+    );
   }
 }

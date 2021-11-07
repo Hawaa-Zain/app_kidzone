@@ -47,7 +47,6 @@ class _CenterDetailsState extends State<CenterDetails> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     // final centersTitle = ModalRoute

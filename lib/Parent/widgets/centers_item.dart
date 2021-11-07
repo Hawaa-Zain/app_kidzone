@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kidzone_app/Parent/center_details.dart';
 import 'package:kidzone_app/Parent/comments.dart';
-import 'package:kidzone_app/providers/center.dart';
-import 'package:provider/provider.dart';
+
 
 class CentersItem extends StatelessWidget {
   double rating=0;
@@ -77,9 +76,9 @@ class CentersItem extends StatelessWidget {
 
                     ),
                   ),
-                );
-      }
+    );
+  }
 
 
   setState(Null Function() param0) {}
-}
+ }

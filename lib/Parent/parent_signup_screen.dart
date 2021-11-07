@@ -5,13 +5,13 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
 User? user = FirebaseAuth.instance.currentUser;
-class SignUpScreen extends StatefulWidget {
+class ParentSignUpScreen extends StatefulWidget {
   static const String screenRoute = 'signup_screen';
   @override
   State<StatefulWidget> createState() => InitState();
 }
 
-class InitState extends State<SignUpScreen> {
+class InitState extends State<ParentSignUpScreen> {
   late String _name;
   late String _email;
   late String _password;
@@ -308,14 +308,14 @@ class InitState extends State<SignUpScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ParentLoginScreen(),
-                                  ));
-                            })
-                      ],
+                                    builder: (context) => ParentLoginScreen(),)
+
+                        );})],
                     ),
-                  )
-                ],
+                  )],
               ),
-            )));
+            )
+        )
+    );
   }
 }

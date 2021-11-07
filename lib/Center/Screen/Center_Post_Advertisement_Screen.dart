@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PostAdvScreens extends StatelessWidget {
+class CenterPostAdvertisementScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,12 +47,11 @@ class PostAdvScreens extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),),
-                ),
-              ],),
-          ),
-
-        ]));
+                      fontSize: 20,),),
+                ),],
+            ),
+          ),]
+        )
+    );
   }
 }

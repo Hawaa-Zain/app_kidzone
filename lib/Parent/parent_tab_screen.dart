@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/adve_Screen.dart';
+import 'package:kidzone_app/Parent/Parent_See_Advertisement_Screen.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
 import 'package:kidzone_app/Parent/parent_chat_screen.dart';
-import 'package:kidzone_app/Parent/profile_screen.dart';
+import 'package:kidzone_app/Parent/Parent_profile_screen.dart';
 
 
-class TabsScreen extends StatefulWidget {
+class ParentTabsScreen extends StatefulWidget {
   @override
-  _TabsScreen createState() => _TabsScreen();
+  _ParentTabsScreen createState() => _ParentTabsScreen();
 }
 
-class _TabsScreen extends State<TabsScreen> {
+class _ParentTabsScreen extends State<ParentTabsScreen> {
   int currentIndex = 0;
   final screens = [
    CentersScreen(),
-    AdveScreen(),
+    ParentSeeAdvertisement(),
     ParentChatScreen(),
-    ProfileScreen(),
+    ParentProfileScreen(),
   ];
 
   @override
@@ -56,9 +56,7 @@ class _TabsScreen extends State<TabsScreen> {
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: ' حسابي',
-          backgroundColor: Colors.purple.shade300,
-        ),
-      ],
+          backgroundColor: Colors.purple.shade300,),],
     ),
   );
 }

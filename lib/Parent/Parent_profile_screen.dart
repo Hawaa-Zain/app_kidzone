@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ParentProfileScreen extends StatefulWidget {
+  const ParentProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ParentProfileScreen> createState() => _ParentProfileScreen();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ParentProfileScreen extends State<ParentProfileScreen> {
   late User _user;
 
   @override
@@ -107,13 +107,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Navigator.pushReplacement(context,
                                 MaterialPageRoute(builder: (context) => ParentLoginScreen()));
                           });
-                        },
-                      ),
-                    ])),
-              ])
-          ;
-        }  );
-      }
+                        },),]
+                    )
+                ),]
+          );}
+        );}
     ),
   );
 }

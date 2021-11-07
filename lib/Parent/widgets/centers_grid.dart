@@ -34,26 +34,25 @@ class CentersGrid extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
-    scrollDirection: Axis.vertical,
-    shrinkWrap: true,
-    itemCount: snapshot.data!.docs.length,
-    itemBuilder: (context, index) {
-      final cendoc = snapshot.data!.docs[index];
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+            final cendoc = snapshot.data!.docs[index];
 
-      return CentersItem(cendoc);
-      // itemCount: centerss.length,
-      // itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-      //   value: centerss[i],
-      //   child: CentersItem(
-      //       //Centerss[i].title,
-      //       // Centerss[i].description,
-      //       //  Centerss[i].price,
-      //   //  Centerss[i].imageAssets,
-      //       ),
-      // ),
-
-    } );
-      }
+            return CentersItem(cendoc);
+            // itemCount: centerss.length,
+              // itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+              //value: centerss[i],
+              //child: CentersItem(
+              //Centerss[i].title,
+              //Centerss[i].description,
+              //Centerss[i].price,
+              //Centerss[i].imageAssets,
+              //       ),
+              // ),
+          } );
+        }
     );
   }
 }

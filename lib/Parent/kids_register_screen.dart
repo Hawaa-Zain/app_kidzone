@@ -1,15 +1,14 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
 
 TextEditingController birthDateController = TextEditingController();
 TextEditingController  dateBookingController = TextEditingController();
-TextEditingController  StartTimeBookingController = TextEditingController();
-TextEditingController EndTimeBookingController = TextEditingController();
+TextEditingController  startTimeBookingController = TextEditingController();
+TextEditingController endTimeBookingController = TextEditingController();
 
 class KidsRegisterScreen extends StatefulWidget {
   @override
@@ -230,7 +229,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                           SizedBox(
                                             width:150,
                                             child:TextFormField(
-                                              controller: StartTimeBookingController,
+                                              controller: startTimeBookingController,
                                               decoration: InputDecoration(
                                                 hintText: "",
                                                 labelStyle:
@@ -261,7 +260,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                           SizedBox(
                                             width:150,
                                             child:TextFormField(
-                                              controller: EndTimeBookingController,
+                                              controller: endTimeBookingController,
                                               decoration: InputDecoration(
                                                 hintText: "",
                                                 labelStyle:
@@ -305,16 +304,15 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                           child: Text(
                             'إرسال طلب',
                             style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
+                              color: Colors.white,),),
+                        ),],
                     ),
-                  ),
-                ]),
+                  ),]
+                ),
               ),
-            ])));
+            ])
+        )
+    );
   }
 
 
@@ -382,7 +380,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
         }
     ).then((time) {
       if (time != null) {
-        StartTimeBookingController.text = (time.format(context,)).toString();
+        startTimeBookingController.text = (time.format(context,)).toString();
       }
     });
   }
@@ -399,7 +397,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
         }
     ).then((time) {
       if (time != null) {
-        EndTimeBookingController.text = (time.format(context,)).toString();
+        endTimeBookingController.text = (time.format(context,)).toString();
       }
     });
   }

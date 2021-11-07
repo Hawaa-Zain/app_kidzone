@@ -2,17 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kidzone_app/Parent/parent_signup_screen.dart';
-import 'package:kidzone_app/Parent/parent_tab_screen.dart';
+import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
+import 'package:kidzone_app/Center/Screen/Center_Signup.dart';
+import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
-
-
-class ParentLoginScreen extends StatefulWidget {
+class LoginCenter extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StartState();
 }
 
-class StartState extends State<ParentLoginScreen> {
+class StartState extends State<LoginCenter> {
 
   late String? _email;
   late String? _password;
@@ -20,18 +19,20 @@ class StartState extends State<ParentLoginScreen> {
   bool loading = false;
   late String _error;
   FirebaseAuth auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
+
     return initWidget();
   }
 
   initWidget() {
+
+
     Future<String?> canLogin(String email) async {
       String? role;
 
       await FirebaseFirestore.instance
-          .collection('Parent')
+          .collection('Centers')
           .where('email', isEqualTo: email)
           .get()
           .then((QuerySnapshot querySnapshot) {
@@ -57,17 +58,17 @@ class StartState extends State<ParentLoginScreen> {
         setState(() => loading = true);
         dynamic role = await canLogin(_email!);
         print('$role inside onpress function');
-        if (role == 'Parent') {
+        if (role == 'Center') {
           try {
             await auth.signInWithEmailAndPassword(
                 email: _email!, password: _password!);
 
             //if (result.credential!.signInMethod.isNotEmpty) {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => ParentTabsScreen()));
-            // var router = MaterialPageRoute(
-            //     builder: (BuildContext context) => ProfileScreen());
-            // Navigator.of(context).push(router);
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => CentersTapsScreens()));
+              // var router = MaterialPageRoute(
+              //     builder: (BuildContext context) => ProfileScreen());
+              // Navigator.of(context).push(router);
             // } else {
             //   setState(() => loading = false);
             //   print('user not found');
@@ -87,7 +88,7 @@ class StartState extends State<ParentLoginScreen> {
           }
         } else {
           setState(() => loading = false);
-          print('This user is not a Parent');
+          print('This user is not a Center');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -96,7 +97,7 @@ class StartState extends State<ParentLoginScreen> {
           );
 
           Fluttertoast.showToast(
-            msg: "الايميل غير تابع للاهالي",
+            msg: "البريد الإلكتروني غير تابع لمركز",
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 20.0,
@@ -104,6 +105,8 @@ class StartState extends State<ParentLoginScreen> {
         }
       }
     }
+
+
     return Scaffold(
         body: SingleChildScrollView(
             child: Form(
@@ -118,8 +121,7 @@ class StartState extends State<ParentLoginScreen> {
                       gradient: LinearGradient(
                         colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
                         begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
+                        end: Alignment.bottomCenter,),
                     ),
                     child: Center(
                         child: Column(
@@ -129,13 +131,12 @@ class StartState extends State<ParentLoginScreen> {
                             Container(
                               margin: EdgeInsets.only(right: 20, top: 20),
                               alignment: Alignment.center,
-                              child: Text(
-                                "تسجيل دخول",
+                              child: Text("تسجيل دخول",
                                 style: TextStyle(fontSize: 20, color: Colors.white),
                               ),
-                            )
-                          ],
-                        )),
+                            ),],
+                        ),
+                    ),
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -150,18 +151,17 @@ class StartState extends State<ParentLoginScreen> {
                             offset: Offset(0, 10),
                             blurRadius: 50,
                             color: Color(0xffEEEEEE)),
-                      ],
-                    ),
+                      ],),
                     child: TextFormField(
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return 'البريد الإلكتروني مطلوب';
                         }
                         return null;
-                      },
+                        },
                       onSaved: (String? value) {
                         _email = value!;
-                      },
+                        },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
                         icon: Icon(
@@ -187,19 +187,18 @@ class StartState extends State<ParentLoginScreen> {
                             offset: Offset(0, 20),
                             blurRadius: 100,
                             color: Color(0xffEEEEEE)),
-                      ],
-                    ),
+                      ],),
                     child: TextFormField(
                       obscureText: true,
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'الرقم السري مطلوب';
+                          return ' كلمة المرور مطلوبة';
                         }
                         return null;
-                      },
+                        },
                       onSaved: (String? value) {
                         _password = value!;
-                      },
+                        },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
                         focusColor: Color(0xFFBBA68C8),
@@ -218,7 +217,7 @@ class StartState extends State<ParentLoginScreen> {
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
                       onTap: () {
-                        // Write Click Listener Code Here
+
                       },
                       child: Text("هل نسيت كلمة المرور؟"),
                     ),
@@ -226,8 +225,7 @@ class StartState extends State<ParentLoginScreen> {
                   GestureDetector(
                     onTap: () {
                       validateAndSubmit();
-                      // Write Click Listener Code Here.
-                    },
+                      },
                     child: Container(
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(left: 20, right: 20, top: 70),
@@ -247,8 +245,7 @@ class StartState extends State<ParentLoginScreen> {
                               color: Color(0xffEEEEEE)),
                         ],
                       ),
-                      child: Text(
-                        "دخول",
+                      child: Text("دخول",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -260,16 +257,14 @@ class StartState extends State<ParentLoginScreen> {
                       children: [
                         Text("ليس لديك حساب؟ "),
                         GestureDetector(
-                          child: Text(
-                            "سجل الان",
+                          child: Text("سجل الان",
                             style: TextStyle(color: Color(0xFFBBA68C8)),
                           ),
                           onTap: () {
-                            // Write Tap Code Here.
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) => ParentSignUpScreen(),)
+                                MaterialPageRoute(builder: (context) => SignUpCenter(),)
+
                             );},
                         )],
                     ),

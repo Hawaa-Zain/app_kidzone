@@ -120,16 +120,13 @@ class _LoginAdmin extends State<LoginAdmin> {
                       offset: Offset(0, 10),
                       blurRadius: 50,
                       color: Color(0xffEEEEEE)),
-                ],
-              ),
+                ],),
               child: Text(
                 "دخول",
-                style: TextStyle(color: Colors.white),
-              ),
+                style: TextStyle(color: Colors.white),),
             ),
-          ),
-
-
-        ])));
+          ),]
+      ))
+    );
   }
 }

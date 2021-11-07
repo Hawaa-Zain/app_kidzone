@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
           home: SplashScreen(),
           routes: {
             //CenterDetails.routName: (ctx) => CenterDetails(),
-          }),
+          }
+      ),
     );
   }
 }

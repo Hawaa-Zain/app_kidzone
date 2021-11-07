@@ -25,21 +25,19 @@ class KidDetails extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(right: 20, top: 20),
+                          margin: EdgeInsets.only(right: 20, top: 20,),
                           alignment: Alignment.bottomCenter,
                           child: Text(
                             "معلومات الطفل ",
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
-                      ],
-                    )),
+                              fontWeight: FontWeight.bold,),),
+                        )],
+                    )
+                ),
               ),
-              SizedBox(height: 60),
+              SizedBox(height: 40),
               Container(
                 alignment: Alignment.topCenter,
                 child: Card(
@@ -86,11 +84,12 @@ class KidDetails extends StatelessWidget {
                           Icons.timer,
                           color: Colors.purple,
                           size: 25,),
-                      ),
-                    ],
+                      ),],
                   ),
                 ),
-              ),
-            ])));
+              ),]
+            )
+        )
+    );
   }
 }

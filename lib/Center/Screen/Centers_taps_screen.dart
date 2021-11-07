@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/Screen/kids%20_Register%20_Order.dart';
-import 'package:kidzone_app/Center/Screen/postAdv_Screen.dart';
+import 'package:kidzone_app/Center/Screen/Center_Post_Advertisement_Screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_chat_Screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_profile_screen.dart';
 
@@ -13,7 +13,7 @@ class _CentersTapsScreens extends State<CentersTapsScreens> {
   int currentIndex = 0;
   final screens = [
     KidsRegisterOrder(),
-    PostAdvScreens(),
+    CenterPostAdvertisementScreens(),
     CenterChatScreens(),
     CenterProfileScreens(),
   ];
@@ -55,9 +55,7 @@ class _CentersTapsScreens extends State<CentersTapsScreens> {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: ' حسابي',
-              backgroundColor: Colors.purple.shade300,
-            ),
-          ],
+              backgroundColor: Colors.purple.shade300,),],
         ),
-      );
+  );
 }
