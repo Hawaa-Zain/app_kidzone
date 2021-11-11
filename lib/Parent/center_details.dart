@@ -40,9 +40,9 @@ class _CenterDetailsState extends State<CenterDetails> {
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(10),
       ),
-      height: 200,
+      height: 50,
       padding: EdgeInsets.all(10),
-      margin: EdgeInsets.symmetric(horizontal: 15),
+      margin: EdgeInsets.symmetric(horizontal: 8),
       child: child,
     );
   }
@@ -80,29 +80,59 @@ class _CenterDetailsState extends State<CenterDetails> {
           body: Column(
             children: <Widget>[
               Container(
-                height: 300,
+                height: 100,
                 width: 400,
                 child: Image.network(
                   widget.cendoc["image_url"],
                   fit: BoxFit.cover,
                 ),
               ),
-              buildSectionTitle(context, 'معلومات الحضانة'),
-              buildListViewContainer(
-                ListView.builder(
-                  itemBuilder: (ctx, index) => Card(
-                    elevation: 0.3,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 5,
-                        horizontal: 10,
-                      ),
-                      child: Text(widget.cendoc["name"]),
-                    ),
-                  ),
-                ),
+              ListTile(
+                title: Text('معلومات الحضانة'),
               ),
-              SizedBox(height: 10),
+              ListTile(
+                leading: Icon(Icons.person,
+                    color: Colors.purple.shade300,),
+                title: Text(widget.cendoc["name"],
+                ),
+
+              ),
+              ListTile(
+                leading: Icon(Icons.email,
+                color: Colors.purple.shade300),
+                title: Text(widget.cendoc["name"]),
+              ),
+              ListTile(
+                leading: Icon(Icons.phone,
+                    color: Colors.purple.shade300),
+                title: Text(widget.cendoc["name"]),
+
+              ),
+              ListTile(
+                leading: Icon(Icons.location_on,
+                    color: Colors.purple.shade300),
+                title: Text(widget.cendoc["name"]),
+              ),
+              ListTile(
+                leading: Icon(Icons.access_time,
+                    color: Colors.purple.shade300),
+                title: Text(widget.cendoc["name"]),
+              ),
+              ListTile(
+                leading: Icon(Icons.child_friendly_outlined,
+                    color: Colors.purple.shade300),
+                title: Text(widget.cendoc["name"]),
+              ),
+          ListTile(
+            leading: Icon(Icons.attach_money_outlined,
+                color: Colors.purple.shade300),
+            title: Text(widget.cendoc["name"]),
+          ),
+              ListTile(
+                leading: Icon(Icons.vpn_key,
+                    color: Colors.purple.shade300),
+                title: Text(widget.cendoc["name"]),
+              ),
               Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
