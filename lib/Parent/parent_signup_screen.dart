@@ -14,6 +14,7 @@ class ParentSignUpScreen extends StatefulWidget {
 class InitState extends State<ParentSignUpScreen> {
   late String _name;
   late String _email;
+  late String _phone;
   late String _password;
 
 
@@ -46,8 +47,10 @@ class InitState extends State<ParentSignUpScreen> {
             'name': _name,
             'role': 'Parent',
             'email': _email,
+            "phone": _phone,
             'userID': user!.uid,
           });
+
           Fluttertoast.showToast(
             msg: "تم التسجيل بنجاح",
             backgroundColor: Colors.green,
@@ -207,7 +210,7 @@ class InitState extends State<ParentSignUpScreen> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _password = value!;
+                        _phone = value!;
                       },
                       obscureText: true,
                       cursorColor: Color(0xFFBBA68C8),

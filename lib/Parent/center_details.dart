@@ -49,6 +49,24 @@ class _CenterDetailsState extends State<CenterDetails> {
 
   @override
   Widget build(BuildContext context) {
+
+    // //to check the status of the registration of the user
+    // checkRegistration() async {
+    //   //User currentUser = FirebaseAuth.instance.currentUser;
+    //   String checkReg;
+    //   await FirebaseFirestore.instance
+    //       .collection('Parent')
+    //       .doc(user!.uid)
+    //   .collection("Children")
+    //       .get()
+    //       .then((QuerySnapshot querySnapshot) {
+    //     querySnapshot.docs.forEach((doc) {
+    //       checkReg = doc['checkReg'];
+    //
+    //     });
+    //   });
+    // }
+
     // final centersTitle = ModalRoute
     //     .of(context)!
     //     .settings
@@ -77,61 +95,63 @@ class _CenterDetailsState extends State<CenterDetails> {
           appBar: AppBar(
             title: Text(widget.cendoc["name"]),
           ),
-          body: Column(
-            children: <Widget>[
-              Container(
-                height: 300,
-                width: 400,
-                child: Image.network(
-                  widget.cendoc["image_url"],
-                  fit: BoxFit.cover,
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 300,
+                  width: 400,
+                  child: Image.network(
+                    widget.cendoc["image_url"],
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              buildSectionTitle(context, 'معلومات الحضانة'),
-              buildListViewContainer(
-                ListView.builder(
-                  itemBuilder: (ctx, index) => Card(
-                    elevation: 0.3,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 5,
-                        horizontal: 10,
+                buildSectionTitle(context, 'معلومات الحضانة'),
+                buildListViewContainer(
+                  ListView.builder(
+                    itemBuilder: (ctx, index) => Card(
+                      elevation: 0.3,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 10,
+                        ),
+                        child: Text(widget.cendoc["name"]),
                       ),
-                      child: Text(widget.cendoc["name"]),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    RaisedButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => KidsRegisterScreen()),
-                        );
-                      },
-                      padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
-                      color: Colors.purple.shade300,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Text(
-                        ' التسجيل ',
-                        style: TextStyle(
-                          color: Colors.white,
+                SizedBox(height: 10),
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => KidsRegisterScreen(widget.cendoc)),
+                          );
+                        },
+                        padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                        color: Colors.purple.shade300,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Text(
+                          ' التسجيل ',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+
                 ),
 
-              ),
+              ],
 
-            ],
-
+            ),
           ),
         );
       }

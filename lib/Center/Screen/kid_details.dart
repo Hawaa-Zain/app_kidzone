@@ -1,6 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class KidDetails extends StatelessWidget {
+class KidDetails extends StatefulWidget {
+  final kidInfo;
+  KidDetails(this.kidInfo);
+
+  @override
+  State<KidDetails> createState() => _KidDetailsState();
+}
+
+class _KidDetailsState extends State<KidDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,24 +62,28 @@ class KidDetails extends StatelessWidget {
                           Icons.person_outlined,
                           color: Colors.purple[300],
                           size: 25,),
+                        title: Text(widget.kidInfo['name']),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.calendar_today_outlined,
                           color: Colors.purple[300],
                           size: 25,),
+                        title: Text(widget.kidInfo['dateBooking']),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.phone,
                           color: Colors.purple[300],
                           size: 25,),
+                        title: Text(widget.kidInfo['phoneNumber']),
                       ),
                       ListTile(
                         leading: Icon(
-                          Icons.assignment_turned_in_outlined,
+                          Icons.person,
                           color: Colors.purple,
                           size: 25,),
+                        title: Text(widget.kidInfo['gender']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -78,13 +91,29 @@ class KidDetails extends StatelessWidget {
                           color: Colors.purple,
                           size: 25,
                         ),
+                        title: Text(widget.kidInfo['dateBooking']),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.timer,
                           color: Colors.purple,
                           size: 25,),
-                      ),],
+                        title: Row(
+                          children: [
+                            Text(widget.kidInfo["startTimeBooking"]),
+                            Text(widget.kidInfo["endTimeBooking"]),
+                          ],
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.check,
+                          color: Colors.purple,
+                          size: 25,),
+                        title:
+                            Text(widget.kidInfo["checkReg"]),
+                      ),
+                    ],
                   ),
                 ),
               ),]

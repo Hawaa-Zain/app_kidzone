@@ -19,6 +19,11 @@ class SignUpCenter extends StatefulWidget {
 class InitState extends State<SignUpCenter> {
   late String _name;
   late String _email;
+  late String _phone;
+  late String _address;
+  late String _workingHours;
+  late String _kidsAge;
+  late String _price;
   late String _password;
   bool loading = false;
   File? _image;
@@ -73,6 +78,11 @@ class InitState extends State<SignUpCenter> {
             'name': _name,
             'role': 'Center',
             'email': _email,
+            'phone':_phone,
+            'price': _price,
+            'address': _address,
+            'kidsAge': _kidsAge,
+            'workingHours': _workingHours,
             'image_url': url,
             'userID': user!.uid,
           });
@@ -260,7 +270,7 @@ class InitState extends State<SignUpCenter> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _email = value!;
+                        _phone = value!;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -297,7 +307,7 @@ class InitState extends State<SignUpCenter> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _name = value!;
+                        _address = value!;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -334,7 +344,7 @@ class InitState extends State<SignUpCenter> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _email = value!;
+                        _workingHours = value!;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -371,7 +381,7 @@ class InitState extends State<SignUpCenter> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _email = value!;
+                        _kidsAge = value!;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -408,7 +418,7 @@ class InitState extends State<SignUpCenter> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _email = value!;
+                        _price = value!;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
