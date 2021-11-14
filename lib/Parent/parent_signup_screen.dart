@@ -168,7 +168,7 @@ class InitState extends State<ParentSignUpScreen> {
                     child: TextFormField(
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'الايميل مطلوب';
+                          return 'البريد الالكتروني مطلوب';
                         }
                         return null;
                       },
@@ -245,7 +245,7 @@ class InitState extends State<ParentSignUpScreen> {
                       obscureText: true,
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'الرقم السري مطلوب';
+                          return 'كلمة المرور  مطلوبة';
                         }
                         return null;
                       },

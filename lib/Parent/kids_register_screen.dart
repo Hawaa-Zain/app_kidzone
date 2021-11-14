@@ -5,8 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-
-import 'center_details.dart';
 import 'centers_screen.dart';
 
 
@@ -82,7 +80,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
 
               });
           Fluttertoast.showToast(
-            msg: "تم التسجيل بنجاح",
+            msg: "تم إرسال الطلب بنجاح",
             backgroundColor: Colors.green,
             textColor: Colors.black,
             fontSize: 20.0,
@@ -261,7 +259,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                         children: <Widget>[
                           Center(
                             child: Container(
-                              height: 250,
+                              height: 300,
                               width: 450,
                               child: Card(
                                 margin: EdgeInsets.all(0.2),
@@ -274,9 +272,8 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                 ),
                                 child: Column(
                                     children: [
-                                      Text("   * اذا قمت باختيار( ساعات معينة / "
-                                          "يوم )"
-                                          "  الرجاء اختيار الوقت و التاريخ",
+                                      Text(" اذا اخترت (ساعات معينة / يوم) "
+                                          "الرجاء تحديد الوقت و التاريخ  ",
                                         style: const TextStyle(
                                           height: 3,
                                           fontSize: 13.0,

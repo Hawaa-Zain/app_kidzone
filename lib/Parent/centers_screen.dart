@@ -56,6 +56,7 @@ class _OrdersPageState extends State<OrdersPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("طلباتي"),
+        backgroundColor: Colors.purple[300],
       ),
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance

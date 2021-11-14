@@ -65,8 +65,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           color: Colors.purple[300],
                         ),
                         title: Text(snapshot.data!['name']),
-                        trailing: Icon(Icons.keyboard_arrow_left),
-                        onTap: () {},
+
                       ),
                       ListTile(
                         leading: Icon(
@@ -74,8 +73,6 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           color: Colors.purple[300],
                         ),
                         title: Text(snapshot.data!['email']),
-                        trailing: Icon(Icons.keyboard_arrow_left),
-                        onTap: () {},
                       ),
                       ListTile(
                         leading: Icon(
@@ -83,8 +80,6 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           color: Colors.purple[300],
                         ),
                         title: Text(' رقم الجوال'),
-                        trailing: Icon(Icons.keyboard_arrow_left),
-                        onTap: () {},
                       ),
                       ListTile(
                         leading: Icon(

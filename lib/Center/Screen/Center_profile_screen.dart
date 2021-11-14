@@ -75,8 +75,6 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                 color: Colors.purple[300],
                               ),
                               title: Text(snapshot.data!['email']),
-                              trailing: Icon(Icons.keyboard_arrow_left),
-                              onTap: () {},
                             ),
                             ListTile(
                               leading: Icon(
@@ -84,8 +82,6 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                 color: Colors.purple[300],
                               ),
                               title: Text(' رقم الجوال'),
-                              trailing: Icon(Icons.keyboard_arrow_left),
-                              onTap: () {},
                             ),
                             ListTile(
                               leading: Icon(

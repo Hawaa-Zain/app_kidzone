@@ -15,6 +15,11 @@ class _HomeAdmin extends State<HomeAdmin> {
         title: Text('طلبات مراكز الحضانة '),
         backgroundColor: Colors.purple[300],
         automaticallyImplyLeading: false,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.power_settings_new_outlined),
+            onPressed: () {},
+          ),],
       ),
       body: OrderCenter(),
 
