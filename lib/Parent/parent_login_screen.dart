@@ -5,22 +5,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Parent/parent_signup_screen.dart';
 import 'package:kidzone_app/Parent/parent_tab_screen.dart';
 
-
-
 class ParentLoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StartState();
 }
-
 class StartState extends State<ParentLoginScreen> {
-
   late String? _email;
   late String? _password;
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   late String _error;
   FirebaseAuth auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
     return initWidget();
@@ -29,7 +24,6 @@ class StartState extends State<ParentLoginScreen> {
   initWidget() {
     Future<String?> canLogin(String email) async {
       String? role;
-
       await FirebaseFirestore.instance
           .collection('Parent')
           .where('email', isEqualTo: email)
@@ -41,7 +35,6 @@ class StartState extends State<ParentLoginScreen> {
       return role;
     }
 
-
     bool validateAndSave() {
       final form = _formKey.currentState;
       if (form!.validate()) {
@@ -51,7 +44,6 @@ class StartState extends State<ParentLoginScreen> {
       }
       return false;
     }
-
     void validateAndSubmit() async {
       if (validateAndSave()) {
         setState(() => loading = true);
@@ -61,7 +53,6 @@ class StartState extends State<ParentLoginScreen> {
           try {
             await auth.signInWithEmailAndPassword(
                 email: _email!, password: _password!);
-
             //if (result.credential!.signInMethod.isNotEmpty) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => ParentTabsScreen()));
@@ -87,7 +78,7 @@ class StartState extends State<ParentLoginScreen> {
           }
         } else {
           setState(() => loading = false);
-          print('This user is not a Parent');
+          print('هذا المستخدم ليس أحد الوالدين');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(

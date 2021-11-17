@@ -45,7 +45,6 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
             print(snapshot.data);
             return CircularProgressIndicator();
           }
-
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }

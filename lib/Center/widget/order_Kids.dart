@@ -99,13 +99,13 @@ class _OrderKidsState extends State<OrderKids> {
                                      children: <Widget>[
                                        RaisedButton(
                                          onPressed: () async {
-                                           if (doc['checkReg'] == 'waiting')
+                                           if (doc['checkReg'] == 'انظار')
                                              await FirebaseFirestore.instance
                                                  .collection("Centers")
                                                  .doc(user!.uid)
                                                  .collection("Registration").doc(doc['childID']).update(
                                                  {
-                                                   'checkReg': 'Accept',
+                                                   'checkReg': 'قبول',
                                                  });
                                            print(doc['checkReg']);
                                          },
@@ -119,13 +119,13 @@ class _OrderKidsState extends State<OrderKids> {
                                        ),
                                        RaisedButton(
                                          onPressed: () {
-                                           if (doc['checkReg'] == 'waiting')
+                                           if (doc['checkReg'] == 'انتظار')
                                               FirebaseFirestore.instance
                                                  .collection("Centers")
                                                  .doc(user!.uid)
                                                  .collection("Registration").doc(doc['childID']).update(
                                                  {
-                                                   'checkReg': 'Reject',
+                                                   'checkReg': 'رفض',
                                                  });
                                            print(doc['checkReg']);
                                          },

@@ -10,19 +10,13 @@ class ParentSignUpScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => InitState();
 }
-
 class InitState extends State<ParentSignUpScreen> {
   late String _name;
   late String _email;
   late String _phone;
   late String _password;
-
-
   bool loading = false;
-
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   bool validateAndSave() {
     final form = _formKey.currentState;
     if (form!.validate()) {
@@ -32,8 +26,7 @@ class InitState extends State<ParentSignUpScreen> {
     }
     return false;
   }
-
-  // check if the form validate then create it then upload it to firestore
+  // check if the form validate then create it then upload it to Firestore
   void validateAndSubmit() async {
     if (validateAndSave()) {
       setState(() => loading = true);
@@ -41,7 +34,6 @@ class InitState extends State<ParentSignUpScreen> {
         var result = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
         print(result);
-
         //if (result != null) {
           FirebaseFirestore.instance.collection('Parent').doc(user!.uid).set({
             'name': _name,
@@ -69,8 +61,6 @@ class InitState extends State<ParentSignUpScreen> {
       }
     }
   }
-
-
   @override
   Widget build(BuildContext context) => initWidget();
 

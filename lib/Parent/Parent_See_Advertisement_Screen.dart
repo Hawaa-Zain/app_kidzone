@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
+import 'package:kidzone_app/Parent/parent_tab_screen.dart';
 
 void main() => runApp(ParentSeeAdvertisement());
 
@@ -18,10 +19,8 @@ class ParentSeeAdvertisement extends StatelessWidget {
                 child: InkWell(
                   splashColor: Colors.black.withAlpha(30),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CentersScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=> ParentTabsScreen()
+                    ));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(8),
