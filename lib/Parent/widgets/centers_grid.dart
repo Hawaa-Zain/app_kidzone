@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/widgets/centers_item.dart';
-import 'package:kidzone_app/providers/centers.dart';
-import 'package:provider/provider.dart';
 
 class CentersGrid extends StatelessWidget {
   @override

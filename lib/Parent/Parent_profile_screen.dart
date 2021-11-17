@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/parent_login_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 
 
@@ -55,6 +54,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
           return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                SizedBox(height: 130),
                 Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -144,9 +144,8 @@ void _onLogoutpressed(BuildContext context){
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 100, right: 100, top: 5),
+                    margin: EdgeInsets.only(left: 100, right: 100,top: 30 ,bottom: 50),
                     padding: EdgeInsets.only(left: 10, right: 10),
-
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                           colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],

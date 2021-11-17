@@ -71,14 +71,10 @@ class CentersItem extends StatelessWidget {
                             setState(() {
                               this.rating = rating;
                             }),
-
                       ),
-
                     ),
                   ),
     );
   }
-
-
   setState(Null Function() param0) {}
  }

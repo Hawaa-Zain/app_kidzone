@@ -56,11 +56,40 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
               itemBuilder: (context, index) {
                 //final _userDoc = snapshot.data;
                 return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
+                      SizedBox(height: 30),
+                      SizedBox(
+                        height: 115,
+                        width: 115,
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          fit: StackFit.expand,
+                          children: [
+                            CircleAvatar(
+                              radius: 40,
+                              backgroundColor: Colors.grey[200],
+                            ),
+                            SizedBox(height: 20,),
+                            Positioned(
+                              bottom: -15,
+                              right: -10,
+                              child: FlatButton.icon(
+                                textColor: Colors.purple.shade300,
+                                onPressed: (){},
+                                icon: Icon(Icons.photo,
+                                    size: 30),
+                                label: Text('',style: TextStyle(
+                                  color: Colors.black54,
+                                  fontSize: 6,),
+                                ),
+                              ),
+                            ),],
+                        ),
+                      ),
                       Card(
                           margin: EdgeInsets.only(left: 20, right: 20, bottom:
-                          5,top: 130),
+                          5,top: 40),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(children: <Widget>[
