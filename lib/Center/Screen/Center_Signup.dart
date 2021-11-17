@@ -462,7 +462,7 @@ class InitState extends State<SignUpCenter> {
                       decoration: InputDecoration(
                         focusColor: Color(0xFFBBA68C8),
                         icon: Icon(
-                          Icons.vpn_key,
+                          Icons.lock_outline,
                           color: Color(0xFFBBA68C8),
                         ),
                         hintText: "كلمة المرور ",
