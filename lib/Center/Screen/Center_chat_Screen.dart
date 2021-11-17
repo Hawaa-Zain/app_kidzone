@@ -39,13 +39,12 @@ class _CenterChatScreens extends State<CenterChatScreens> {
               ),
               child: Row(
                 children: <Widget>[
-                  IconButton(onPressed: (){}, icon: Icon(Icons.person),
-                    color: Colors.purple.shade300,),
                   Container(
-                    padding: EdgeInsets.all(2),
-                    decoration: BoxDecoration(
-                    ),
-
+                    padding: EdgeInsets.all(35),
+                  decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(40),
+          ),
                   ),
                   Container(
                     width: MediaQuery
