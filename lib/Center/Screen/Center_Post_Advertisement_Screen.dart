@@ -1,57 +1,64 @@
 import 'package:flutter/material.dart';
 
 class CenterPostAdvertisementScreens extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('نشر اعلان '),
+          title: Text(' اعلاناتي '),
           backgroundColor: Colors.purple[300],
         ),
-        body:  Column(children: <Widget>[
-          Center(
-            child: SizedBox(
-                height: 300,
-                width: 400,
-                child: Card(
-                  color: Colors.white10,
-                  shadowColor: Colors.black.withAlpha(30),
-                  child: InkWell(
-                    child: Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Expanded(
-                          child: FittedBox(
-                            child: IconButton(
-                              icon: Icon(Icons.photo_library,
-                                  color: Colors.purple[300], size: 10),
-                              onPressed: () {},
-                            ),
-                          )),
-                    ),),
-                )),
-          ),
-          SizedBox(height: 200),
-          Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                RaisedButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 70),
-                  color: Colors.purple.shade300,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: Text(
-                    ' نشر ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,),),
-                ),],
-            ),
-          ),]
-        )
+        body:Container(
+            margin: EdgeInsets.only(left: 5, right: 20, bottom: 5,top: 500),
+            padding: EdgeInsets.only(left: 10, right: 20),
+            child:FloatingActionButton(
+              backgroundColor:Colors.purple[300],
+              foregroundColor: Colors.white,
+              onPressed: () {
+                showAlertDialog(context);
+                },
+              child: Icon(Icons.add),
+            )
+        ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+
+    // set up the buttons
+    Widget cancelButton = TextButton(
+      child: Text("نشر"),
+      onPressed:  () {},
+    );
+    Widget continueButton = TextButton(
+      child: Text("الغاء"),
+      onPressed:  () {},
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("نشر إعلان"),
+      content: Row(children: [
+        Text("ارفاق صورة للإعلان"),
+        IconButton(
+          icon: Icon(Icons.photo_camera),
+          onPressed: () {},),
+      ], ),
+
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

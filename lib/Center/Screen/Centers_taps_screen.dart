@@ -44,7 +44,7 @@ class _CentersTapsScreens extends State<CentersTapsScreens> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.post_add),
-              label: 'نشر اعلان',
+              label: 'اعلاناتي',
               backgroundColor: Colors.purple.shade300,
             ),
             BottomNavigationBarItem(

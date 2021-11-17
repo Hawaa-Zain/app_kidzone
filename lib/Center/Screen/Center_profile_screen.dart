@@ -57,8 +57,10 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Card(
+                          margin: EdgeInsets.only(left: 20, right: 20, bottom:
+                          5,top: 130),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Column(children: <Widget>[
                             ListTile(
                               leading: Icon(
@@ -98,18 +100,50 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                 color: Colors.purple[300],
                               ),
                               title: Text(' تسجيل خروج  '),
-                              onTap: () async {
-                                // add then in signout..
-                                await FirebaseAuth.instance.signOut().then((value) {
-                                  Navigator.pushReplacement(context,
-                                      MaterialPageRoute(builder: (context) => LoginCenter()));
-                                });
-                              },
+                              onTap: () {showLogoutDialog(context);}
                             ),]
                           )
                       ),]
                 );}
               );}
         ),
+  );
+}
+
+showLogoutDialog(BuildContext context) {
+
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: Text("نعم "),
+    onPressed:  () async {
+      // add then in signout..
+      await FirebaseAuth.instance.signOut().then((value) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => LoginCenter()));
+      });
+    },
+  );
+  Widget continueButton = TextButton(
+    child: Text(" الغاء الامر"),
+    onPressed:  () {Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => CenterProfileScreens()));});
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("تسجيل خروج"),
+    content: Text(" هل انت متأكد انك تريد تسجيل الخروج؟" ),
+
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
   );
 }

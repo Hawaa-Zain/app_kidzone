@@ -96,17 +96,51 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           color: Colors.purple[300],
                         ),
                         title: Text(' تسجيل خروج  '),
-                        onTap: () async {
-                          // add then in signout..
-                          await FirebaseAuth.instance.signOut().then((value) {
-                            Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context) => ParentLoginScreen()));
-                          });
+                        onTap: () {
+                          showLogoutDialog(context);
                         },),]
                     )
                 ),]
           );}
         );}
     ),
+  );
+}
+
+showLogoutDialog(BuildContext context) {
+
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: Text("نعم "),
+    onPressed:  () async {
+      // add then in signout..
+      await FirebaseAuth.instance.signOut().then((value) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => ParentLoginScreen()));
+      });
+    },
+  );
+  Widget continueButton = TextButton(
+    child: Text(" الغاء الامر"),
+    onPressed:  () {},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("تسجيل خروج"),
+    content: Text(" هل انت متأكد انك تريد تسجيل الخروج؟" ),
+
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
   );
 }
