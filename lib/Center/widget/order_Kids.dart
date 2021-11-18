@@ -99,7 +99,7 @@ class _OrderKidsState extends State<OrderKids> {
                                      children: <Widget>[
                                        RaisedButton(
                                          onPressed: () async {
-                                           if (doc['checkReg'] == 'انظار')
+                                           if (doc['checkReg'] == 'انتظار')
                                              await FirebaseFirestore.instance
                                                  .collection("Centers")
                                                  .doc(user!.uid)
