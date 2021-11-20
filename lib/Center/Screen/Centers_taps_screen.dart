@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/center_commengts.dart';
 import 'package:kidzone_app/Center/Screen/kids%20_Register%20_Order.dart';
 import 'package:kidzone_app/Center/Screen/Center_Post_Advertisement_Screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_chat_Screen.dart';
@@ -15,6 +16,7 @@ class _CentersTapsScreens extends State<CentersTapsScreens> {
     KidsRegisterOrder(),
     CenterPostAdvertisementScreens(),
     CenterChatScreens(),
+    CenterComments(),
     CenterProfileScreens(),
   ];
 
@@ -30,8 +32,6 @@ class _CentersTapsScreens extends State<CentersTapsScreens> {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white30,
           iconSize: 20,
-          //selectedFontSize: 25,
-          //unselectedFontSize: 16,
           showSelectedLabels: true,
           showUnselectedLabels: false,
           currentIndex: currentIndex,
@@ -50,6 +50,11 @@ class _CentersTapsScreens extends State<CentersTapsScreens> {
             BottomNavigationBarItem(
               icon: Icon(Icons.chat),
               label: 'المحادثة',
+              backgroundColor: Colors.purple.shade300,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.comment),
+              label: 'التعليقات',
               backgroundColor: Colors.purple.shade300,
             ),
             BottomNavigationBarItem(

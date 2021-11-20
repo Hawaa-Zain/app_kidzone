@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/parent_chat_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 class SplashScreen extends StatefulWidget {
   @override
@@ -26,6 +25,7 @@ class InitState extends State<SplashScreen> {
     return initWidget();
   }
   Widget initWidget() {
+
     return Scaffold(
       body: Stack(
         children: [
