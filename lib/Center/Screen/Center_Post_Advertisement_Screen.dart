@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
+
 class CenterPostAdvertisementScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
           title: Text(' اعلاناتي '),
           backgroundColor: Colors.purple[300],
-        ),
+
+      ),
         body:Container(
             margin: EdgeInsets.only(left: 5, right: 20, bottom: 5,top: 500),
             padding: EdgeInsets.only(left: 10, right: 20),
@@ -34,7 +36,12 @@ class CenterPostAdvertisementScreens extends StatelessWidget {
     );
     Widget continueButton = TextButton(
       child: Text("الغاء"),
-      onPressed:  () {},
+      onPressed:  () {
+        Navigator.pop(context, MaterialPageRoute(builder: (_)=>
+            CenterPostAdvertisementScreens()
+        ));
+
+      },
     );
 
     // set up the AlertDialog

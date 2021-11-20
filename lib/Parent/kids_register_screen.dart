@@ -95,39 +95,14 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
     }
 
     return Scaffold(
+        appBar: AppBar(
+          title: Text(' التسجيل في الحضانة'),
+          backgroundColor: Colors.purple[300],
+        ),
         body: SingleChildScrollView(
             child: Form(
               key: _formKey,
               child: Column(children: [
-                Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(60),
-                        bottomRight: Radius.circular(60)),
-                    color: new Color(0xFFFFFFFF),
-                    gradient: LinearGradient(
-                      colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                  ),
-                  child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(right: 20, top: 20),
-                            alignment: Alignment.center,
-                            child: Text(
-                              " التسجيل في الحضانة",
-                              style: TextStyle(fontSize: 20, color: Colors.white),
-                            ),
-                          )
-                        ],
-                      )),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(15),
                   child: Column(children: [
@@ -259,7 +234,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                         children: <Widget>[
                           Center(
                             child: Container(
-                              height: 300,
+                              height: 260,
                               width: 450,
                               child: Card(
                                 margin: EdgeInsets.all(0.2),
@@ -311,10 +286,10 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                   ),
                                                 ),),
                                             ),]),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 20),
                                       Row(
                                           children:[
-                                            Text(' وقت دخول الطفل:   ',
+                                            Text('   وقت دخول الطفل:   ',
                                                 style:TextStyle(fontSize: 14.5,
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold)),
@@ -342,10 +317,10 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                   ),
                                                 ),),
                                             ),]),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 20),
                                       Row(
                                           children:[
-                                            Text(' وقت خروج الطفل:   ',
+                                            Text('   وقت خروج الطفل:   ',
                                                 style:TextStyle(fontSize: 14.5,
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold)),
@@ -370,34 +345,32 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                         Icons.timer,
                                                         color: Colors.black,
                                                         size: 20,)
-                                                  ),
-                                                ),),
-                                            ),]),
-
-                                    ]),),),
-                          ),
-
-                        ]),
+                                                  ),),
+                                              ),
+                                            ),]
+                                      ),]
+                                ),
+                              ),
+                            ),
+                          ),]
+                    ),
                     SizedBox(height: 5),
                     Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          RaisedButton(
-                            onPressed: () {
-                              validateAndSubmit();
-                            },
-                            padding: EdgeInsets.symmetric(
-                                vertical: 6.5, horizontal: 80),
-                            color: Colors.purple.shade300,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ElevatedButton(
+                            child: Text("إرسال الطلب"),
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                              onPrimary: Colors.white,
+                              primary: Colors.purple[300],
+                              shape: RoundedRectangleBorder(borderRadius:
+                              BorderRadius.circular(20)),
                             ),
-                            child: Text(
-                              'إرسال طلب',
-                              style: TextStyle(
-                                color: Colors.white,),),
-                          ),],
+                            onPressed:() {
+                              validateAndSubmit();},
+                          ),]
                       ),
                     ),]
                   ),

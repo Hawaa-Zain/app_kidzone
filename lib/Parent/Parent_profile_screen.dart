@@ -105,7 +105,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                         ),
                         title: Text(' تسجيل خروج  '),
                         onTap: () {
-                          _onLogoutpressed(context);
+                          _onLogOutPressed(context);
                         },),]
                     )
                 ),]
@@ -115,12 +115,12 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
   );
 }
 
-void _onLogoutpressed(BuildContext context){
+void _onLogOutPressed(BuildContext context){
   showModalBottomSheet(
       context:context,
       builder: (context){
-        return Container(
-            height: 240,
+        return  Container(
+            height: 280,
             color:Colors.white,
             child: Column(
               children: <Widget> [
@@ -129,14 +129,14 @@ void _onLogoutpressed(BuildContext context){
                   style: TextStyle(color: Colors.purple[300],
                       fontWeight: FontWeight.bold,
                       fontSize: 25),),
-                SizedBox(height: 15),
+                SizedBox(height: 8),
                 Text(" هل أنت متأكد أنك تريد تسجيل الخروج ؟",
                   style: TextStyle(color: Colors.purple[300],
                       fontSize: 15),),
-                SizedBox(height: 20),
+                SizedBox(height: 13.5),
                 GestureDetector(
                   onTap: () async {
-                    // add then in signout..
+                    // add then in SignOut..
                     await FirebaseAuth.instance.signOut().then((value) {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => WelcomeScreen()));
@@ -165,20 +165,20 @@ void _onLogoutpressed(BuildContext context){
                       FontWeight.bold, fontSize: 20),),
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 0.5),
                 Container(
-                  margin: EdgeInsets.all(10),
-                  child: FlatButton(
+                  margin: EdgeInsets.all(8),
+                  child: TextButton(
                     child: Text('إلغاء الامر'),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pop(
                           context,
-                          MaterialPageRoute(builder: (context) => ParentProfileScreen(),)
-
-                      );},
+                          MaterialPageRoute(builder: (context) => ParentProfileScreen(),));
+                      },
                   ),
                 ),],
-            ));
+            )
+        );
       });
 }
 
@@ -186,7 +186,7 @@ class ChangePasswordDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
+        body: SingleChildScrollView(
           child:Column(
             children: <Widget>[
               Center(
@@ -270,10 +270,10 @@ class ChangePasswordDialog extends StatelessWidget {
                             SizedBox(height: 5),
                             Container(
                               margin: EdgeInsets.all(10),
-                              child: FlatButton(
+                              child: TextButton(
                                 child: Text('إلغاء الامر'),
                                 onPressed: () {
-                                  Navigator.push(
+                                  Navigator.pop(
                                       context,
                                       MaterialPageRoute(builder: (context) =>
                                           ParentProfileScreen(),)

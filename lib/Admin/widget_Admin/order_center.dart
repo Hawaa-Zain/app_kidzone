@@ -54,19 +54,23 @@ class _OrderCenter extends State<OrderCenter> {
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 10,
                                 ),
-                                child: RaisedButton(
-                                  onPressed: (){
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) =>
-                                          CenterOrderDetails()),
-                                    );},
-                                  color: Colors.purple.shade300,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: Text('تفاصيل مركز الحضانة',),
-                                  textColor:Colors.white,),
-                              ),]
+                                child: ElevatedButton(
+                                    child: Text("تفاصيل مركز الحضانة"),
+                                    style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                                      onPrimary: Colors.white,
+                                      primary: Colors.purple[300],
+                                      onSurface: Colors.grey,
+                                      elevation: 20,
+                                      shape: RoundedRectangleBorder(borderRadius:
+                                      BorderRadius.circular(5)),
+                                    ),
+                                    onPressed:() {
+                                      Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) =>
+                                            CenterOrderDetails()),
+                                      );},
+                              ),)]
                         ),],
                     ),
                   ),

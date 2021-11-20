@@ -48,7 +48,7 @@ class CentersItem extends StatelessWidget {
                             Icons.add_comment_outlined, color: Colors.white,
                             size: 20),
                         onPressed: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                               context, MaterialPageRoute(builder: (context) =>
                               Comments
                                 ()));

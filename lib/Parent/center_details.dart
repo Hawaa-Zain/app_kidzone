@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/kids_register_screen.dart';
-import 'package:kidzone_app/providers/centers.dart';
-import 'package:provider/provider.dart';
+
 
 class CenterDetails extends StatefulWidget {
   final cendoc;
@@ -94,6 +93,7 @@ class _CenterDetailsState extends State<CenterDetails> {
         return Scaffold(
           appBar: AppBar(
             title: Text(widget.cendoc["name"]),
+            backgroundColor: Colors.purple[300],
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -144,24 +144,25 @@ class _CenterDetailsState extends State<CenterDetails> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      RaisedButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => KidsRegisterScreen(widget.cendoc)),
-                          );
-                        },
-                        padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
-                        color: Colors.purple.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ElevatedButton(
+                        child: Text("التسجيل"),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                          onPrimary: Colors.white,
+                          primary: Colors.purple[300],
+                          onSurface: Colors.grey,
+                          elevation: 20,
+                          shape: RoundedRectangleBorder(borderRadius:
+                          BorderRadius.circular(20)),
                         ),
-                        child: Text(
-                          ' التسجيل ',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                        onPressed:() {
+                          {
+                            Navigator.push(context,
+                              MaterialPageRoute(builder: (context) =>
+                                  KidsRegisterScreen(widget.cendoc)),
+                            );
+                          }
+                        }),
                       ],
                     ),
 

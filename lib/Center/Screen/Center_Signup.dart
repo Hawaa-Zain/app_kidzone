@@ -160,8 +160,10 @@ class InitState extends State<SignUpCenter> {
                         Positioned(
                           bottom: -15,
                           right: -10,
-                          child: FlatButton.icon(
-                            textColor: Colors.purple.shade300,
+                          child: TextButton.icon(
+                            style: TextButton.styleFrom(
+                              primary: Colors.purple[300],
+                            ),
                             onPressed: pickImage,
                             icon: Icon(Icons.camera_alt_outlined,
                                 size: 30),
