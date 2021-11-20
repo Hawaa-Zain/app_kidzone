@@ -44,7 +44,7 @@ class InitState extends State<ParentSignUpScreen> {
           });
 
           Fluttertoast.showToast(
-            msg: "تم التسجيل بنجاح",
+            msg: "تم انشاء الحساب بنجاح",
             backgroundColor: Colors.green,
             textColor: Colors.black,
             fontSize: 20.0,
@@ -79,7 +79,8 @@ class InitState extends State<ParentSignUpScreen> {
                           bottomRight: Radius.circular(60)),
                       color: new Color(0xFFFFFFFF),
                       gradient: LinearGradient(
-                        colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                        colors: [(new Color(0xFFBBA68C8)),
+                          new Color(0xFFBBA68C8)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),

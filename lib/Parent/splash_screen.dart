@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
+
 class SplashScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => InitState();

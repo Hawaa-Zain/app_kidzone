@@ -87,7 +87,7 @@ class StartState extends State<ParentLoginScreen> {
           );
 
           Fluttertoast.showToast(
-            msg: "الايميل غير تابع للاهالي",
+            msg: "البريد الالكتروني غير تابع لولي أمر ",
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 20.0,
@@ -211,7 +211,10 @@ class StartState extends State<ParentLoginScreen> {
                       onTap: () {
                         // Write Click Listener Code Here
                       },
-                      child: Text("هل نسيت كلمة المرور؟"),
+                      child: Text("هل نسيت كلمة المرور؟" ,
+                        style:TextStyle(
+                          color: Colors.purple[200],
+                        ),),
                     ),
                   ),
                   GestureDetector(
@@ -253,7 +256,7 @@ class StartState extends State<ParentLoginScreen> {
                         GestureDetector(
                           child: Text(
                             "سجل الان",
-                            style: TextStyle(color: Color(0xFFBBA68C8)),
+                            style: TextStyle(color: Colors.purple[200]),
                           ),
                           onTap: () {
                             // Write Tap Code Here.
