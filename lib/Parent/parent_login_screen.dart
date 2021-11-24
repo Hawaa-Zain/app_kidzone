@@ -122,7 +122,7 @@ class StartState extends State<ParentLoginScreen> {
                               alignment: Alignment.center,
                               child: Text(
                                 "تسجيل دخول",
-                                style: TextStyle(fontSize: 20, color: Colors.white),
+                                style: TextStyle(fontSize: 30, color: Colors.white),
                               ),
                             )
                           ],

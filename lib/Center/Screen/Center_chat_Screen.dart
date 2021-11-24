@@ -108,6 +108,7 @@ class _ChatState extends State<Chat> {
     return Scaffold(
 
       appBar: AppBar(
+        backgroundColor: Colors.purple[300],
         centerTitle: true,
         title: RichText(
           textAlign: TextAlign.center,

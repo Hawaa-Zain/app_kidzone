@@ -30,68 +30,55 @@ class _ParentChatScreen extends State<ParentChatScreen> {
         final Message chat = chats[index];
         return GestureDetector(
           onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> Chat(
-            sender: chat.sender,
-          ))),
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 25,
-          vertical: 25,
-        ),
-        child: Row(
-          children: <Widget>[
-            Container(
+            sender: chat.sender,))
+          ),
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 25,
+              vertical: 25,),
+            child: Row(
+              children: <Widget>[
+                Container(
               padding: EdgeInsets.all(35),
               decoration: BoxDecoration(
                 color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(40),
-              ),
-            ),
-            Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width * 0.65,
-              padding: EdgeInsets.only(right: 20),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(chat.sender,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),),
-                      Text( chat.time,
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.black54,
-                        ),),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    alignment: Alignment.topRight,
-                    child: Text(chat.text,
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.black54,
+                borderRadius: BorderRadius.circular(40),),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.65,
+                  padding: EdgeInsets.only(right: 20),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(chat.sender,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,),
+                          ),
+                          Text( chat.time,
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w300,
+                              color: Colors.black54,),),],
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
+                      SizedBox(height: 20,),
+                      Container(
+                        alignment: Alignment.topRight,
+                        child: Text(chat.text,
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black54,),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,),
+                      ),],
                   ),
-                ],
-              ),
-
+                ),],
             ),
-          ],
-        ),
-      ),
-      );
-    }
-  ),
+          ),
+        );
+    }),
   );
   }
 
@@ -117,10 +104,8 @@ class _ChatState extends State<Chat> {
               widget.sender,
                 style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
+                  fontWeight: FontWeight.w400,),
+              ),],
           ),
         ),
         leading: IconButton(
@@ -149,19 +134,16 @@ class _ChatState extends State<Chat> {
                     ),
                   ),
                   child: TextFormField(
-                    decoration: InputDecoration(hintText: "أكتب الرسالة..."),
-                  ),
+                    decoration: InputDecoration(hintText: "أكتب الرسالة..."),),
                 ),
               ),
               IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.send,
-                    color: Colors.purple.shade300,
-                  ))
-            ],
-          ),
-        ],
+                    color: Colors.purple.shade300,)
+              )],
+          ),],
       ),
     );
   }

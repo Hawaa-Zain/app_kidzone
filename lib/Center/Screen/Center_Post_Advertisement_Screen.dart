@@ -46,11 +46,15 @@ class CenterPostAdvertisementScreens extends StatelessWidget {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("نشر إعلان"),
+      title: Text("نشر إعلان",style: TextStyle(fontSize: 20, color: Colors
+          .purple[300]),
+      ),
       content: Row(children: [
-        Text("ارفاق صورة للإعلان"),
+        Text("ارفاق صورة للإعلان",style: TextStyle(fontSize: 15, color:
+        Colors.black),
+      ),
         IconButton(
-          icon: Icon(Icons.photo_camera),
+          icon: Icon(Icons.photo_camera,color:Colors.purple[200]),
           onPressed: () {},),
       ], ),
 

@@ -45,7 +45,7 @@ class CentersItem extends StatelessWidget {
                     footer: GridTileBar(
                       leading: IconButton(
                         icon: Icon(
-                            Icons.add_comment_outlined, color: Colors.white,
+                            Icons.comment_rounded , color: Colors.white,
                             size: 20),
                         onPressed: () {
                           Navigator.push(

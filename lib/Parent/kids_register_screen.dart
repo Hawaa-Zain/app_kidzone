@@ -229,13 +229,12 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                           }).toList(),
                     ),
 
-                    SizedBox(height: 10),
-                    Column(
+                    SizedBox(height: 10), Column(
                         children: <Widget>[
                           Center(
                             child: Container(
-                              height: 260,
-                              width: 450,
+                              height: 250,
+                              width: 400,
                               child: Card(
                                 margin: EdgeInsets.all(0.2),
                                 elevation: 8,
@@ -245,17 +244,19 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                   borderSide: BorderSide(color: Colors.purple,
                                       width: 1),
                                 ),
-                                child: Column(
+                                child:
+                                SingleChildScrollView(
+                                  child:Column(
                                     children: [
                                       Text(" اذا اخترت (ساعات معينة / يوم) "
-                                          "الرجاء تحديد الوقت و التاريخ  ",
+                                          "الرجاء تحديد الوقت والتاريخ  ",
                                         style: const TextStyle(
                                           height: 3,
-                                          fontSize: 13.0,
+                                          fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.red,
                                         ),),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 8),
                                       Row(
                                           children:[
                                             Text('  تاريخ الحجز :  ',
@@ -283,10 +284,10 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                         Icons.calendar_today_outlined,
                                                           color: Colors.black,
                                                       size: 20,)
-                                                  ),
-                                                ),),
+                                                  ),),
+                                              ),
                                             ),]),
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 10),
                                       Row(
                                           children:[
                                             Text('   وقت دخول الطفل:   ',
@@ -317,7 +318,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                   ),
                                                 ),),
                                             ),]),
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 10),
                                       Row(
                                           children:[
                                             Text('   وقت خروج الطفل:   ',
@@ -349,30 +350,30 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                               ),
                                             ),]
                                       ),]
+                                  ),
                                 ),
                               ),
                             ),
                           ),]
                     ),
                     SizedBox(height: 5),
-                    Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ElevatedButton(
-                            child: Text("إرسال الطلب"),
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
-                              onPrimary: Colors.white,
-                              primary: Colors.purple[300],
-                              shape: RoundedRectangleBorder(borderRadius:
-                              BorderRadius.circular(20)),
-                            ),
-                            onPressed:() {
-                              validateAndSubmit();},
-                          ),]
-                      ),
-                    ),]
+                        SingleChildScrollView(
+                          child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ElevatedButton(
+                                  child: Text("إرسال الطلب"),
+                                  style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                                    onPrimary: Colors.white,
+                                    primary: Colors.purple[300],
+                                    shape: RoundedRectangleBorder(borderRadius:
+                                    BorderRadius.circular(20)),),
+                                  onPressed:() {
+                                    validateAndSubmit();},
+                                ),]
+                          ),
+                        ),]
                   ),
                 ),
               ]),

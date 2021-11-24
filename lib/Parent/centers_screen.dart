@@ -54,7 +54,7 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("طلباتي"),
+        title: Text("الحجوزات"),
         backgroundColor: Colors.purple[300],
       ),
       body:StreamBuilder<QuerySnapshot>(

@@ -529,4 +529,49 @@ class InitState extends State<SignUpCenter> {
         )
     );
   }
+  showDialogConfirmForm(BuildContext context) {
+
+    // set up the buttons
+    Widget cancelButton = TextButton(
+      child: Text("إرسال"),
+      onPressed:  () {
+
+        },
+    );
+    Widget continueButton = TextButton(
+      child: Text("الغاء"),
+      onPressed:  () {
+        Navigator.pop(context, MaterialPageRoute(builder: (_)=>
+            SignUpCenter()
+        ));
+
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(" هل أنت متأكد من صحة المعلومات",style: TextStyle(fontSize:
+      20, color: Colors
+          .purple[300]),
+      ),
+      content: Row(
+        children: [
+        Text(" سيتم إرسال الطلب ",
+          style: TextStyle(fontSize: 20, color: Colors.black),
+        ),],
+      ),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 }

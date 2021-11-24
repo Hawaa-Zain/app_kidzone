@@ -13,7 +13,7 @@ class _CenterCommentsState extends State<CenterComments> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text('مشاهدة التعليقات'),
+      title: Text(' التعليقات'),
       backgroundColor: Colors.purple[300],
     ),
     body: Column(

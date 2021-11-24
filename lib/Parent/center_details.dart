@@ -99,6 +99,7 @@ class _CenterDetailsState extends State<CenterDetails> {
             child: Column(
               children: <Widget>[
                 Container(
+                  height: 340,
                   width: double.infinity,
                   child: Image.network(
                     widget.cendoc["image_url"],
@@ -134,9 +135,9 @@ class _CenterDetailsState extends State<CenterDetails> {
                   leading: Icon(Icons.child_care_outlined ,
                       color: Colors.purple.shade300),
                 ),
-            ListTile(
-              leading: Icon(Icons.attach_money_outlined,
-                  color: Colors.purple.shade300),
+                ListTile(
+                  leading:Icon(Icons.attach_money_outlined,
+                      color: Colors.purple.shade300),
 
             ),
 
