@@ -32,7 +32,23 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
   late bool _checkReg;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool isButtonActive = true;
+  late TextEditingController controller;
+  @override
+  void initState(){
+    super.initState();
+    controller = TextEditingController();
+    controller.addListener(() {
+      final isButtonActive = controller.text.isNotEmpty;
 
+      setState(() => this.isButtonActive = isButtonActive);
+    });
+  }
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -107,6 +123,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                   padding: const EdgeInsets.all(15),
                   child: Column(children: [
                     TextFormField(
+                      controller: controller,
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return ' اسم الطفل مطلوب';
@@ -366,11 +383,16 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                   style: ElevatedButton.styleFrom(
                                     padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
                                     onPrimary: Colors.white,
+                                    onSurface: Colors.grey[700],
                                     primary: Colors.purple[300],
                                     shape: RoundedRectangleBorder(borderRadius:
                                     BorderRadius.circular(20)),),
-                                  onPressed:() {
-                                    validateAndSubmit();},
+                                  onPressed: isButtonActive?() {
+                                    validateAndSubmit();
+                                    setState(() {
+                                      isButtonActive = false;
+                                    });
+                                  }:null,
                                 ),]
                           ),
                         ),]

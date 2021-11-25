@@ -8,7 +8,7 @@ class OrderKids extends StatefulWidget {
   State<OrderKids> createState() => _OrderKidsState();
 }
 class _OrderKidsState extends State<OrderKids> {
-
+  bool isButtonActive = true;
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -99,9 +99,8 @@ class _OrderKidsState extends State<OrderKids> {
                                              Navigator.push(context,
                                                MaterialPageRoute(builder: (context) =>
                                                    KidDetails(doc)),
-                                             );
-                                           }
-                                         }),
+                                             );}}
+                                     ),
                                    ),
 
                                    ButtonBar(
@@ -111,14 +110,14 @@ class _OrderKidsState extends State<OrderKids> {
                                            child: Text("قبول "),
                                            style: ElevatedButton.styleFrom(
                                              onPrimary: Colors.black,
-                                             primary: Colors.purple[100],
-                                             onSurface: Colors.grey,
-                                             elevation: 5,
+                                             primary: Colors.greenAccent[700],
+                                             onSurface: Colors.grey[700],
+                                             elevation: 3,
                                              padding: EdgeInsets.all(2),
                                              shape: RoundedRectangleBorder(borderRadius:
                                              BorderRadius.circular(5)),
                                            ),
-                                           onPressed:() async {
+                                           onPressed:isButtonActive?() async {
                                              if (doc['checkReg'] == 'انتظار')
                                                await FirebaseFirestore.instance
                                                    .collection("Centers")
@@ -128,19 +127,24 @@ class _OrderKidsState extends State<OrderKids> {
                                                      'checkReg': 'قبول',
                                                    });
                                              print(doc['checkReg']);
-                                           },),
+                                             setState(() {
+                                               isButtonActive = false;
+                                             });
+                                           }:null,
+                                       ),
+                                       SizedBox(width: 5,),
                                        ElevatedButton(
                                          child: Text("رفض "),
                                          style: ElevatedButton.styleFrom(
                                            onPrimary: Colors.black,
-                                           primary: Colors.purple[100],
-                                           onSurface: Colors.grey,
-                                           elevation: 5,
+                                           primary: Colors.red[400],
+                                           onSurface: Colors.grey[600],
+                                           elevation: 3,
                                            padding: EdgeInsets.all(2),
                                            shape: RoundedRectangleBorder(borderRadius:
                                            BorderRadius.circular(5)),
                                          ),
-                                         onPressed:() {
+                                         onPressed:isButtonActive?() {
                                            if (doc['checkReg'] == 'انتظار')
                                              FirebaseFirestore.instance
                                                  .collection("Centers")
@@ -150,7 +154,11 @@ class _OrderKidsState extends State<OrderKids> {
                                                    'checkReg': 'رفض',
                                                  });
                                            print(doc['checkReg']);
-                                         },),],
+                                           setState(() {
+                                             isButtonActive = false;
+                                           });
+                                         }:null,
+                                       ),],
                                    ),]
                              ),],
                          ),
