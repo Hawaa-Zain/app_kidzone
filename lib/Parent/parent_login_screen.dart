@@ -4,25 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Parent/parent_signup_screen.dart';
 import 'package:kidzone_app/Parent/parent_tab_screen.dart';
-
 import '../resetpassword.dart';
-
-
 
 class ParentLoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StartState();
 }
-
 class StartState extends State<ParentLoginScreen> {
-
   late String? _email;
   late String? _password;
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   late String _error;
   FirebaseAuth auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
     return initWidget();
@@ -31,7 +25,6 @@ class StartState extends State<ParentLoginScreen> {
   initWidget() {
     Future<String?> canLogin(String email) async {
       String? role;
-
       await FirebaseFirestore.instance
           .collection('Parent')
           .where('email', isEqualTo: email)
@@ -43,7 +36,6 @@ class StartState extends State<ParentLoginScreen> {
       return role;
     }
 
-
     bool validateAndSave() {
       final form = _formKey.currentState;
       if (form!.validate()) {
@@ -53,7 +45,6 @@ class StartState extends State<ParentLoginScreen> {
       }
       return false;
     }
-
     void validateAndSubmit() async {
       if (validateAndSave()) {
         setState(() => loading = true);
@@ -63,7 +54,6 @@ class StartState extends State<ParentLoginScreen> {
           try {
             await auth.signInWithEmailAndPassword(
                 email: _email!, password: _password!);
-
             //if (result.credential!.signInMethod.isNotEmpty) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => ParentTabsScreen()));
@@ -89,7 +79,7 @@ class StartState extends State<ParentLoginScreen> {
           }
         } else {
           setState(() => loading = false);
-          print('This user is not a Parent');
+          print('هذا المستخدم ليس أحد الوالدين');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -98,7 +88,7 @@ class StartState extends State<ParentLoginScreen> {
           );
 
           Fluttertoast.showToast(
-            msg: "الايميل غير تابع للاهالي",
+            msg: "البريد الالكتروني غير تابع لولي أمر ",
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 20.0,
@@ -133,7 +123,7 @@ class StartState extends State<ParentLoginScreen> {
                               alignment: Alignment.center,
                               child: Text(
                                 "تسجيل دخول",
-                                style: TextStyle(fontSize: 20, color: Colors.white),
+                                style: TextStyle(fontSize: 30, color: Colors.white),
                               ),
                             )
                           ],
@@ -206,7 +196,7 @@ class StartState extends State<ParentLoginScreen> {
                       decoration: InputDecoration(
                         focusColor: Color(0xFFBBA68C8),
                         icon: Icon(
-                          Icons.vpn_key,
+                          Icons.lock_outline,
                           color: Color(0xFFBBA68C8),
                         ),
                         hintText: "كلمة المرور ",
@@ -227,7 +217,10 @@ class StartState extends State<ParentLoginScreen> {
                                 builder: (_) =>
                                     ResetPasswordScreen()));
                       },
-                      child: Text("هل نسيت كلمة المرور؟"),
+                      child: Text("هل نسيت كلمة المرور؟" ,
+                        style:TextStyle(
+                          color: Colors.purple[200],
+                        ),),
                     ),
                   ),
                   GestureDetector(
@@ -269,7 +262,7 @@ class StartState extends State<ParentLoginScreen> {
                         GestureDetector(
                           child: Text(
                             "سجل الان",
-                            style: TextStyle(color: Color(0xFFBBA68C8)),
+                            style: TextStyle(color: Colors.purple[200]),
                           ),
                           onTap: () {
                             // Write Tap Code Here.

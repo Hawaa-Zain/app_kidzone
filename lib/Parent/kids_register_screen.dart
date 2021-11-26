@@ -5,8 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-
-import 'center_details.dart';
 import 'centers_screen.dart';
 
 
@@ -34,7 +32,23 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
   late bool _checkReg;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool isButtonActive = true;
+  late TextEditingController controller;
+  @override
+  void initState(){
+    super.initState();
+    controller = TextEditingController();
+    controller.addListener(() {
+      final isButtonActive = controller.text.isNotEmpty;
 
+      setState(() => this.isButtonActive = isButtonActive);
+    });
+  }
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -82,7 +96,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
 
               });
           Fluttertoast.showToast(
-            msg: "تم التسجيل بنجاح",
+            msg: "تم إرسال الطلب بنجاح",
             backgroundColor: Colors.green,
             textColor: Colors.black,
             fontSize: 20.0,
@@ -97,43 +111,19 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
     }
 
     return Scaffold(
+        appBar: AppBar(
+          title: Text(' التسجيل في الحضانة'),
+          backgroundColor: Colors.purple[300],
+        ),
         body: SingleChildScrollView(
             child: Form(
               key: _formKey,
               child: Column(children: [
-                Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(60),
-                        bottomRight: Radius.circular(60)),
-                    color: new Color(0xFFFFFFFF),
-                    gradient: LinearGradient(
-                      colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                  ),
-                  child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(right: 20, top: 20),
-                            alignment: Alignment.center,
-                            child: Text(
-                              " التسجيل في الحضانة",
-                              style: TextStyle(fontSize: 20, color: Colors.white),
-                            ),
-                          )
-                        ],
-                      )),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(15),
                   child: Column(children: [
                     TextFormField(
+                      controller: controller,
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return ' اسم الطفل مطلوب';
@@ -256,13 +246,12 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                           }).toList(),
                     ),
 
-                    SizedBox(height: 10),
-                    Column(
+                    SizedBox(height: 10), Column(
                         children: <Widget>[
                           Center(
                             child: Container(
                               height: 250,
-                              width: 450,
+                              width: 400,
                               child: Card(
                                 margin: EdgeInsets.all(0.2),
                                 elevation: 8,
@@ -272,18 +261,19 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                   borderSide: BorderSide(color: Colors.purple,
                                       width: 1),
                                 ),
-                                child: Column(
+                                child:
+                                SingleChildScrollView(
+                                  child:Column(
                                     children: [
-                                      Text("   * اذا قمت باختيار( ساعات معينة / "
-                                          "يوم )"
-                                          "  الرجاء اختيار الوقت و التاريخ",
+                                      Text(" اذا اخترت (ساعات معينة / يوم) "
+                                          "الرجاء تحديد الوقت والتاريخ  ",
                                         style: const TextStyle(
                                           height: 3,
-                                          fontSize: 13.0,
+                                          fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.red,
                                         ),),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 8),
                                       Row(
                                           children:[
                                             Text('  تاريخ الحجز :  ',
@@ -311,13 +301,13 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                         Icons.calendar_today_outlined,
                                                           color: Colors.black,
                                                       size: 20,)
-                                                  ),
-                                                ),),
+                                                  ),),
+                                              ),
                                             ),]),
                                       SizedBox(height: 10),
                                       Row(
                                           children:[
-                                            Text(' وقت دخول الطفل:   ',
+                                            Text('   وقت دخول الطفل:   ',
                                                 style:TextStyle(fontSize: 14.5,
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold)),
@@ -348,7 +338,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                       SizedBox(height: 10),
                                       Row(
                                           children:[
-                                            Text(' وقت خروج الطفل:   ',
+                                            Text('   وقت خروج الطفل:   ',
                                                 style:TextStyle(fontSize: 14.5,
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold)),
@@ -373,36 +363,39 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                         Icons.timer,
                                                         color: Colors.black,
                                                         size: 20,)
-                                                  ),
-                                                ),),
-                                            ),]),
-
-                                    ]),),),
-                          ),
-
-                        ]),
-                    SizedBox(height: 5),
-                    Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          RaisedButton(
-                            onPressed: () {
-                              validateAndSubmit();
-                            },
-                            padding: EdgeInsets.symmetric(
-                                vertical: 6.5, horizontal: 80),
-                            color: Colors.purple.shade300,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                                                  ),),
+                                              ),
+                                            ),]
+                                      ),]
+                                  ),
+                                ),
+                              ),
                             ),
-                            child: Text(
-                              'إرسال طلب',
-                              style: TextStyle(
-                                color: Colors.white,),),
-                          ),],
-                      ),
-                    ),]
+                          ),]
+                    ),
+                    SizedBox(height: 5),
+                        SingleChildScrollView(
+                          child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ElevatedButton(
+                                  child: Text("إرسال الطلب"),
+                                  style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                                    onPrimary: Colors.white,
+                                    onSurface: Colors.grey[700],
+                                    primary: Colors.purple[300],
+                                    shape: RoundedRectangleBorder(borderRadius:
+                                    BorderRadius.circular(20)),),
+                                  onPressed: isButtonActive?() {
+                                    validateAndSubmit();
+                                    setState(() {
+                                      isButtonActive = false;
+                                    });
+                                  }:null,
+                                ),]
+                          ),
+                        ),]
                   ),
                 ),
               ]),

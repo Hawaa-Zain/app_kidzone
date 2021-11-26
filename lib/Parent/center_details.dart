@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/kids_register_screen.dart';
-import 'package:kidzone_app/providers/centers.dart';
-import 'package:provider/provider.dart';
+
 
 class CenterDetails extends StatefulWidget {
   final cendoc;
@@ -94,13 +93,14 @@ class _CenterDetailsState extends State<CenterDetails> {
         return Scaffold(
           appBar: AppBar(
             title: Text(widget.cendoc["name"]),
+            backgroundColor: Colors.purple[300],
           ),
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
-                  height: 100,
-                  width: 400,
+                  height: 340,
+                  width: double.infinity,
                   child: Image.network(
                     widget.cendoc["image_url"],
                     fit: BoxFit.cover,
@@ -109,71 +109,61 @@ class _CenterDetailsState extends State<CenterDetails> {
                 ListTile(
                   title: Text('معلومات الحضانة'),
                 ),
-                ListTile(
-                  leading: Icon(Icons.person,
-                      color: Colors.purple.shade300,),
-                  title: Text(widget.cendoc["name"],
-                  ),
 
-                ),
                 ListTile(
                   leading: Icon(Icons.email,
                   color: Colors.purple.shade300),
-                  title: Text(widget.cendoc["name"]),
+
                 ),
                 ListTile(
                   leading: Icon(Icons.phone,
                       color: Colors.purple.shade300),
-                  title: Text(widget.cendoc["name"]),
+
 
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on,
                       color: Colors.purple.shade300),
-                  title: Text(widget.cendoc["name"]),
+
                 ),
                 ListTile(
                   leading: Icon(Icons.access_time,
                       color: Colors.purple.shade300),
-                  title: Text(widget.cendoc["name"]),
+
                 ),
                 ListTile(
-                  leading: Icon(Icons.child_friendly_outlined,
+                  leading: Icon(Icons.child_care_outlined ,
                       color: Colors.purple.shade300),
-                  title: Text(widget.cendoc["name"]),
                 ),
-            ListTile(
-              leading: Icon(Icons.attach_money_outlined,
-                  color: Colors.purple.shade300),
-              title: Text(widget.cendoc["name"]),
+                ListTile(
+                  leading:Icon(Icons.attach_money_outlined,
+                      color: Colors.purple.shade300),
+
             ),
-                ListTile(
-                  leading: Icon(Icons.vpn_key,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc["name"]),
-                ),
+
                 Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      RaisedButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => KidsRegisterScreen(widget.cendoc)),
-                          );
-                        },
-                        padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
-                        color: Colors.purple.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ElevatedButton(
+                        child: Text("التسجيل"),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                          onPrimary: Colors.white,
+                          primary: Colors.purple[300],
+                          onSurface: Colors.grey,
+                          elevation: 20,
+                          shape: RoundedRectangleBorder(borderRadius:
+                          BorderRadius.circular(20)),
                         ),
-                        child: Text(
-                          ' التسجيل ',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                        onPressed:() {
+                          {
+                            Navigator.push(context,
+                              MaterialPageRoute(builder: (context) =>
+                                  KidsRegisterScreen(widget.cendoc)),
+                            );
+                          }
+                        }),
                       ],
                     ),
 

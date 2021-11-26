@@ -48,45 +48,44 @@ class StartState extends State<WelcomeScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  RaisedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginCenter()),
-                      );},
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal:120),
-                    color: Colors.purple.shade300,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
-                    ),
-                    child: Text(
-                      'مركز الحضانة',
-                      style: TextStyle(
-                        color: Colors.white,),),
-                  ),
+                  ElevatedButton(
+                      child: Text("مركز حضانة"),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 120),
+                        onPrimary: Colors.white,
+                        primary: Colors.purple[300],
+                        onSurface: Colors.grey,
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(borderRadius:
+                        BorderRadius.circular(40)),
+                      ),
+                      onPressed:() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginCenter()),
+                        );},),
                   SizedBox(height: 20),
                   Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        RaisedButton(
-                          onPressed: () {
+                        ElevatedButton(
+                          child: Text(" ولي أمر"),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(vertical: 20,
+                                horizontal: 130),
+                            onPrimary: Colors.white,
+                            primary: Colors.purple[300],
+                            onSurface: Colors.grey,
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(borderRadius:
+                            BorderRadius.circular(40)),
+                          ),
+                          onPressed:() {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => ParentLoginScreen()),
-                            );
-                          },
-                          padding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 130),
-                          color: Colors.purple.shade300,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(40)),
-                          ),
-                          child: Text('ولي الأمر',
-                            style: TextStyle(
-                              color: Colors.white,),),
-                        ),],
+                              MaterialPageRoute(builder: (context) => ParentLoginScreen()),
+                            );},),],
                     ),
                   ),],
               ),

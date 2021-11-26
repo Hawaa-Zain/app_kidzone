@@ -41,10 +41,6 @@ class _CentersItemState extends State<CentersItem> {
               context,
               MaterialPageRoute(builder: (_) => CenterDetails(widget.cendoc)),
             );
-            // Navigator.of(context).push(
-            //   CenterDetails(cendoc['usrID']) ,
-            //
-            // );
           },
           child: Image.network(
             widget.cendoc["image_url"],
@@ -184,6 +180,7 @@ class _CentersItemState extends State<CentersItem> {
     return average;
   }
 
+
   displayComments(context, {centerID, userId, centerUrl, isReq}) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return CommentsPage(
@@ -196,3 +193,4 @@ class _CentersItemState extends State<CentersItem> {
 
   //setState(Null Function() param0) {}
 }
+

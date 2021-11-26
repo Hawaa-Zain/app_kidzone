@@ -15,7 +15,6 @@ class ParentSignUpScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => InitState();
 }
-
 class InitState extends State<ParentSignUpScreen> {
 
   @override
@@ -29,8 +28,6 @@ class InitState extends State<ParentSignUpScreen> {
   late String _phone;
   late String _password;
   bool loading = false;
-
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   File? _image;
 
@@ -55,8 +52,7 @@ class InitState extends State<ParentSignUpScreen> {
     }
     return false;
   }
-
-  // check if the form validate then create it then upload it to firestore
+  // check if the form validate then create it then upload it to Firestore
   void validateAndSubmit() async {
     if (validateAndSave()) {
       setState(() => loading = true);
@@ -71,7 +67,6 @@ class InitState extends State<ParentSignUpScreen> {
         await ref.putFile(_image!);
         final url = await ref.getDownloadURL();
 
-
         //if (result != null) {
           FirebaseFirestore.instance.collection('Parent').doc(user1!.uid).set({
             'name': _name,
@@ -84,7 +79,7 @@ class InitState extends State<ParentSignUpScreen> {
           });
 
           Fluttertoast.showToast(
-            msg: "تم التسجيل بنجاح",
+            msg: "تم انشاء الحساب بنجاح",
             backgroundColor: Colors.green,
             textColor: Colors.black,
             fontSize: 20.0,
@@ -101,8 +96,6 @@ class InitState extends State<ParentSignUpScreen> {
       }
     }
   }
-
-
   @override
   Widget build(BuildContext context) => initWidget();
 
@@ -121,7 +114,8 @@ class InitState extends State<ParentSignUpScreen> {
                           bottomRight: Radius.circular(60)),
                       color: new Color(0xFFFFFFFF),
                       gradient: LinearGradient(
-                        colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                        colors: [(new Color(0xFFBBA68C8)),
+                          new Color(0xFFBBA68C8)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),
@@ -232,7 +226,7 @@ class InitState extends State<ParentSignUpScreen> {
                     child: TextFormField(
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'الايميل مطلوب';
+                          return 'البريد الالكتروني مطلوب';
                         }
                         return null;
                       },
@@ -309,7 +303,7 @@ class InitState extends State<ParentSignUpScreen> {
                       obscureText: true,
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'الرقم السري مطلوب';
+                          return 'كلمة المرور  مطلوبة';
                         }
                         return null;
                       },
@@ -320,7 +314,7 @@ class InitState extends State<ParentSignUpScreen> {
                       decoration: InputDecoration(
                         focusColor: Color(0xFFBBA68C8),
                         icon: Icon(
-                          Icons.vpn_key,
+                          Icons.lock_outline,
                           color: Color(0xFFBBA68C8),
                         ),
                         hintText: "كلمة المرور ",

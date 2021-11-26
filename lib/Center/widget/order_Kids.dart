@@ -9,7 +9,7 @@ class OrderKids extends StatefulWidget {
   State<OrderKids> createState() => _OrderKidsState();
 }
 class _OrderKidsState extends State<OrderKids> {
-
+  bool isButtonActive = true;
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -56,9 +56,11 @@ class _OrderKidsState extends State<OrderKids> {
                                          color: Colors.purple.shade300,
                                          size: 30,),
                                        SizedBox(width: 15),
-                                       Text(doc['name']),
+                                       Text(doc['name'],style: TextStyle(
+                                         fontSize: 17,),),
                                        ]
                                  ),
+                                 SizedBox(height: 40,),
                                  Row(
                                    mainAxisAlignment: MainAxisAlignment.start,
                                    crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +69,8 @@ class _OrderKidsState extends State<OrderKids> {
                                        color: Colors.purple.shade300,
                                        size: 27,),
                                      SizedBox(width: 15),
-                                     Text(doc['centerName']),
+                                     Text(doc['centerName'],style: TextStyle(
+                                       fontSize: 17,),),
                                    ],
                                  ),
 
@@ -82,62 +85,81 @@ class _OrderKidsState extends State<OrderKids> {
                                      padding: EdgeInsets.symmetric(
                                        horizontal: 10, vertical: 10,
                                      ),
-                                     child: RaisedButton(
-                                       onPressed: (){
-                                         Navigator.push(context,
-                                           MaterialPageRoute(builder: (context) => KidDetails(doc)),
-                                         );}, color: Colors.purple.shade300,
-                                       shape: RoundedRectangleBorder(
-                                         borderRadius: BorderRadius.circular(5),
-                                       ),
-                                       child: Text('تفاصيل الطفل',),
-                                       textColor:Colors.white,
+                                     child: ElevatedButton(
+                                         child: Text("تفاصيل الطفل"),
+                                         style: ElevatedButton.styleFrom(
+                                           onPrimary: Colors.white,
+                                           primary: Colors.purple[300],
+                                           onSurface: Colors.grey,
+                                           elevation: 5,
+                                           shape: RoundedRectangleBorder(borderRadius:
+                                           BorderRadius.circular(5)),
+                                         ),
+                                         onPressed:() {
+                                           {
+                                             Navigator.push(context,
+                                               MaterialPageRoute(builder: (context) =>
+                                                   KidDetails(doc)),
+                                             );}}
                                      ),
                                    ),
 
                                    ButtonBar(
                                      mainAxisSize: MainAxisSize.min,
                                      children: <Widget>[
-                                       RaisedButton(
-                                         onPressed: () async {
-                                           if (doc['checkReg'] == 'waiting')
-                                             await FirebaseFirestore.instance
-                                                 .collection("Centers")
-                                                 .doc(user!.uid)
-                                                 .collection("Registration").doc(doc['childID']).update(
-                                                 {
-                                                   'checkReg': 'Accept',
-                                                 });
-                                           print(doc['checkReg']);
-                                         },
-                                         shape: RoundedRectangleBorder(
-                                           borderRadius: BorderRadius.circular(5),
-                                         ),
-                                         child: const Text('قبول'),
-                                         textColor: Colors.black,
-                                         color: Colors.purple[200],
-                                         padding: EdgeInsets.all(2),
+                                       ElevatedButton(
+                                           child: Text("قبول "),
+                                           style: ElevatedButton.styleFrom(
+                                             onPrimary: Colors.black,
+                                             primary: Colors.greenAccent[700],
+                                             onSurface: Colors.grey[700],
+                                             elevation: 3,
+                                             padding: EdgeInsets.all(2),
+                                             shape: RoundedRectangleBorder(borderRadius:
+                                             BorderRadius.circular(5)),
+                                           ),
+                                           onPressed:isButtonActive?() async {
+                                             if (doc['checkReg'] == 'انتظار')
+                                               await FirebaseFirestore.instance
+                                                   .collection("Centers")
+                                                   .doc(user!.uid)
+                                                   .collection("Registration").doc(doc['childID']).update(
+                                                   {
+                                                     'checkReg': 'قبول',
+                                                   });
+                                             print(doc['checkReg']);
+                                             setState(() {
+                                               isButtonActive = false;
+                                             });
+                                           }:null,
                                        ),
-                                       RaisedButton(
-                                         onPressed: () {
-                                           if (doc['checkReg'] == 'waiting')
-                                              FirebaseFirestore.instance
+                                       SizedBox(width: 5,),
+                                       ElevatedButton(
+                                         child: Text("رفض "),
+                                         style: ElevatedButton.styleFrom(
+                                           onPrimary: Colors.black,
+                                           primary: Colors.red[400],
+                                           onSurface: Colors.grey[600],
+                                           elevation: 3,
+                                           padding: EdgeInsets.all(2),
+                                           shape: RoundedRectangleBorder(borderRadius:
+                                           BorderRadius.circular(5)),
+                                         ),
+                                         onPressed:isButtonActive?() {
+                                           if (doc['checkReg'] == 'انتظار')
+                                             FirebaseFirestore.instance
                                                  .collection("Centers")
                                                  .doc(user!.uid)
                                                  .collection("Registration").doc(doc['childID']).update(
                                                  {
-                                                   'checkReg': 'Reject',
+                                                   'checkReg': 'رفض',
                                                  });
                                            print(doc['checkReg']);
-                                         },
-                                         shape: RoundedRectangleBorder(
-                                           borderRadius: BorderRadius.circular(5),
-                                         ),
-                                         child: const Text('رفض'),
-                                         textColor: Colors.black,
-                                         color: Colors.red,
-                                         padding: EdgeInsets.all(2),
-                                       )],
+                                           setState(() {
+                                             isButtonActive = false;
+                                           });
+                                         }:null,
+                                       ),],
                                    ),]
                              ),],
                          ),

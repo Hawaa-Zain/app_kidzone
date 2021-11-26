@@ -2,7 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-class CenterOrderDetails extends StatelessWidget {
+class CenterOrderDetails extends StatefulWidget {
+  @override
+  State<CenterOrderDetails> createState() => _CenterOrderDetails();
+}
+class _CenterOrderDetails extends State<CenterOrderDetails> {
+  bool isButtonActive = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,71 +80,54 @@ class CenterOrderDetails extends StatelessWidget {
                           size: 25,
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 5,width: 15,),
                       Row(
                         children:[
-                          GestureDetector(
-                            onTap: () {
-
-                              //Write  Code Here.
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: EdgeInsets.only(left: 20, right: 20,
-                                  top: 50,bottom: 10),
+                          SizedBox(width: 25,),
+                          ElevatedButton(
+                            child: Text("موافق ",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15)),
+                            style: ElevatedButton.styleFrom(
+                              onPrimary: Colors.black,
+                              primary: Colors.green,
+                              onSurface: Colors.grey[700],
+                              elevation: 3,
                               padding: EdgeInsets.only(left: 55, right: 55),
-                              height: 50,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight),
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.grey[200],
-                                boxShadow: [
-                                  BoxShadow(
-                                      offset: Offset(0, 10),
-                                      blurRadius: 50,
-                                      color: Color(0xffEEEEEE)),
-                                ],
-                              ),
-                              child: Text(
-                                "موافق",
-                                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize:
-                                15),
-                              ),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
                             ),
+                            onPressed:isButtonActive?(){
+                              setState(() {
+                                isButtonActive = false;
+                              });
+                            }:null,
                           ),
-                          SizedBox(height: 5),
+                          SizedBox(height: 40,width: 15,),
                           Row(
                             children:[
-                              GestureDetector(
-                                onTap: () {
-                                  //Write  Code Here.
-                                },
-
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.only(left: 8, right: 10,
-                                      top: 50,bottom: 10),
+                              ElevatedButton(
+                                child: Text("رفض ",
+                                    style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15)),
+                                style: ElevatedButton.styleFrom(
+                                  onPrimary: Colors.black,
+                                  primary: Colors.red,
+                                  onSurface: Colors.grey[700],
+                                  elevation: 3,
                                   padding: EdgeInsets.only(left: 55, right: 55),
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    color: Colors.red,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          offset: Offset(0, 10),
-                                          blurRadius: 50,
-                                          color: Color(0xffEEEEEE)),
-                                    ],
-                                  ),
-                                  child: Text(
-                                    "رفض",
-                                    style: TextStyle(color: Colors.white,
-                                        fontWeight: FontWeight.bold,fontSize:
-                                        15),),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
                                 ),
+                                onPressed:isButtonActive?(){
+                                  setState(() {
+                                    isButtonActive = false;
+                                  });
+                                }:null,
                               ),],
                           ),],
                       ),],

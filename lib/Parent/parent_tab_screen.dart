@@ -45,12 +45,12 @@ class _ParentTabsScreen extends State<ParentTabsScreen> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.post_add),
-          label: 'الإعلانات',
+          label: 'إعلاناتي',
           backgroundColor: Colors.purple.shade300,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.chat),
-          label: 'المحادثة',
+          label: 'محادثاتي',
           backgroundColor: Colors.purple.shade300,
         ),
         BottomNavigationBarItem(

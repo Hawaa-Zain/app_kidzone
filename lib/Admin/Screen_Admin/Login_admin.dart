@@ -14,16 +14,16 @@ class _LoginAdmin extends State<LoginAdmin> {
       child: Column(
         children: [
           Container(
-        height: 250,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-          color: new Color(0xFFFFFFFF),
-          gradient: LinearGradient(
-            colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+            height: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
+              color: new Color(0xFFFFFFFF),
+              gradient: LinearGradient(
+                colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
            child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,11 +34,11 @@ class _LoginAdmin extends State<LoginAdmin> {
                   alignment: Alignment.bottomRight,
                   child: Text(
                     "تسجيل دخول",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),)
-              ],
-            )),
-      ),
+                    style: TextStyle(fontSize: 20, color: Colors.white),),
+                )],
+            )
+           ),
+          ),
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(left: 20, right: 20, top: 130),
@@ -52,8 +52,7 @@ class _LoginAdmin extends State<LoginAdmin> {
                     offset: Offset(0, 10),
                     blurRadius: 50,
                     color: Color(0xffEEEEEE)),
-              ],
-            ),
+              ],),
             child: TextFormField(
               cursorColor: Color(0xFFBBA68C8),
               decoration: InputDecoration(
@@ -63,8 +62,7 @@ class _LoginAdmin extends State<LoginAdmin> {
                 ),
                 hintText: "البريد الالكتروني ",
                 enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-              ),
+                focusedBorder: InputBorder.none,),
             ),
           ),
           Container(
@@ -80,20 +78,18 @@ class _LoginAdmin extends State<LoginAdmin> {
                     offset: Offset(0, 20),
                     blurRadius: 100,
                     color: Color(0xffEEEEEE)),
-              ],
-            ),
+              ],),
             child: TextFormField(
               cursorColor: Color(0xFFBBA68C8),
               decoration: InputDecoration(
                 focusColor: Color(0xFFBBA68C8),
                 icon: Icon(
-                  Icons.vpn_key,
+                  Icons.lock_outline,
                   color: Color(0xFFBBA68C8),
                 ),
                 hintText: "كلمة المرور ",
                 enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-              ),
+                focusedBorder: InputBorder.none,),
             ),
           ),
           GestureDetector(

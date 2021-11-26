@@ -116,6 +116,18 @@ class _KidDetailsState extends State<KidDetails> {
                     ],
                   ),
                 ),
+              ),
+              Container(
+                  margin: EdgeInsets.only(left: 15, right: 5, bottom: 5,top:
+                  10),
+                  padding: EdgeInsets.only(left: 255, ),
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_back_ios_outlined,size: 33,color:
+                    Colors.purple[300],),
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                  )
               ),]
             )
         )
