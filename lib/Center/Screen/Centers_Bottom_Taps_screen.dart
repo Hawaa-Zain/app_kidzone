@@ -5,12 +5,12 @@ import 'package:kidzone_app/Center/Screen/Center_Post_Advertisement_Screen.dart'
 import 'package:kidzone_app/Center/Screen/Center_chat_Screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_profile_screen.dart';
 
-class CentersTapsScreens extends StatefulWidget {
+class CentersBottomTapsScreens extends StatefulWidget {
   @override
-  _CentersTapsScreens createState() => _CentersTapsScreens();
+  _CentersBottomTapsScreens createState() => _CentersBottomTapsScreens();
 }
 
-class _CentersTapsScreens extends State<CentersTapsScreens> {
+class _CentersBottomTapsScreens extends State<CentersBottomTapsScreens> {
   int currentIndex = 0;
   final screens = [
     KidsRegisterOrder(),

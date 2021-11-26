@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
+import 'package:kidzone_app/resetpassword.dart';
 
 class CenterProfileScreens extends StatefulWidget {
   const CenterProfileScreens({Key? key}) : super(key: key);
@@ -34,6 +36,14 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
         appBar: AppBar(
           title: Text(' حسابي '),
           backgroundColor: Colors.purple[300],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=> CentersBottomTapsScreens()
+              ));
+
+            },
+          ),
         ),
         body: StreamBuilder<DocumentSnapshot>(
             stream: FirebaseFirestore.instance
@@ -93,8 +103,8 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                       context,
                                       MaterialPageRoute<void>(
                                         builder: (BuildContext context) =>
-                                            ChangePasswordDialog(),
-                                        fullscreenDialog: true,
+                                            ResetPasswordScreen(),
+
                                       ),
                                     );
                                   },

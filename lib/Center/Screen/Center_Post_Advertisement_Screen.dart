@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
 
 
 class CenterPostAdvertisementScreens extends StatelessWidget {
@@ -7,57 +8,31 @@ class CenterPostAdvertisementScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(' اعلاناتي '),
+          title: Text(' اعلانات '),
           backgroundColor: Colors.purple[300],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_)=> CentersBottomTapsScreens()
+            ));
+
+          },
+        ),
 
       ),
-        body:  SingleChildScrollView(
-          child: Column(children: <Widget>[
-            Center(
-              child: SizedBox(
-                  height: 300,
-                  width: 400,
-                  child: Card(
-                    color: Colors.white10,
-                    shadowColor: Colors.black.withAlpha(30),
-                    child: InkWell(
-                      child: Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Expanded(
-                            child: FittedBox(
-                              child: IconButton(
-                                icon: Icon(Icons.photo_library,
-                                    color: Colors.purple[300], size: 10),
-                                onPressed: () {},
-                              ),
-                            )),
-                      ),),
-                  )),
-            ),
-            SizedBox(height: 200),
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  RaisedButton(
-                    onPressed: () {},
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 70),
-                    color: Colors.purple.shade300,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    child: Text(
-                      ' نشر ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,),),
-                  ),],
-              ),
-            ),]
-          ),
+        body: Column(
+          children:<Widget>[
+                  IconButton(
+                    icon: Icon(Icons.add_box_rounded , size: 50,color: Colors.purple
+                        .shade300,),
+                    onPressed: () {
+                      showAlertDialog(context);
+                    },
+                    padding: EdgeInsets.only(left: 50, right:200, top: 500,
+                        bottom: 50),
+
+                  ),]
         ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

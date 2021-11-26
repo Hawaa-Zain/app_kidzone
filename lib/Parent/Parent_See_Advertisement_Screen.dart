@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
-import 'package:kidzone_app/Parent/parent_tab_screen.dart';
+import 'package:kidzone_app/Parent/parent_Bottom_Tab_screen.dart';
 
 void main() => runApp(ParentSeeAdvertisement());
 
@@ -11,6 +11,14 @@ class ParentSeeAdvertisement extends StatelessWidget {
         appBar: AppBar(
           title: Text('الإعلانات '),
           backgroundColor: Colors.purple[300],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=> ParentBottomTabsScreen()
+              ));
+
+            },
+          ),
           ),
         body: Column(
           children: <Widget>[
@@ -19,7 +27,7 @@ class ParentSeeAdvertisement extends StatelessWidget {
                 child: InkWell(
                   splashColor: Colors.black.withAlpha(30),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=> ParentTabsScreen()
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=> ParentBottomTabsScreen()
                     ));
                   },
                   child: Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
+import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
 
 class CenterChatScreens extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _CenterChatScreens extends State<CenterChatScreens> {
       leading: IconButton(
         icon: Icon(Icons.arrow_back),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (_)=> CentersTapsScreens()
+          Navigator.push(context, MaterialPageRoute(builder: (_)=> CentersBottomTapsScreens()
           ));
 
         },

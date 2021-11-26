@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Parent/parent_signup_screen.dart';
-import 'package:kidzone_app/Parent/parent_tab_screen.dart';
+import 'package:kidzone_app/Parent/parent_Bottom_Tab_screen.dart';
 import '../resetpassword.dart';
 
 class ParentLoginScreen extends StatefulWidget {
@@ -56,7 +56,7 @@ class StartState extends State<ParentLoginScreen> {
                 email: _email!, password: _password!);
             //if (result.credential!.signInMethod.isNotEmpty) {
             Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => ParentTabsScreen()));
+                MaterialPageRoute(builder: (context) => ParentBottomTabsScreen()));
             // var router = MaterialPageRoute(
             //     builder: (BuildContext context) => ProfileScreen());
             // Navigator.of(context).push(router);
@@ -123,11 +123,11 @@ class StartState extends State<ParentLoginScreen> {
                               alignment: Alignment.center,
                               child: Text(
                                 "تسجيل دخول",
-                                style: TextStyle(fontSize: 30, color: Colors.white),
+                                style: TextStyle(fontSize: 20, color: Colors.white),
                               ),
-                            )
-                          ],
-                        )),
+                            )],
+                        )
+                    ),
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -219,7 +219,7 @@ class StartState extends State<ParentLoginScreen> {
                       },
                       child: Text("هل نسيت كلمة المرور؟" ,
                         style:TextStyle(
-                          color: Colors.purple[200],
+                          color: Colors.purple[300],
                         ),),
                     ),
                   ),

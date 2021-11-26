@@ -2,10 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
+import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_Signup.dart';
 import 'package:kidzone_app/Parent/parent_login_screen.dart';
-
 import '../../resetpassword.dart';
 
 class LoginCenter extends StatefulWidget {
@@ -67,7 +66,7 @@ class StartState extends State<LoginCenter> {
 
             //if (result.credential!.signInMethod.isNotEmpty) {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => CentersTapsScreens()));
+                  MaterialPageRoute(builder: (context) => CentersBottomTapsScreens()));
               // var router = MaterialPageRoute(
               //     builder: (BuildContext context) => ProfileScreen());
               // Navigator.of(context).push(router);

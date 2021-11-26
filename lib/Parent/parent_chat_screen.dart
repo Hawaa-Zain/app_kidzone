@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/parent_tab_screen.dart';
+import 'package:kidzone_app/Parent/parent_Bottom_Tab_screen.dart';
 
 class ParentChatScreen extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _ParentChatScreen extends State<ParentChatScreen> {
       leading: IconButton(
         icon: Icon(Icons.arrow_back),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (_)=> ParentTabsScreen()
+          Navigator.push(context, MaterialPageRoute(builder: (_)=> ParentBottomTabsScreen()
           ));
 
         },

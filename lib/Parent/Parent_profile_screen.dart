@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
+import 'package:kidzone_app/resetpassword.dart';
 
 
 class ParentProfileScreen extends StatefulWidget {
@@ -92,8 +93,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute<void>(
-                              builder: (BuildContext context) => ChangePasswordDialog(),
-                              fullscreenDialog: true,
+                              builder: (BuildContext context) => ResetPasswordScreen(),
                             ),
                           );
                         },

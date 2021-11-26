@@ -5,12 +5,12 @@ import 'package:kidzone_app/Parent/parent_chat_screen.dart';
 import 'package:kidzone_app/Parent/Parent_profile_screen.dart';
 
 
-class ParentTabsScreen extends StatefulWidget {
+class ParentBottomTabsScreen extends StatefulWidget {
   @override
-  _ParentTabsScreen createState() => _ParentTabsScreen();
+  _ParentBottomTabsScreen createState() => _ParentBottomTabsScreen();
 }
 
-class _ParentTabsScreen extends State<ParentTabsScreen> {
+class _ParentBottomTabsScreen extends State<ParentBottomTabsScreen> {
   int currentIndex = 0;
   final screens = [
    CentersScreen(),

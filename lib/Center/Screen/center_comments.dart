@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
 
 
 class CenterComments extends StatefulWidget {
@@ -15,6 +16,14 @@ class _CenterCommentsState extends State<CenterComments> {
     appBar: AppBar(
       title: Text(' التعليقات'),
       backgroundColor: Colors.purple[300],
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (_)=> CentersBottomTapsScreens()
+          ));
+
+        },
+      ),
     ),
     body: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
