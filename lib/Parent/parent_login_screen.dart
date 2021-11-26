@@ -5,6 +5,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Parent/parent_signup_screen.dart';
 import 'package:kidzone_app/Parent/parent_tab_screen.dart';
 
+import '../resetpassword.dart';
+
 
 
 class ParentLoginScreen extends StatefulWidget {
@@ -219,6 +221,11 @@ class StartState extends State<ParentLoginScreen> {
                     child: GestureDetector(
                       onTap: () {
                         // Write Click Listener Code Here
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) =>
+                                    ResetPasswordScreen()));
                       },
                       child: Text("هل نسيت كلمة المرور؟"),
                     ),

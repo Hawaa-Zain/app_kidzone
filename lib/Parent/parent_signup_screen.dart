@@ -1,10 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kidzone_app/Parent/parent_login_screen.dart';
+import 'dart:io';
 
-User? user = FirebaseAuth.instance.currentUser;
+
+User? user1 = FirebaseAuth.instance.currentUser;
+
 class ParentSignUpScreen extends StatefulWidget {
   static const String screenRoute = 'signup_screen';
   @override
@@ -12,16 +17,34 @@ class ParentSignUpScreen extends StatefulWidget {
 }
 
 class InitState extends State<ParentSignUpScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+
   late String _name;
   late String _email;
   late String _phone;
   late String _password;
-
-
   bool loading = false;
 
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  File? _image;
+
+  // method for pick image
+  void pickImage() async {
+    var image = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
+      maxWidth: 150,
+    );
+    setState(() {
+      _image = File(image!.path);
+    });
+  }
 
   bool validateAndSave() {
     final form = _formKey.currentState;
@@ -41,14 +64,23 @@ class InitState extends State<ParentSignUpScreen> {
         var result = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
         print(result);
+        final ref = FirebaseStorage.instance
+            .ref()
+            .child('parent_images')
+            .child(result.user!.uid + '.jpg');
+        await ref.putFile(_image!);
+        final url = await ref.getDownloadURL();
+
 
         //if (result != null) {
-          FirebaseFirestore.instance.collection('Parent').doc(user!.uid).set({
+          FirebaseFirestore.instance.collection('Parent').doc(user1!.uid).set({
             'name': _name,
             'role': 'Parent',
             'email': _email,
             "phone": _phone,
-            'userID': user!.uid,
+            'userID': user1!.uid,
+            'image_url': url,
+
           });
 
           Fluttertoast.showToast(
@@ -112,6 +144,38 @@ class InitState extends State<ParentSignUpScreen> {
                             ),
                           ],
                         )),
+                  ),
+                  SizedBox(height: 20),
+                  SizedBox(
+                    height: 115,
+                    width: 115,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      fit: StackFit.expand,
+                      children: [
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey[200],
+                          backgroundImage: _image != null
+                              ? FileImage(_image!)
+                              : AssetImage('') as ImageProvider,
+                          // if statment
+                        ),
+                        Positioned(
+                          bottom: -15,
+                          right: -10,
+                          child: FlatButton.icon(
+                            textColor: Colors.purple.shade300,
+                            onPressed: pickImage,
+                            icon: Icon(Icons.camera_alt_outlined,
+                                size: 30),
+                            label: Text('',style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 6,),
+                            ),
+                          ),
+                        ),],
+                    ),
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -212,7 +276,7 @@ class InitState extends State<ParentSignUpScreen> {
                       onSaved: (String? value) {
                         _phone = value!;
                       },
-                      obscureText: true,
+                      keyboardType: TextInputType.number,
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
                         focusColor: Color(0xFFBBA68C8),

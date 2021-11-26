@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kidzone_app/Center/Screen/Center_Login.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
 
-User? user = FirebaseAuth.instance.currentUser;
+//User? user = FirebaseAuth.instance.currentUser;
 
 class SignUpCenter extends StatefulWidget {
   static const String screenRoute = 'signup_center';
@@ -26,6 +27,7 @@ class InitState extends State<SignUpCenter> {
   late String _price;
   late String _password;
   bool loading = false;
+   double _rating =0.0;
   File? _image;
 
   // method for pick image
@@ -84,6 +86,7 @@ class InitState extends State<SignUpCenter> {
             'kidsAge': _kidsAge,
             'workingHours': _workingHours,
             'image_url': url,
+            "ratings" : _rating,
             'userID': user!.uid,
           });
           Fluttertoast.showToast(
@@ -272,6 +275,7 @@ class InitState extends State<SignUpCenter> {
                       onSaved: (String? value) {
                         _phone = value!;
                       },
+                      keyboardType: TextInputType.number,
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
                         icon: Icon(

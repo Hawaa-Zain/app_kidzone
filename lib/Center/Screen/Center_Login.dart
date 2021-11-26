@@ -6,6 +6,8 @@ import 'package:kidzone_app/Center/Screen/Centers_taps_screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_Signup.dart';
 import 'package:kidzone_app/Parent/parent_login_screen.dart';
 
+import '../../resetpassword.dart';
+
 class LoginCenter extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StartState();
@@ -217,7 +219,11 @@ class StartState extends State<LoginCenter> {
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
                       onTap: () {
-
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) =>
+                                    ResetPasswordScreen()));
                       },
                       child: Text("هل نسيت كلمة المرور؟"),
                     ),

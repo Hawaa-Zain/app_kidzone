@@ -108,6 +108,7 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                   Navigator.pushReplacement(context,
                                       MaterialPageRoute(builder: (context) => LoginCenter()));
                                 });
+                                print("the current user is${_user.uid}");
                               },
                             ),]
                           )
