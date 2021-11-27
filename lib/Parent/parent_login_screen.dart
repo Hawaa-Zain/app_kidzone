@@ -185,7 +185,7 @@ class StartState extends State<ParentLoginScreen> {
                       obscureText: true,
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'الرقم السري مطلوب';
+                          return 'كلمة المرور مطلوبة';
                         }
                         return null;
                       },

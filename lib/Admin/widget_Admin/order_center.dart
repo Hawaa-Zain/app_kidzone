@@ -40,7 +40,7 @@ class _OrderCenter extends State<OrderCenter> {
                                 Icon(Icons.group_outlined,
                                   color: Colors.teal.shade300,
                                   size: 30,),
-                                SizedBox(width: 8),
+                                SizedBox(width: 5),
                                 Text("اسم مركز الحضانة",
                                   style: TextStyle(
                                     fontSize: 15,
@@ -49,15 +49,15 @@ class _OrderCenter extends State<OrderCenter> {
                             SizedBox(height:40),
                             Row(
                               children: <Widget>[
-                                SizedBox(height: 15),
+                                SizedBox(height: 10),
                                 Icon(Icons.access_time_outlined,
                                   color: Colors.teal.shade300, size: 30,),
-                                SizedBox(width: 8),
+                                SizedBox(width: 5),
                                 Text("حالة الطلب",
                                   style: TextStyle(
                                   fontSize: 15,
                                     fontWeight: FontWeight.bold,),),
-                                SizedBox(width: 100),
+                                SizedBox(width: 80),
                                 Text('',
                                   style: TextStyle(
                                     fontSize: 15,),),],
@@ -70,12 +70,12 @@ class _OrderCenter extends State<OrderCenter> {
                             Container(
                               alignment: Alignment.bottomLeft,
                               padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10,),
+                                horizontal: 8, vertical: 8,),
                               child: ElevatedButton(
                                 child: Text("عرض الطلب "),
                                 style: ElevatedButton.styleFrom(
                                   padding: EdgeInsets.symmetric
-                                    (vertical:5, horizontal: 15),
+                                    (vertical:5, horizontal: 5),
                                   onPrimary: Colors.white,
                                   primary: Colors.teal.shade300,
                                   onSurface: Colors.grey,

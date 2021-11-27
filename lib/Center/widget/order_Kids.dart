@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Screen/Center_Signup.dart';
 import 'package:kidzone_app/Center/Screen/kid_details.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
 
@@ -31,11 +30,11 @@ class _OrderKidsState extends State<OrderKids> {
             return ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 shrinkWrap: true,
-                itemBuilder: (
-                    BuildContext context, int index) {
+                itemBuilder: (BuildContext context, int index) {
                   final doc = snapshot.data!.docs[index];
                   return Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 5.0),
                     child: Card(
                       elevation: 5.0,
                       color: Colors.purple.shade50,
@@ -43,7 +42,8 @@ class _OrderKidsState extends State<OrderKids> {
                         borderRadius: BorderRadius.circular(0.0),
                       ),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +56,7 @@ class _OrderKidsState extends State<OrderKids> {
                                         color: Colors.purple.shade300,
                                         size: 30,),
                                       SizedBox(width: 15),
-                                      Text(doc['name'],style: TextStyle(
+                                      Text(doc['name'], style: TextStyle(
                                         fontSize: 17,),),
                                     ]
                                 ),
@@ -69,7 +69,7 @@ class _OrderKidsState extends State<OrderKids> {
                                       color: Colors.purple.shade300,
                                       size: 27,),
                                     SizedBox(width: 15),
-                                    Text(doc['centerName'],style: TextStyle(
+                                    Text(doc['centerName'], style: TextStyle(
                                       fontSize: 17,),),
                                   ],
                                 ),
@@ -92,18 +92,21 @@ class _OrderKidsState extends State<OrderKids> {
                                           primary: Colors.purple[300],
                                           onSurface: Colors.grey,
                                           elevation: 5,
-                                          shape: RoundedRectangleBorder(borderRadius:
-                                          BorderRadius.circular(5)),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(5)),
                                         ),
-                                        onPressed:() {
+                                        onPressed: () {
                                           {
                                             Navigator.push(context,
-                                              MaterialPageRoute(builder: (context) =>
-                                                  KidDetails(doc)),
-                                            );}}
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      KidDetails(doc)),
+                                            );
+                                          }
+                                        }
                                     ),
                                   ),
-
                                   ButtonBar(
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
@@ -115,27 +118,29 @@ class _OrderKidsState extends State<OrderKids> {
                                           onSurface: Colors.grey[700],
                                           elevation: 3,
                                           padding: EdgeInsets.all(2),
-                                          shape: RoundedRectangleBorder(borderRadius:
-                                          BorderRadius.circular(5)),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(5)),
                                         ),
-                                        onPressed:isButtonActive?() async {
+                                        onPressed: isButtonActive ? () async {
                                           print('check ${doc['checkReg']}');
-                                          if (doc['checkReg'] == 'waiting'){
+                                          if (doc['checkReg'] == 'waiting') {
                                             await FirebaseFirestore.instance
                                                 .collection("Centers")
                                                 .doc(user!.uid)
-                                                .collection("Registration").doc(doc['childID']).update(
+                                                .collection("Registration").doc(
+                                                doc['childID']).update(
                                                 {
                                                   'checkReg': 'قبول',
                                                 });
                                             print('check ${doc['checkReg']}');
-                                          }else{
+                                          } else {
                                             print('Somthing wrong');
                                           }
                                           setState(() {
                                             isButtonActive = false;
                                           });
-                                        }:null,
+                                        } : null,
                                       ),
                                       SizedBox(width: 5,),
                                       ElevatedButton(
@@ -146,15 +151,17 @@ class _OrderKidsState extends State<OrderKids> {
                                           onSurface: Colors.grey[600],
                                           elevation: 3,
                                           padding: EdgeInsets.all(2),
-                                          shape: RoundedRectangleBorder(borderRadius:
-                                          BorderRadius.circular(5)),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(5)),
                                         ),
-                                        onPressed:isButtonActive?() {
+                                        onPressed: isButtonActive ? () {
                                           if (doc['checkReg'] == 'waiting')
                                             FirebaseFirestore.instance
                                                 .collection("Centers")
                                                 .doc(user!.uid)
-                                                .collection("Registration").doc(doc['childID']).update(
+                                                .collection("Registration").doc(
+                                                doc['childID']).update(
                                                 {
                                                   'checkReg': 'رفض',
                                                 });
@@ -162,18 +169,19 @@ class _OrderKidsState extends State<OrderKids> {
                                           setState(() {
                                             isButtonActive = false;
                                           });
-                                        }:null,
-                                      ),],
-                                  ),]
-                            ),],
+                                        } : null,
+                                      ),
+                                    ],
+                                  ),
+                                ]
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  );
-                }
-            );
-          }
-      ),
+                  );}
+            );}
+      )
     );
   }
 }
