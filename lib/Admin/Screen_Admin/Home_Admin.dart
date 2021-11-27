@@ -15,7 +15,7 @@ class _HomeAdmin extends State<HomeAdmin> {
     return Scaffold(
       appBar: AppBar(
         title: Text('طلبات مراكز الحضانة '),
-        backgroundColor: Colors.purple[300],
+        backgroundColor: Colors.teal[300],
         automaticallyImplyLeading: false,
         actions: <Widget>[
           IconButton(
@@ -39,12 +39,12 @@ void _onLogOutPressed(BuildContext context){
               children: <Widget> [
                 SizedBox(height: 10),
                 Text("تسجيل الخروج",
-                  style: TextStyle(color: Colors.purple[300],
+                  style: TextStyle(color: Colors.teal[300],
                       fontWeight: FontWeight.bold,
                       fontSize: 25),),
                 SizedBox(height: 8),
                 Text(" هل أنت متأكد أنك تريد تسجيل الخروج ؟",
-                  style: TextStyle(color: Colors.purple[300],
+                  style: TextStyle(color: Colors.teal[300],
                       fontSize: 15),),
                 SizedBox(height: 13.5),
                 GestureDetector(
@@ -58,13 +58,13 @@ void _onLogOutPressed(BuildContext context){
                   child: Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(left: 100, right: 100,top: 30 ,bottom: 50),
-                    padding: EdgeInsets.only(left: 10, right: 10),
+                    padding: EdgeInsets.only(left: 40, right: 40),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                          colors: [(new Color(0xFF4DB6AC)), new Color(0xFF4DB6AC)],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight),
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(10),
                       color: Colors.grey[200],
                       boxShadow: [
                         BoxShadow(
@@ -82,7 +82,8 @@ void _onLogOutPressed(BuildContext context){
                 Container(
                   margin: EdgeInsets.all(8),
                   child: TextButton(
-                    child: Text('إلغاء الامر'),
+                    child: Text('إلغاء الامر'
+                    ),
                     onPressed: () {
                       Navigator.push(
                           context,

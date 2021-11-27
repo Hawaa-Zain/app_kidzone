@@ -14,12 +14,14 @@ class _LoginAdmin extends State<LoginAdmin> {
       child: Column(
         children: [
           Container(
-            height: 250,
+            height: 180,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
+              borderRadius: BorderRadius.only(
+                  bottomRight:Radius.circular(30),
+                  bottomLeft: Radius.circular(30)),
               color: new Color(0xFFFFFFFF),
               gradient: LinearGradient(
-                colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                colors: [(new Color(0xFF4DB6AC)), new Color(0xFF4DB6AC)],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -31,9 +33,9 @@ class _LoginAdmin extends State<LoginAdmin> {
               children: [
                 Container(
                   margin: EdgeInsets.only(right: 20, top: 20),
-                  alignment: Alignment.bottomRight,
+                  alignment: Alignment.center,
                   child: Text(
-                    "تسجيل دخول",
+                    " تسجيل دخول ",
                     style: TextStyle(fontSize: 20, color: Colors.white),),
                 )],
             )
@@ -45,7 +47,7 @@ class _LoginAdmin extends State<LoginAdmin> {
             padding: EdgeInsets.only(left: 20, right: 20),
             height: 54,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(10),
               color: Colors.grey[200],
               boxShadow: [
                 BoxShadow(
@@ -58,7 +60,7 @@ class _LoginAdmin extends State<LoginAdmin> {
               decoration: InputDecoration(
                 icon: Icon(
                   Icons.email,
-                  color: Color(0xFFBBA68C8),
+                  color: Color(0xFF4DB6AC),
                 ),
                 hintText: "البريد الالكتروني ",
                 enabledBorder: InputBorder.none,
@@ -71,7 +73,7 @@ class _LoginAdmin extends State<LoginAdmin> {
             padding: EdgeInsets.only(left: 20, right: 20),
             height: 54,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(10),
               color: Color(0xffEEEEEE),
               boxShadow: [
                 BoxShadow(
@@ -85,7 +87,7 @@ class _LoginAdmin extends State<LoginAdmin> {
                 focusColor: Color(0xFFBBA68C8),
                 icon: Icon(
                   Icons.lock_outline,
-                  color: Color(0xFFBBA68C8),
+                  color: Color(0xFF4DB6AC),
                 ),
                 hintText: "كلمة المرور ",
                 enabledBorder: InputBorder.none,
@@ -106,10 +108,10 @@ class _LoginAdmin extends State<LoginAdmin> {
               height: 54,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [(new Color(0xFFBBA68C8)), new Color(0xFFBBA68C8)],
+                    colors: [(new Color(0xFF4DB6AC)), new Color(0xFF4DB6AC)],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight),
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(20),
                 color: Colors.grey[200],
                 boxShadow: [
                   BoxShadow(
@@ -119,7 +121,9 @@ class _LoginAdmin extends State<LoginAdmin> {
                 ],),
               child: Text(
                 "دخول",
-                style: TextStyle(color: Colors.white),),
+                style: TextStyle(color: Colors.white),
+
+              ),
             ),
           ),]
       ))

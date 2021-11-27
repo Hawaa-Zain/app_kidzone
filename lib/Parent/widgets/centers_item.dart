@@ -76,6 +76,7 @@ class _CentersItemState extends State<CentersItem> {
                     isReadOnly: false,
                     size: 22,
                     filledIconData: Icons.star,
+                    color: Colors.yellow.shade400,
                     halfFilledIconData: Icons.star_half,
                     defaultIconData: Icons.star_border,
                     starCount: 5,

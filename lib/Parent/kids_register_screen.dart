@@ -32,23 +32,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
   late bool _checkReg;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool isButtonActive = true;
-  late TextEditingController controller;
-  @override
-  void initState(){
-    super.initState();
-    controller = TextEditingController();
-    controller.addListener(() {
-      final isButtonActive = controller.text.isNotEmpty;
 
-      setState(() => this.isButtonActive = isButtonActive);
-    });
-  }
-  @override
-  void dispose(){
-    controller.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
 
@@ -123,7 +107,6 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                   padding: const EdgeInsets.all(15),
                   child: Column(children: [
                     TextFormField(
-                      controller: controller,
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return ' اسم الطفل مطلوب';
@@ -246,12 +229,13 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                           }).toList(),
                     ),
 
-                    SizedBox(height: 10), Column(
+                    SizedBox(height: 10),
+                    Column(
                         children: <Widget>[
                           Center(
                             child: Container(
-                              height: 250,
-                              width: 400,
+                              height: 260,
+                              width: 450,
                               child: Card(
                                 margin: EdgeInsets.all(0.2),
                                 elevation: 8,
@@ -261,19 +245,17 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                   borderSide: BorderSide(color: Colors.purple,
                                       width: 1),
                                 ),
-                                child:
-                                SingleChildScrollView(
-                                  child:Column(
+                                child: Column(
                                     children: [
                                       Text(" اذا اخترت (ساعات معينة / يوم) "
-                                          "الرجاء تحديد الوقت والتاريخ  ",
+                                          "الرجاء تحديد الوقت و التاريخ  ",
                                         style: const TextStyle(
                                           height: 3,
-                                          fontSize: 12.0,
+                                          fontSize: 13.0,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.red,
                                         ),),
-                                      SizedBox(height: 8),
+                                      SizedBox(height: 10),
                                       Row(
                                           children:[
                                             Text('  تاريخ الحجز :  ',
@@ -301,10 +283,10 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                         Icons.calendar_today_outlined,
                                                           color: Colors.black,
                                                       size: 20,)
-                                                  ),),
-                                              ),
+                                                  ),
+                                                ),),
                                             ),]),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 20),
                                       Row(
                                           children:[
                                             Text('   وقت دخول الطفل:   ',
@@ -335,7 +317,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                                   ),
                                                 ),),
                                             ),]),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 20),
                                       Row(
                                           children:[
                                             Text('   وقت خروج الطفل:   ',
@@ -367,35 +349,30 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                               ),
                                             ),]
                                       ),]
-                                  ),
                                 ),
                               ),
                             ),
                           ),]
                     ),
                     SizedBox(height: 5),
-                        SingleChildScrollView(
-                          child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                ElevatedButton(
-                                  child: Text("إرسال الطلب"),
-                                  style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
-                                    onPrimary: Colors.white,
-                                    onSurface: Colors.grey[700],
-                                    primary: Colors.purple[300],
-                                    shape: RoundedRectangleBorder(borderRadius:
-                                    BorderRadius.circular(20)),),
-                                  onPressed: isButtonActive?() {
-                                    validateAndSubmit();
-                                    setState(() {
-                                      isButtonActive = false;
-                                    });
-                                  }:null,
-                                ),]
-                          ),
-                        ),]
+                    Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                            child: Text("إرسال الطلب"),
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                              onPrimary: Colors.white,
+                              primary: Colors.purple[300],
+                              shape: RoundedRectangleBorder(borderRadius:
+                              BorderRadius.circular(20)),
+                            ),
+                            onPressed:() {
+                              validateAndSubmit();},
+                          ),]
+                      ),
+                    ),]
                   ),
                 ),
               ]),

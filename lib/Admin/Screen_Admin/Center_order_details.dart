@@ -14,7 +14,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
     return Scaffold(
         appBar: AppBar(
           title: Text('تفاصيل الطلب'),
-          backgroundColor: Colors.purple[300],
+          backgroundColor: Colors.teal[300],
 
         ),
         body: SingleChildScrollView(
@@ -34,49 +34,49 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.group_outlined,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.email,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.phone,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.location_on,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.access_time,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.child_friendly_outlined,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.attach_money_outlined,
-                          color: Colors.purple[300],
+                          color: Colors.teal[300],
                           size: 25,
                         ),
                       ),
@@ -95,9 +95,9 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                               primary: Colors.green,
                               onSurface: Colors.grey[700],
                               elevation: 3,
-                              padding: EdgeInsets.only(left: 55, right: 55),
+                              padding: EdgeInsets.only(left: 30, right: 30),
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(10)),
                             ),
                             onPressed:isButtonActive?(){
                               setState(() {
@@ -119,9 +119,9 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                                   primary: Colors.red,
                                   onSurface: Colors.grey[700],
                                   elevation: 3,
-                                  padding: EdgeInsets.only(left: 55, right: 55),
+                                  padding: EdgeInsets.only(left: 30, right: 30),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
+                                      borderRadius: BorderRadius.circular(10)),
                                 ),
                                 onPressed:isButtonActive?(){
                                   setState(() {

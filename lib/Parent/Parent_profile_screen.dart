@@ -119,9 +119,8 @@ void _onLogOutPressed(BuildContext context){
   showModalBottomSheet(
       context:context,
       builder: (context){
-        return  SingleChildScrollView(
-            child:Container(
-            height: 300,
+        return  Container(
+            height: 280,
             color:Colors.white,
             child: Column(
               children: <Widget> [
@@ -178,7 +177,7 @@ void _onLogOutPressed(BuildContext context){
                       },
                   ),
                 ),],
-            ))
+            )
         );
       });
 }

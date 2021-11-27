@@ -20,7 +20,7 @@ class _OrderCenter extends State<OrderCenter> {
               padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
               child: Card(
                 elevation: 5.0,
-                color: Colors.purple.shade50,
+                color: Colors.teal.shade100,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.0),
                 ),
@@ -38,7 +38,7 @@ class _OrderCenter extends State<OrderCenter> {
                               children: <Widget>[
                                 SizedBox(height: 15),
                                 Icon(Icons.group_outlined,
-                                  color: Colors.purple.shade300,
+                                  color: Colors.teal.shade300,
                                   size: 30,),
                                 SizedBox(width: 8),
                                 Text("اسم مركز الحضانة",
@@ -51,7 +51,7 @@ class _OrderCenter extends State<OrderCenter> {
                               children: <Widget>[
                                 SizedBox(height: 15),
                                 Icon(Icons.access_time_outlined,
-                                  color: Colors.purple.shade300, size: 30,),
+                                  color: Colors.teal.shade300, size: 30,),
                                 SizedBox(width: 8),
                                 Text("حالة الطلب",
                                   style: TextStyle(
@@ -77,7 +77,7 @@ class _OrderCenter extends State<OrderCenter> {
                                   padding: EdgeInsets.symmetric
                                     (vertical:5, horizontal: 15),
                                   onPrimary: Colors.white,
-                                  primary: Colors.purple[300],
+                                  primary: Colors.teal.shade300,
                                   onSurface: Colors.grey,
                                   elevation: 4,
                                   shape: RoundedRectangleBorder(
