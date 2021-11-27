@@ -120,7 +120,7 @@ void _onLogOutPressed(BuildContext context){
       context:context,
       builder: (context){
         return  Container(
-            height: 280,
+            height: 300,
             color:Colors.white,
             child: Column(
               children: <Widget> [

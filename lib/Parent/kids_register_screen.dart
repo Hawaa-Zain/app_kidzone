@@ -251,11 +251,11 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                                           "الرجاء تحديد الوقت و التاريخ  ",
                                         style: const TextStyle(
                                           height: 3,
-                                          fontSize: 13.0,
+                                          fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.red,
                                         ),),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 5),
                                       Row(
                                           children:[
                                             Text('  تاريخ الحجز :  ',
