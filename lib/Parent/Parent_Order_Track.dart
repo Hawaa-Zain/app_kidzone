@@ -45,7 +45,7 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
                   ),
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -57,34 +57,33 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
                                     color: Colors.purple.shade300,
                                     size: 30,),
                                   SizedBox(width: 15),
-                                  Text("اسم الطفل", style: TextStyle(
-                                    fontSize: 15,
+                                  Text("اسم الطفل :", style: TextStyle(
+                                    fontSize: 14,
                                     fontWeight: FontWeight.bold,),),
-                                  SizedBox(width: 80),
+                                  SizedBox(width: 30),
                                   Text(doc['name'], style: TextStyle(
                                     fontSize: 15,),),
                                 ]
                             ),
-                            SizedBox(height: 10,width: 5,),
+                            SizedBox(height: 10,),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("  اسم مركز الحضانة:",style: TextStyle(
-                                  fontSize: 15,
+                              children: <Widget>[
+                                Text("اسم مركز الحضانة:",style: TextStyle(
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,)),
+                                SizedBox(width: 30),
+                                Text('', style: TextStyle(
+                                  fontSize: 15,),),
                               ],),
                             SizedBox(height: 10,),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: <Widget>[
                                 Icon(Icons.access_time_outlined,
                                   color: Colors.purple.shade300,
                                   size: 27,),
                                 SizedBox(width: 5),
                                 Text(" حالة الطلب",style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,)),
                               ],),],
                         ),],

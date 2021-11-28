@@ -411,7 +411,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
     showDatePicker(
         context: context,
         initialDate: DateTime.now(),
-        firstDate: DateTime(2020, 1),
+        firstDate: DateTime.now(),
         lastDate: DateTime(2030, 12),
         builder: (context, picker) {
           return Theme(

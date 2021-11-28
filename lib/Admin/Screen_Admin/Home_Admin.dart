@@ -33,7 +33,7 @@ void _onLogOutPressed(BuildContext context){
       context:context,
       builder: (context){
         return  Container(
-            height: 280,
+            height: 300,
             color:Colors.white,
             child: Column(
               children: <Widget> [
@@ -57,7 +57,8 @@ void _onLogOutPressed(BuildContext context){
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 100, right: 100,top: 30 ,bottom: 50),
+                    margin: EdgeInsets.only(left: 100, right: 100,top: 20 ,
+                        bottom: 40),
                     padding: EdgeInsets.only(left: 40, right: 40),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kidzone_app/Parent/parent_chat_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 import 'package:kidzone_app/resetpassword.dart';
 
@@ -28,6 +29,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
       _user = userData!;
       print(userData.uid);
       print(userData.email);
+      print(userData.phoneNumber);
     });
   }
   @override
@@ -35,6 +37,14 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
     appBar: AppBar(
       title: Text(' حسابي '),
       backgroundColor: Colors.purple[300],
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: (){
+          Navigator.pop(context, MaterialPageRoute(builder: (_)=>
+              ParentChatScreen()
+          ));
+        },
+      ),
     ),
     body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
@@ -53,9 +63,42 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
         itemCount: 1, //snapshot.data.docs.length,
         itemBuilder: (context, index) {
           return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 130),
+                SizedBox(height: 20,),
+                SizedBox(
+                  height: 130,
+                  width: 130,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    fit: StackFit.expand,
+                    children: [
+                      CircleAvatar(
+                        radius: 200,
+                        backgroundColor: Colors.grey[200],
+                          // your data image here ,
+                        //backgroundImage:,
+                        // if statment
+                      ),
+                      Positioned(
+                        bottom: -5,
+                        right: -10,
+                        child: TextButton.icon(
+                         style: TextButton.styleFrom(
+                            primary: Colors.purple[300],
+                          ),
+                          onPressed: (){},
+                          icon: Icon(Icons.edit,
+                              size: 30),
+                          label: Text('',style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 6,),
+                          ),
+                        ),
+                      ),],
+                  ),
+                ),
+                SizedBox(height:30),
                 Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -80,7 +123,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           Icons.phone,
                           color: Colors.purple[300],
                         ),
-                        title: Text(' رقم الجوال'),
+                        title: Text(snapshot.data!['phone']),
                       ),
                       ListTile(
                         leading: Icon(

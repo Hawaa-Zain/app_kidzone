@@ -83,7 +83,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       SizedBox(height: 5,width: 15,),
                       Row(
                         children:[
-                          SizedBox(width: 25,),
+                          SizedBox(width: 10,),
                           ElevatedButton(
                             child: Text("موافق ",
                                 style: TextStyle(
@@ -95,7 +95,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                               primary: Colors.green,
                               onSurface: Colors.grey[700],
                               elevation: 3,
-                              padding: EdgeInsets.only(left: 55, right: 55),
+                              padding: EdgeInsets.only(left: 50, right: 50),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
                             ),
@@ -119,7 +119,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                                   primary: Colors.red,
                                   onSurface: Colors.grey[700],
                                   elevation: 3,
-                                  padding: EdgeInsets.only(left: 55, right: 55),
+                                  padding: EdgeInsets.only(left: 50, right: 50),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),

@@ -132,7 +132,7 @@ class ResetPasswordScreen extends StatelessWidget {
       msg: "تم إرسال رابط إعادة تعيين كلمة المرور على بريدك الإلكتروني.",
       backgroundColor: Colors.purple[300],
       textColor: Colors.black,
-      fontSize: 20.0,
+      fontSize: 15.0,
     );
     Navigator.pop(context);
   }
