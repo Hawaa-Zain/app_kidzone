@@ -21,7 +21,14 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
     return Scaffold(
         appBar: AppBar(
           title: Text('تفاصيل الطلب'),
-          backgroundColor: Colors.purple[300],
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[(new Color(0XFF9CCC65)), new Color(0XFFC5E1A5)])
+            ),
+          ),
 
         ),
         body: SingleChildScrollView(
@@ -32,7 +39,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                 alignment: Alignment.center,
                 child: Card(
                   margin: EdgeInsets.all(20),
-                  color: Colors.white,
+                  color: Colors.lightGreen[50],
                   shadowColor: Colors.black,
                   elevation: 5,
                   child: Column(
@@ -41,7 +48,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.group_outlined,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['name']),
@@ -49,7 +56,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.email,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['email']),
@@ -57,7 +64,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.phone,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['phone']),
@@ -65,7 +72,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.location_on,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['address']),
@@ -73,7 +80,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.access_time,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['workingHours']),
@@ -81,7 +88,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.child_friendly_outlined,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['kidsAge']),
@@ -89,7 +96,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                       ListTile(
                         leading: Icon(
                           Icons.attach_money_outlined,
-                          color: Colors.purple[300],
+                          color: Colors.lightGreen[400],
                           size: 25,
                         ),
                         title: Text(widget.cendoc['price']),

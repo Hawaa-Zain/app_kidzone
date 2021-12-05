@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Parent/centers_screen.dart';
 import 'package:kidzone_app/Parent/parent_Bottom_Tab_screen.dart';
 
 void main() => runApp(ParentSeeAdvertisement());

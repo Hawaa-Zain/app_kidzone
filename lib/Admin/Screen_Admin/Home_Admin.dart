@@ -15,7 +15,14 @@ class _HomeAdmin extends State<HomeAdmin> {
     return Scaffold(
       appBar: AppBar(
         title: Text('طلبات مراكز الحضانة '),
-        backgroundColor: Colors.teal[300],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[(new Color(0XFF9CCC65)), new Color(0XFFC5E1A5)])
+          ),
+        ),
         automaticallyImplyLeading: false,
         actions: <Widget>[
           IconButton(
@@ -39,12 +46,12 @@ void _onLogOutPressed(BuildContext context){
               children: <Widget> [
                 SizedBox(height: 10),
                 Text("تسجيل الخروج",
-                  style: TextStyle(color: Colors.teal[300],
+                  style: TextStyle(color:  (new Color(0XFF9CCC65)),
                       fontWeight: FontWeight.bold,
                       fontSize: 25),),
                 SizedBox(height: 8),
                 Text(" هل أنت متأكد أنك تريد تسجيل الخروج ؟",
-                  style: TextStyle(color: Colors.teal[300],
+                  style: TextStyle(color: (new Color(0XFF9CCC65)),
                       fontSize: 15),),
                 SizedBox(height: 13.5),
                 GestureDetector(
@@ -62,7 +69,7 @@ void _onLogOutPressed(BuildContext context){
                     padding: EdgeInsets.only(left: 40, right: 40),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [(new Color(0xFF4DB6AC)), new Color(0xFF4DB6AC)],
+                          colors: [(new Color(0XFF9CCC65)), new Color(0XFFC5E1A5)],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight),
                       borderRadius: BorderRadius.circular(10),
@@ -83,7 +90,8 @@ void _onLogOutPressed(BuildContext context){
                 Container(
                   margin: EdgeInsets.all(8),
                   child: TextButton(
-                    child: Text('إلغاء الامر'
+                    child: Text('إلغاء الامر', style: TextStyle(color: Color(0XFF9CCC65), fontWeight:
+                    FontWeight.bold, fontSize: 20),
                     ),
                     onPressed: () {
                       Navigator.push(

@@ -107,82 +107,141 @@ class _CenterDetailsState extends State<CenterDetails> {
                   ),
                 ),
                 ListTile(
-                  title: Text('معلومات الحضانة'),
+                  title: Text('معلومــات الحـضـانة',
+                      style:TextStyle(
+                        color:Colors.purple[300],
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,)),
                 ),
+                SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Column(
+                      children: <Widget>[
+                        Column(
+                            children: [
+                              SizedBox(width: 5),
+                              Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 5),
+                                    Icon(Icons.email, color: Colors.grey,size:
+                                    25,),
+                                    Text("  البـريـد الالكـتـروني", style:
+                                    TextStyle(color:Colors.purple[300],
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold),),
 
-                ListTile(
-                  leading: Icon(Icons.account_balance,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['name']),
+                                    SizedBox(width: 90),
+                                    Icon(Icons.phone, color: Colors.grey,size: 25,),
+                                    Text(" رقم الاتصــال", style: TextStyle(color:Colors.purple[300],fontSize: 17,
+                                        fontWeight: FontWeight.bold),),
+                                  ]
+                              ),
+                              SizedBox(height: 5),
+                              Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 20),
+                                    Text(widget.cendoc['email'], style:
+                                    TextStyle(fontSize: 17,),),
 
-                ),
-                ListTile(
-                  leading: Icon(Icons.email,
-                  color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['email']),
+                                    SizedBox(width: 50),
+                                    Text(widget.cendoc['phone'], style: TextStyle(fontSize:
+                                    17,),),
+                                  ]
+                              ),
+                              SizedBox(height:20),
+                              Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 5),
+                                    Icon(Icons.child_care_outlined , color:
+                                    Colors.grey,size: 25,),
+                                    Text("  الفئـة العمريـة", style:
+                                    TextStyle(color:Colors.purple[300],fontSize: 17,fontWeight: FontWeight.bold),),
 
-                ),
-                ListTile(
-                  leading: Icon(Icons.phone,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['phone']),
+                                    SizedBox(width: 110),
+                                    Icon(Icons.attach_money_outlined, color: Colors.grey,size: 25,),
+                                    Text(" الـسعـر", style: TextStyle
+                                      (color:Colors.purple[300],fontSize: 17,
+                                        fontWeight: FontWeight.bold),),
+                                  ]
+                              ),
+                              SizedBox(height: 5),
+                              Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 20),
+                                    Text(widget.cendoc['kidsAge'], style:
+                                    TextStyle(fontSize: 17,)),
 
+                                    SizedBox(width: 90),
+                                    Text(widget.cendoc['price'], style: TextStyle
+                                      (fontSize:
+                                    17,),),
+                                  ]
+                              ),
+
+                              SizedBox(height:15),
+                              Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 5),
+                                    Icon(Icons.location_on , color: Colors.grey,size: 25,),
+                                    Text("  الـحــي", style:
+                                    TextStyle(color:Colors.purple[300],
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold),),
+
+                                    SizedBox(width: 140),
+                                    Icon(Icons.access_time, color: Colors.grey,size: 25,),
+                                    Text(" سـاعـات الـعـمـل", style: TextStyle
+                                      (color:Colors.purple[300],fontSize: 17,
+                                        fontWeight: FontWeight.bold),),
+                                  ]
+                              ),
+                              SizedBox(height: 5),
+                              Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 30),
+                                    Text(widget.cendoc['address'], style:
+                                    TextStyle(fontSize: 17,)),
+
+                                    SizedBox(width: 120),
+                                    Text(widget.cendoc['workingHours'], style: TextStyle
+                                      (fontSize:
+                                    17,),),
+                                  ]
+                              ),]
+                        ),]
+                  ),
                 ),
-                ListTile(
-                  leading: Icon(Icons.location_on,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['address']),
-                ),
-                ListTile(
-                  leading: Icon(Icons.access_time,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['workingHours']),
-                ),
-                ListTile(
-                  leading: Icon(Icons.child_care_outlined ,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['kidsAge']),
-                ),
-                ListTile(
-                  leading:Icon(Icons.attach_money_outlined,
-                      color: Colors.purple.shade300),
-                  title: Text(widget.cendoc['price']),
-            ),
 
                 Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ElevatedButton(
-                        child: Text("التسجيل"),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
-                          onPrimary: Colors.white,
-                          primary: Colors.purple[300],
-                          onSurface: Colors.grey,
-                          elevation: 20,
-                          shape: RoundedRectangleBorder(borderRadius:
-                          BorderRadius.circular(20)),
-                        ),
-                        onPressed:() {
-                          {
-                            Navigator.push(context,
-                              MaterialPageRoute(builder: (context) =>
-                                  KidsRegisterScreen(widget.cendoc)),
-                            );
-                          }
-                        }),
-                      ],
-                    ),
-
+                          child: Text("التسجيل"),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(vertical: 6.5, horizontal: 80),
+                            onPrimary: Colors.white,
+                            primary: Colors.purple[300],
+                            onSurface: Colors.grey,
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(borderRadius:
+                            BorderRadius.circular(20)),),
+                          onPressed:() {
+                            {
+                              Navigator.push(context,
+                                MaterialPageRoute(builder: (context) =>
+                                    KidsRegisterScreen(widget.cendoc)),
+                              );}}
+                      ),],
                   ),
+                ),
+              ],
+            ),
 
-                ],
-
-              ),
           ),
-          );
-      }
+
+        );}
     );
   }
 }
