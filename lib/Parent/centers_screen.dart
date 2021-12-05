@@ -5,7 +5,7 @@ import 'package:kidzone_app/Parent/widgets/centers_grid.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
-User? user = FirebaseAuth.instance.currentUser;
+User user = FirebaseAuth.instance.currentUser;
 
 class CentersScreen extends StatefulWidget {
   @override

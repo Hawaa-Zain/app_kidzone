@@ -8,7 +8,7 @@ import 'package:timeago/timeago.dart' as tAgo;
 final DateTime timestamp = DateTime.now();
 final userReference =
 FirebaseFirestore.instance.collection('Parent').snapshots();
-User? gCurrentUser = FirebaseAuth.instance.currentUser;
+User gCurrentUser = FirebaseAuth.instance.currentUser;
 //var voluntaryID = "vaateam2020@gmail.com";
 
 //User? currentUser;
@@ -19,8 +19,11 @@ class CommentsPage extends StatefulWidget {
   final String centerUrl;
   final bool isReq;
   const CommentsPage(
-      { Key? key, required this.centerID,
-        required this.userId, required this.centerUrl, required this.isReq, })
+      { Key key,
+        @required this.centerID,
+        @required this.userId,
+        @required this.centerUrl,
+        @required this.isReq, })
       : super(key: key);
 
   @override
@@ -35,7 +38,10 @@ class _CommentsPageState extends State<CommentsPage> {
   final bool isReq;
   TextEditingController commentTextEditingController = TextEditingController();
 
-  _CommentsPageState({required this.centerID, required this.userId, required this.centerUrl, required this.isReq});
+  _CommentsPageState({@required this.centerID,
+    @required this.userId,
+    @required this.centerUrl,
+    @required this.isReq});
 
   //return the comments by timestamp order and send them to Comment class
   retrieveComments() {
@@ -57,7 +63,7 @@ class _CommentsPageState extends State<CommentsPage> {
             );
           }
           List<Comment> comments = [];
-          dataSnapshot.data!.docs.forEach((document)
+          dataSnapshot.data.docs.forEach((document)
           {
             comments.add(Comment.fromDocument(document));
           });
@@ -70,9 +76,9 @@ class _CommentsPageState extends State<CommentsPage> {
   //this function is to save the comments in firebase
   saveComment() async {
     //User currentUser = FirebaseAuth.instance.currentUser;
-     String? url;
-     String? userName;
-     String? user_id;
+     String url;
+     String userName;
+     String user_id;
     await FirebaseFirestore.instance
         .collection('Parent')
         .where('userID', isEqualTo: userId)
@@ -98,7 +104,7 @@ class _CommentsPageState extends State<CommentsPage> {
       'url': url,
       'userId': user_id,
     });
-    bool isNotPostOwner = userId != gCurrentUser!.uid;
+    bool isNotPostOwner = userId != gCurrentUser.uid;
     if (isNotPostOwner) {
       FirebaseFirestore.instance
           .collection('Centers')
@@ -183,12 +189,12 @@ class Comment extends StatelessWidget {
   final Timestamp timestamp;
 
   const Comment(
-      { Key? key,
-        required this.userName,
-        required this.userId,
-        required this.comment,
-        required this.timestamp,
-        required this.url})
+      { Key key,
+        @required this.userName,
+        @required this.userId,
+        @required this.comment,
+        @required this.timestamp,
+        @required this.url})
       : super(key: key);
   factory Comment.fromDocument(DocumentSnapshot documentSnapshot) {
     return Comment(

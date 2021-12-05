@@ -6,14 +6,14 @@ import 'package:kidzone_app/resetpassword.dart';
 
 
 class ParentProfileScreen extends StatefulWidget {
-  const ParentProfileScreen({Key? key}) : super(key: key);
+  const ParentProfileScreen({Key key}) : super(key: key);
 
   @override
   State<ParentProfileScreen> createState() => _ParentProfileScreen();
 }
 
 class _ParentProfileScreen extends State<ParentProfileScreen> {
-  late User _user;
+   User _user;
 
   @override
   void initState() {
@@ -23,9 +23,9 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
 
   getUserData() async {
     // async and await important
-    User? userData = FirebaseAuth.instance.currentUser; // current user
+    User userData = FirebaseAuth.instance.currentUser; // current user
     setState(() {
-      _user = userData!;
+      _user = userData;
       print(userData.uid);
       print(userData.email);
     });
@@ -65,7 +65,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           Icons.person_outlined,
                           color: Colors.purple[300],
                         ),
-                        title: Text(snapshot.data!['name']),
+                        title: Text(snapshot.data['name']),
 
                       ),
                       ListTile(
@@ -73,7 +73,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                           Icons.email_outlined,
                           color: Colors.purple[300],
                         ),
-                        title: Text(snapshot.data!['email']),
+                        title: Text(snapshot.data['email']),
                       ),
                       ListTile(
                         leading: Icon(

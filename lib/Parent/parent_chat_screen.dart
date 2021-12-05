@@ -157,11 +157,11 @@ class Message{
   final String imageUrl;
 
   Message({
-    required this.sender,
-    required this.time,
-    required this.text,
-    required this.unread,
-    required this.imageUrl,
+    @required this.sender,
+    @required this.time,
+    @required this.text,
+    @required this.unread,
+    @required this.imageUrl,
   });
 }
 

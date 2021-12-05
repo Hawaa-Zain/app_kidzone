@@ -8,7 +8,7 @@ import 'package:kidzone_app/Parent/parent_login_screen.dart';
 import 'dart:io';
 
 
-User? user1 = FirebaseAuth.instance.currentUser;
+User user1 = FirebaseAuth.instance.currentUser;
 
 class ParentSignUpScreen extends StatefulWidget {
   static const String screenRoute = 'signup_screen';
@@ -23,13 +23,13 @@ class InitState extends State<ParentSignUpScreen> {
   }
 
 
-  late String _name;
-  late String _email;
-  late String _phone;
-  late String _password;
+   String _name;
+   String _email;
+   String _phone;
+   String _password;
   bool loading = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  File? _image;
+  File _image;
 
   // method for pick image
   void pickImage() async {
@@ -39,13 +39,13 @@ class InitState extends State<ParentSignUpScreen> {
       maxWidth: 150,
     );
     setState(() {
-      _image = File(image!.path);
+      _image = File(image.path);
     });
   }
 
   bool validateAndSave() {
     final form = _formKey.currentState;
-    if (form!.validate()) {
+    if (form.validate()) {
       // التحقق من الفورم
       form.save();
       return true;
@@ -63,17 +63,17 @@ class InitState extends State<ParentSignUpScreen> {
         final ref = FirebaseStorage.instance
             .ref()
             .child('parent_images')
-            .child(result.user!.uid + '.jpg');
-        await ref.putFile(_image!);
+            .child(result.user.uid + '.jpg');
+        await ref.putFile(_image);
         final url = await ref.getDownloadURL();
 
         //if (result != null) {
-          FirebaseFirestore.instance.collection('Parent').doc(user1!.uid).set({
+          FirebaseFirestore.instance.collection('Parent').doc(user1.uid).set({
             'name': _name,
             'role': 'Parent',
             'email': _email,
             "phone": _phone,
-            'userID': user1!.uid,
+            'userID': user1.uid,
             'image_url': url,
 
           });
@@ -151,7 +151,7 @@ class InitState extends State<ParentSignUpScreen> {
                           radius: 40,
                           backgroundColor: Colors.grey[200],
                           backgroundImage: _image != null
-                              ? FileImage(_image!)
+                              ? FileImage(_image)
                               : AssetImage('') as ImageProvider,
                           // if statment
                         ),
@@ -187,14 +187,14 @@ class InitState extends State<ParentSignUpScreen> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'الإسم مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _name = value!;
+                      onSaved: (String value) {
+                        _name = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -224,14 +224,14 @@ class InitState extends State<ParentSignUpScreen> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'البريد الالكتروني مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _email = value!;
+                      onSaved: (String value) {
+                        _email = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -261,14 +261,14 @@ class InitState extends State<ParentSignUpScreen> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'رقم ولي الأمر مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _phone = value!;
+                      onSaved: (String value) {
+                        _phone = value;
                       },
                       keyboardType: TextInputType.number,
                       cursorColor: Color(0xFFBBA68C8),
@@ -301,14 +301,14 @@ class InitState extends State<ParentSignUpScreen> {
                     ),
                     child: TextFormField(
                       obscureText: true,
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'كلمة المرور  مطلوبة';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _password = value!;
+                      onSaved: (String value) {
+                        _password = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/widget/order_Kids.dart';
 
 class KidsRegisterOrder extends StatelessWidget {
-  const KidsRegisterOrder({Key? key}) : super(key: key);
+  const KidsRegisterOrder({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

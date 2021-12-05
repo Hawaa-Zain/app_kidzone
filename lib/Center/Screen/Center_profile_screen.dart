@@ -6,14 +6,14 @@ import 'package:kidzone_app/Parent/welcome_Screen.dart';
 import 'package:kidzone_app/resetpassword.dart';
 
 class CenterProfileScreens extends StatefulWidget {
-  const CenterProfileScreens({Key? key}) : super(key: key);
+  const CenterProfileScreens({Key key}) : super(key: key);
 
   @override
   State<CenterProfileScreens> createState() => _CenterProfileScreens();
 }
 
 class _CenterProfileScreens extends State<CenterProfileScreens> {
-  late User _user;
+   User _user;
 
   @override
   void initState() {
@@ -23,9 +23,9 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
 
   getUserData() async {
     // async and await important
-    User? userData = FirebaseAuth.instance.currentUser; // current user
+    User userData = FirebaseAuth.instance.currentUser; // current user
     setState(() {
-      _user = userData!;
+      _user = userData;
       print(userData.uid);
       print(userData.email);
     });
@@ -74,7 +74,7 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                     Icons.person_outlined,
                                     color: Colors.purple[300],
                                   ),
-                                  title: Text(snapshot.data!['name']),
+                                  title: Text(snapshot.data['name']),
                                   onTap: () {},
                                 ),
                                 ListTile(
@@ -82,7 +82,7 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                                     Icons.email_outlined,
                                     color: Colors.purple[300],
                                   ),
-                                  title: Text(snapshot.data!['email']),
+                                  title: Text(snapshot.data['email']),
                                 ),
                                 ListTile(
                                   leading: Icon(

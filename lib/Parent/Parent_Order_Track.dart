@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
-User? user = FirebaseAuth.instance.currentUser;
+User user = FirebaseAuth.instance.currentUser;
 
 class  ParentOrderTrackPage extends StatefulWidget {
-  const  ParentOrderTrackPage({Key? key}) : super(key: key);
+  const  ParentOrderTrackPage({Key key}) : super(key: key);
 
   @override
   _ParentOrderTrackPage createState() => _ParentOrderTrackPage();
@@ -18,7 +18,7 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection("Parent")
-            .doc(user!.uid)
+            .doc(user.uid)
             .collection("Children")
             .snapshots(),
         builder: (context, snapshot) {
@@ -32,9 +32,9 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
             return Text("Loading");
           }
           return ListView.builder(
-            itemCount: snapshot.data!.docs.length,
+            itemCount: snapshot.data.docs.length,
             itemBuilder: (context, index) {
-              final doc = snapshot.data!.docs[index];
+              final doc = snapshot.data.docs[index];
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
                 child: Card(

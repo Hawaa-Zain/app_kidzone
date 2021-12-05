@@ -14,11 +14,11 @@ class LoginCenter extends StatefulWidget {
 
 class StartState extends State<LoginCenter> {
 
-  late String? _email;
-  late String? _password;
+   String _email;
+   String _password;
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
-  late String _error;
+   String _error;
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -29,24 +29,24 @@ class StartState extends State<LoginCenter> {
   initWidget() {
 
 
-    Future<String?> canLogin(String email) async {
-      String? role;
+    Future<String> canLogin(String email) async {
+      String state;
 
       await FirebaseFirestore.instance
           .collection('Centers')
           .where('email', isEqualTo: email)
           .get()
           .then((QuerySnapshot querySnapshot) {
-        querySnapshot.docs.forEach((doc) => role = doc['role']);
-        print('$role inside canlog function');
+        querySnapshot.docs.forEach((doc) => state = doc['state']);
+        print('$state inside canlog function');
       });
-      return role;
+      return state;
     }
 
 
     bool validateAndSave() {
       final form = _formKey.currentState;
-      if (form!.validate()) {
+      if (form.validate()) {
         // التحقق من الفورم
         form.save();
         return true;
@@ -57,12 +57,12 @@ class StartState extends State<LoginCenter> {
     void validateAndSubmit() async {
       if (validateAndSave()) {
         setState(() => loading = true);
-        dynamic role = await canLogin(_email!);
-        print('$role inside onpress function');
-        if (role == 'Center') {
+        dynamic state = await canLogin(_email);
+        print('$state inside onpress function');
+        if (state == 'Active') { //should be active to log in (from the kidapp Admin)
           try {
             await auth.signInWithEmailAndPassword(
-                email: _email!, password: _password!);
+                email: _email, password: _password);
 
             //if (result.credential!.signInMethod.isNotEmpty) {
               Navigator.pushReplacement(context,
@@ -98,7 +98,7 @@ class StartState extends State<LoginCenter> {
           );
 
           Fluttertoast.showToast(
-            msg: "البريد الإلكتروني غير تابع لمركز",
+            msg: "البريد الإلكتروني غير تابع لمركز، او انتظر للموافقه على طلبك",
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 20.0,
@@ -154,14 +154,14 @@ class StartState extends State<LoginCenter> {
                             color: Color(0xffEEEEEE)),
                       ],),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'البريد الإلكتروني مطلوب';
                         }
                         return null;
                         },
-                      onSaved: (String? value) {
-                        _email = value!;
+                      onSaved: (String value) {
+                        _email = value;
                         },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -191,14 +191,14 @@ class StartState extends State<LoginCenter> {
                       ],),
                     child: TextFormField(
                       obscureText: true,
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return ' كلمة المرور مطلوبة';
                         }
                         return null;
                         },
-                      onSaved: (String? value) {
-                        _password = value!;
+                      onSaved: (String value) {
+                        _password = value;
                         },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(

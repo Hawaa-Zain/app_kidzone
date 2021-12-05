@@ -1,8 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
 
 
-class CenterPostAdvertisementScreens extends StatelessWidget {
+class CenterPostAdvertisementScreens extends StatefulWidget {
+
+  @override
+  State<CenterPostAdvertisementScreens> createState() => _CenterPostAdvertisementScreensState();
+}
+
+class _CenterPostAdvertisementScreensState extends State<CenterPostAdvertisementScreens> {
+  File _image;
+
+  void pickImage() async {
+    var image = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
+      maxWidth: 150,
+    );
+    setState(() {
+      _image = File(image.path);
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +65,21 @@ class CenterPostAdvertisementScreens extends StatelessWidget {
     // set up the buttons
     Widget cancelButton = TextButton(
       child: Text("نشر"),
-      onPressed:  () {},
+      onPressed:  () async {
+        final ref = FirebaseStorage.instance
+            .ref()
+            .child('Adsimage')
+            .child(user.uid + '.jpg');
+        await ref.putFile(_image);
+        final url = await ref.getDownloadURL();
+
+        FirebaseFirestore.instance.collection('ads').doc().set({
+          'image_url': url,
+          "time": DateTime.now(),
+          'title': ''
+        });
+        Navigator.pop(context);
+      },
     );
     Widget continueButton = TextButton(
       child: Text("الغاء"),
@@ -64,7 +102,8 @@ class CenterPostAdvertisementScreens extends StatelessWidget {
       ),
         IconButton(
           icon: Icon(Icons.photo_camera,color:Colors.purple[200]),
-          onPressed: () {},),
+          onPressed: pickImage,
+        ),
       ], ),
 
       actions: [

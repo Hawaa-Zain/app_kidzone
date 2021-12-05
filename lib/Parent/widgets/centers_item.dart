@@ -6,7 +6,7 @@ import 'package:kidzone_app/Parent/center_details.dart';
 import 'package:kidzone_app/Parent/comments.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-User? user = FirebaseAuth.instance.currentUser;
+User user = FirebaseAuth.instance.currentUser;
 
 class CentersItem extends StatefulWidget {
   final cendoc;
@@ -27,7 +27,7 @@ class _CentersItemState extends State<CentersItem> {
     super.initState();
   }
 
-  User? userAu = FirebaseAuth.instance.currentUser;
+  User userAu = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _CentersItemState extends State<CentersItem> {
                 bool isReq = true;
                 displayComments(context,
                     centerID: widget.cendoc["userID"],
-                    userId: user!.uid,
+                    userId: user.uid,
                     centerUrl: widget.cendoc["image_url"],
                     isReq: isReq);
               }),
@@ -91,8 +91,8 @@ class _CentersItemState extends State<CentersItem> {
                           CollectionReference ratings = centers
                               .doc(widget.cendoc["userID"])
                               .collection('center_ratings');
-                          ratings.doc(userAu!.uid).set({
-                            'userId': userAu!.uid,
+                          ratings.doc(userAu.uid).set({
+                            'userId': userAu.uid,
                             'centerID': widget.cendoc['userID'],
                             'stars': stars,
                             'isSubmitted': 'yes',
@@ -133,7 +133,7 @@ class _CentersItemState extends State<CentersItem> {
           .collection("Centers")
           .doc(widget.cendoc["userID"])
           .collection("center_ratings")
-          .doc(userAu!.uid)
+          .doc(userAu.uid)
           .get()
           .then((doc) {
         if (doc.exists) {

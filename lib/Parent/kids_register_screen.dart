@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'centers_screen.dart';
 
 
-User? user = FirebaseAuth.instance.currentUser;
+User user = FirebaseAuth.instance.currentUser;
 TextEditingController birthDateController = TextEditingController();
 TextEditingController  dateBookingController = TextEditingController();
 TextEditingController  startTimeBookingController = TextEditingController();
@@ -25,11 +25,11 @@ class KidsRegisterScreen extends StatefulWidget {
 
 class _KidsRegisterScreen extends State<KidsRegisterScreen> {
 
-  late String? _name;
-  late String? _gender;
-  late String? _phoneNumber;
-  late String? _registrationType;
-  late bool _checkReg;
+   String _name;
+   String _gender;
+   String _phoneNumber;
+   String _registrationType;
+   bool _checkReg;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -38,7 +38,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
 
     bool validateAndSave() {
       final form = _formKey.currentState;
-      if (form!.validate()) {
+      if (form.validate()) {
         // التحقق من الفورم
        form.save();
         return true;
@@ -49,8 +49,8 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
     void validateAndSubmit() async {
       if(validateAndSave()){
         try{
-          final docID = FirebaseFirestore.instance.collection('Parent').doc(user!.uid).collection("Children").doc().id;
-          FirebaseFirestore.instance.collection('Parent').doc(user!.uid).collection("Children").doc(docID).set({
+          final docID = FirebaseFirestore.instance.collection('Parent').doc(user.uid).collection("Children").doc().id;
+          FirebaseFirestore.instance.collection('Parent').doc(user.uid).collection("Children").doc(docID).set({
             "name": _name,
             "gender": _gender,
             "birthDate": birthDateController.text,
@@ -59,6 +59,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
             "dateBooking": dateBookingController.text,
             "startTimeBooking": startTimeBookingController.text,
             "endTimeBooking": endTimeBookingController.text,
+            'parentID' : user.uid,
             "childID": docID,
             "checkReg": 'waiting',
           });
@@ -73,6 +74,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                 "startTimeBooking": startTimeBookingController.text,
                 "endTimeBooking": endTimeBookingController.text,
                 "childID": docID,
+                'parentID' : user.uid,
                 "checkReg": 'waiting',
                 "centerID": widget.cenDoc["userID"],
                 "centerName": widget.cenDoc["name"],
@@ -107,14 +109,14 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                   padding: const EdgeInsets.all(15),
                   child: Column(children: [
                     TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return ' اسم الطفل مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _name = value!;
+                      onSaved: (String value) {
+                        _name = value;
                       },
                       decoration: InputDecoration(
                         hintText: "اسم الطفل الثلاثي",
@@ -144,7 +146,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                       iconSize: 24,
                       elevation: 16,
                       style: const TextStyle(color: Colors.purple, fontSize: 15,),
-                      onChanged: (String? newValue) {
+                      onChanged: (String newValue) {
                         setState(() {
                           _gender = newValue;
                         });
@@ -178,14 +180,14 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                     ),
                     SizedBox(height: 10),
                     TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return ' رقم ولي الامر مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _phoneNumber = value!;
+                      onSaved: (String value) {
+                        _phoneNumber = value;
                       },
                       decoration: InputDecoration(
                         hintText: "رقم ولي أمر الطفل",
@@ -214,7 +216,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                       iconSize: 24,
                       elevation: 16,
                       style: const TextStyle(color: Colors.purple, fontSize: 15),
-                      onChanged: (String? newValue) {
+                      onChanged: (String newValue) {
                         setState(() {
                           _registrationType = newValue;
                         });
@@ -397,7 +399,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
               ),
               dialogBackgroundColor: Colors.white,
             ),
-            child: picker!,
+            child: picker,
           );
         }).then((selectedDate) {
       //TODO: handle selected date
@@ -422,7 +424,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
               ),
               dialogBackgroundColor: Colors.white,
             ),
-            child: picker!,
+            child: picker,
           );
         }).then((selectedDateBooking) {
       //TODO: handle selected date
@@ -441,7 +443,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
         builder: (context,picker){
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-            child: picker!,
+            child: picker,
           );
         }
     ).then((time) {
@@ -458,7 +460,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
         builder: (context,picker){
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-            child: picker!,
+            child: picker,
           );
         }
     ).then((time) {

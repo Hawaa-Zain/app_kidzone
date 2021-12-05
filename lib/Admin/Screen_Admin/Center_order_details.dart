@@ -1,16 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 class CenterOrderDetails extends StatefulWidget {
+  final cendoc ; //the center reference
+
+  const CenterOrderDetails({Key key, this.cendoc}) : super(key: key);
+
   @override
   State<CenterOrderDetails> createState() => _CenterOrderDetails();
 }
 class _CenterOrderDetails extends State<CenterOrderDetails> {
   bool isButtonActive = true;
 
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
           title: Text('تفاصيل الطلب'),
@@ -37,6 +44,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['name']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -44,6 +52,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['email']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -51,6 +60,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['phone']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -58,6 +68,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['address']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -65,6 +76,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['workingHours']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -72,6 +84,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['kidsAge']),
                       ),
                       ListTile(
                         leading: Icon(
@@ -79,6 +92,7 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                           color: Colors.purple[300],
                           size: 25,
                         ),
+                        title: Text(widget.cendoc['price']),
                       ),
                       SizedBox(height: 5,width: 15,),
                       Row(
@@ -102,6 +116,12 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                             onPressed:isButtonActive?(){
                               setState(() {
                                 isButtonActive = false;
+                                FirebaseFirestore.instance.collection('Centers')
+                                .doc(widget.cendoc['userID'])
+                                .update({
+                                  'state': 'Active',
+                                  'state2': 'مقبول',
+                                });
                               });
                             }:null,
                           ),
@@ -126,6 +146,12 @@ class _CenterOrderDetails extends State<CenterOrderDetails> {
                                 onPressed:isButtonActive?(){
                                   setState(() {
                                     isButtonActive = false;
+                                    FirebaseFirestore.instance.collection('Centers')
+                                        .doc(widget.cendoc['userID'])
+                                        .update({
+                                      'state': 'NotActive',
+                                      'state2': 'مرفوض',
+                                    });
                                   });
                                 }:null,
                               ),],

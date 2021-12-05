@@ -15,7 +15,7 @@ class _OrderKidsState extends State<OrderKids> {
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
               .collection("Centers")
-              .doc(user!.uid)
+              .doc(user.uid)
               .collection("Registration")
               .snapshots(),
           builder: (context, snapshot) {
@@ -28,10 +28,10 @@ class _OrderKidsState extends State<OrderKids> {
               return Text("Loading");
             }
             return ListView.builder(
-                itemCount: snapshot.data!.docs.length,
+                itemCount: snapshot.data.docs.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  final doc = snapshot.data!.docs[index];
+                  final doc = snapshot.data.docs[index];
                   return Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 5.0),
@@ -127,7 +127,7 @@ class _OrderKidsState extends State<OrderKids> {
                                           if (doc['checkReg'] == 'waiting') {
                                             await FirebaseFirestore.instance
                                                 .collection("Centers")
-                                                .doc(user!.uid)
+                                                .doc(user.uid)
                                                 .collection("Registration").doc(
                                                 doc['childID']).update(
                                                 {
@@ -159,7 +159,7 @@ class _OrderKidsState extends State<OrderKids> {
                                           if (doc['checkReg'] == 'waiting')
                                             FirebaseFirestore.instance
                                                 .collection("Centers")
-                                                .doc(user!.uid)
+                                                .doc(user.uid)
                                                 .collection("Registration").doc(
                                                 doc['childID']).update(
                                                 {

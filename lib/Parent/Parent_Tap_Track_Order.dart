@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/Parent_Order_Track.dart';
 
 class ParentTapTrackOrder extends StatelessWidget {
-  const ParentTapTrackOrder({Key? key}) : super(key: key);
+  const ParentTapTrackOrder({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -34,9 +34,9 @@ class CentersGrid extends StatelessWidget {
             ),
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            itemCount: snapshot.data!.docs.length,
+            itemCount: snapshot.data.docs.length,
             itemBuilder: (context, index) {
-            final cendoc = snapshot.data!.docs[index];
+            final cendoc = snapshot.data.docs[index];
 
             return CentersItem(cendoc);
             // itemCount: centerss.length,

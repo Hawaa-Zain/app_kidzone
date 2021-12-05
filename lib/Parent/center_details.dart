@@ -111,34 +111,42 @@ class _CenterDetailsState extends State<CenterDetails> {
                 ),
 
                 ListTile(
+                  leading: Icon(Icons.account_balance,
+                      color: Colors.purple.shade300),
+                  title: Text(widget.cendoc['name']),
+
+                ),
+                ListTile(
                   leading: Icon(Icons.email,
                   color: Colors.purple.shade300),
+                  title: Text(widget.cendoc['email']),
 
                 ),
                 ListTile(
                   leading: Icon(Icons.phone,
                       color: Colors.purple.shade300),
-
+                  title: Text(widget.cendoc['phone']),
 
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on,
                       color: Colors.purple.shade300),
-
+                  title: Text(widget.cendoc['address']),
                 ),
                 ListTile(
                   leading: Icon(Icons.access_time,
                       color: Colors.purple.shade300),
-
+                  title: Text(widget.cendoc['workingHours']),
                 ),
                 ListTile(
                   leading: Icon(Icons.child_care_outlined ,
                       color: Colors.purple.shade300),
+                  title: Text(widget.cendoc['kidsAge']),
                 ),
                 ListTile(
                   leading:Icon(Icons.attach_money_outlined,
                       color: Colors.purple.shade300),
-
+                  title: Text(widget.cendoc['price']),
             ),
 
                 Center(

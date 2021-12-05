@@ -11,11 +11,11 @@ class ParentLoginScreen extends StatefulWidget {
   State<StatefulWidget> createState() => StartState();
 }
 class StartState extends State<ParentLoginScreen> {
-  late String? _email;
-  late String? _password;
+   String _email;
+   String _password;
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
-  late String _error;
+   String _error;
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class StartState extends State<ParentLoginScreen> {
   }
 
   initWidget() {
-    Future<String?> canLogin(String email) async {
-      String? role;
+    Future<String> canLogin(String email) async {
+      String role;
       await FirebaseFirestore.instance
           .collection('Parent')
           .where('email', isEqualTo: email)
@@ -38,7 +38,7 @@ class StartState extends State<ParentLoginScreen> {
 
     bool validateAndSave() {
       final form = _formKey.currentState;
-      if (form!.validate()) {
+      if (form.validate()) {
         // التحقق من الفورم
         form.save();
         return true;
@@ -48,12 +48,12 @@ class StartState extends State<ParentLoginScreen> {
     void validateAndSubmit() async {
       if (validateAndSave()) {
         setState(() => loading = true);
-        dynamic role = await canLogin(_email!);
+        dynamic role = await canLogin(_email);
         print('$role inside onpress function');
         if (role == 'Parent') {
           try {
             await auth.signInWithEmailAndPassword(
-                email: _email!, password: _password!);
+                email: _email, password: _password);
             //if (result.credential!.signInMethod.isNotEmpty) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => ParentBottomTabsScreen()));
@@ -145,14 +145,14 @@ class StartState extends State<ParentLoginScreen> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'البريد الإلكتروني مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _email = value!;
+                      onSaved: (String value) {
+                        _email = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -183,14 +183,14 @@ class StartState extends State<ParentLoginScreen> {
                     ),
                     child: TextFormField(
                       obscureText: true,
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'كلمة المرور مطلوبة';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _password = value!;
+                      onSaved: (String value) {
+                        _password = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(

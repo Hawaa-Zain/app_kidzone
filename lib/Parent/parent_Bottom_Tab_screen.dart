@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/Parent_See_Advertisement_Screen.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
-import 'package:kidzone_app/Parent/parent_chat_screen.dart';
 import 'package:kidzone_app/Parent/Parent_profile_screen.dart';
+
+import 'chatting/center_chats_page.dart';
 
 
 class ParentBottomTabsScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _ParentBottomTabsScreen extends State<ParentBottomTabsScreen> {
   final screens = [
    CentersScreen(),
     ParentSeeAdvertisement(),
-    ParentChatScreen(),
+    ParentChatsPage(),
     ParentProfileScreen(),
   ];
 

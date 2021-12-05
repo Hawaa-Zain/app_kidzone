@@ -8,10 +8,10 @@ class Centerss with ChangeNotifier{
   final String imageAssets;
 
   Centerss({
-    required this.title,
-    required this.description,
-    required this.price,
-    required this.imageAssets,
+     this.title,
+     this.description,
+     this.price,
+     this.imageAssets,
   });
 
 

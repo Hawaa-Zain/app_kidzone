@@ -17,17 +17,17 @@ class SignUpCenter extends StatefulWidget {
 }
 
 class InitState extends State<SignUpCenter> {
-  late String _name;
-  late String _email;
-  late String _phone;
-  late String _address;
-  late String _workingHours;
-  late String _kidsAge;
-  late String _price;
-  late String _password;
+   String _name;
+   String _email;
+   String _phone;
+   String _address;
+   String _workingHours;
+   String _kidsAge;
+   String _price;
+   String _password;
   bool loading = false;
    double _rating =0.0;
-  File? _image;
+  File _image;
 
   // method for pick image
   void pickImage() async {
@@ -37,7 +37,7 @@ class InitState extends State<SignUpCenter> {
       maxWidth: 150,
     );
     setState(() {
-      _image = File(image!.path);
+      _image = File(image.path);
     });
   }
 
@@ -50,7 +50,7 @@ class InitState extends State<SignUpCenter> {
 
     bool validateAndSave() {
       final form = _formKey.currentState;
-      if (form!.validate()) {
+      if (form.validate()) {
         // التحقق من الفورم
         form.save();
         return true;
@@ -69,13 +69,14 @@ class InitState extends State<SignUpCenter> {
           final ref = FirebaseStorage.instance
               .ref()
               .child('user_image')
-              .child(result.user!.uid + '.jpg');
-          await ref.putFile(_image!);
+              .child(result.user.uid + '.jpg');
+          await ref.putFile(_image);
           final url = await ref.getDownloadURL();
 
-          //if (result != null) {
-          FirebaseFirestore.instance.collection('Centers').doc(user!.uid).set({
-            "state": "Active",
+          //send an order to the admin and they can delete them
+          FirebaseFirestore.instance.collection('Centers').doc(user.uid).set({
+            "state": "NotActive",
+            'state2': 'في الانتظار',
             'name': _name,
             'role': 'Center',
             'email': _email,
@@ -86,10 +87,13 @@ class InitState extends State<SignUpCenter> {
             'workingHours': _workingHours,
             'image_url': url,
             "ratings" : _rating,
-            'userID': user!.uid,
+            'userID': user.uid,
           });
+
+          //if (result != null) {
+
           Fluttertoast.showToast(
-            msg: "تم التسجيل بنجاح",
+            msg: "تم ارسال الطلب بنجاح",
             backgroundColor: Color(0xFFFFCC80),
             textColor: Colors.black,
             fontSize: 20.0,
@@ -155,7 +159,7 @@ class InitState extends State<SignUpCenter> {
                           radius: 40,
                           backgroundColor: Colors.grey[200],
                           backgroundImage: _image != null
-                              ? FileImage(_image!)
+                              ? FileImage(_image)
                               : AssetImage('') as ImageProvider,
                           // if statment
                       ),
@@ -194,14 +198,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'اسم مركز الحضانة مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _name = value!;
+                      onSaved: (String value) {
+                        _name = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -231,14 +235,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'البريد الإلكتروني مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _email = value!;
+                      onSaved: (String value) {
+                        _email = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -267,14 +271,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'الرقم  مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _phone = value!;
+                      onSaved: (String value) {
+                        _phone = value;
                       },
                       keyboardType: TextInputType.number,
                       cursorColor: Color(0xFFBBA68C8),
@@ -305,14 +309,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'الحي مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _address = value!;
+                      onSaved: (String value) {
+                        _address = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -342,14 +346,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return '  مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _workingHours = value!;
+                      onSaved: (String value) {
+                        _workingHours = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -379,14 +383,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return '  مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _kidsAge = value!;
+                      onSaved: (String value) {
+                        _kidsAge = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -416,14 +420,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return '  مطلوب';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _price = value!;
+                      onSaved: (String value) {
+                        _price = value;
                       },
                       cursorColor: Color(0xFFBBA68C8),
                       decoration: InputDecoration(
@@ -453,14 +457,14 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
-                      validator: (String? value) {
-                        if (value!.isEmpty) {
+                      validator: (String value) {
+                        if (value.isEmpty) {
                           return 'كلمة المرور مطلوبة';
                         }
                         return null;
                       },
-                      onSaved: (String? value) {
-                        _password = value!;
+                      onSaved: (String value) {
+                        _password = value;
                       },
                       obscureText: true,
                       cursorColor: Color(0xFFBBA68C8),
@@ -479,6 +483,7 @@ class InitState extends State<SignUpCenter> {
                   GestureDetector(
                     onTap: () {
                       validateAndSubmit();
+
                       // Write Click Listener Code Here.
                     },
                     child: Container(
@@ -501,7 +506,7 @@ class InitState extends State<SignUpCenter> {
                         ],
                       ),
                       child: Text(
-                        "تسجيل",
+                        "ارسال الطلب",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -532,6 +537,7 @@ class InitState extends State<SignUpCenter> {
         )
     );
   }
+
   showDialogConfirmForm(BuildContext context) {
 
     // set up the buttons
