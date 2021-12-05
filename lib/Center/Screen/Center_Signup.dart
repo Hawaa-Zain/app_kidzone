@@ -274,6 +274,8 @@ class InitState extends State<SignUpCenter> {
                       validator: (String value) {
                         if (value.isEmpty) {
                           return 'الرقم  مطلوب';
+                        } else if(value.length < 10) {
+                          return "رقم الجوال يجب أن يتكون من 10 أرقام ";
                         }
                         return null;
                       },
@@ -457,9 +459,19 @@ class InitState extends State<SignUpCenter> {
                       ],
                     ),
                     child: TextFormField(
+
                       validator: (String value) {
+                        bool passValid = RegExp(
+                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(value);
                         if (value.isEmpty) {
                           return 'كلمة المرور مطلوبة';
+                        } else if(value.length < 8) {
+                          return "كلمة المرور يجب ألا تقل عن 8 أرقام ";
+                        }
+                        else if(passValid) {
+                          return "كلمة المرور يجب أن تحتوي على رموز مثل @ "
+                              ".-_ ";
                         }
                         return null;
                       },

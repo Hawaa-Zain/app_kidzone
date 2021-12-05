@@ -75,18 +75,17 @@ class InitState extends State<ParentSignUpScreen> {
             "phone": _phone,
             'userID': user1.uid,
             'image_url': url,
+        });
 
-          });
-
-          Fluttertoast.showToast(
-            msg: "تم انشاء الحساب بنجاح",
-            backgroundColor: Colors.green,
-            textColor: Colors.black,
-            fontSize: 20.0,
-          );
-          var router = MaterialPageRoute(
-              builder: (BuildContext context) => ParentLoginScreen());
-          Navigator.of(context).push(router);
+        Fluttertoast.showToast(
+          msg: "تم انشاء الحساب بنجاح",
+          backgroundColor: Colors.green,
+          textColor: Colors.black,
+          fontSize: 20.0,
+        );
+        var router = MaterialPageRoute(
+            builder: (BuildContext context) => ParentLoginScreen());
+        Navigator.of(context).push(router);
         //} else {
         //   setState(() => loading = false);
         //   print('user not found');
@@ -139,7 +138,7 @@ class InitState extends State<ParentSignUpScreen> {
                           ],
                         )),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   SizedBox(
                     height: 115,
                     width: 115,
@@ -158,8 +157,10 @@ class InitState extends State<ParentSignUpScreen> {
                         Positioned(
                           bottom: -15,
                           right: -10,
-                          child: FlatButton.icon(
-                            textColor: Colors.purple.shade300,
+                          child: TextButton.icon(
+                            style: TextButton.styleFrom(
+                              primary: Colors.purple[300],
+                            ),
                             onPressed: pickImage,
                             icon: Icon(Icons.camera_alt_outlined,
                                 size: 30),
@@ -173,7 +174,7 @@ class InitState extends State<ParentSignUpScreen> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 70),
+                    margin: EdgeInsets.only(left: 20, right: 20, top: 30),
                     padding: EdgeInsets.only(left: 20, right: 20),
                     height: 54,
                     decoration: BoxDecoration(
@@ -263,7 +264,9 @@ class InitState extends State<ParentSignUpScreen> {
                     child: TextFormField(
                       validator: (String value) {
                         if (value.isEmpty) {
-                          return 'رقم ولي الأمر مطلوب';
+                          return 'رقم الجوال مطلوب';
+                        } else if(value.length < 10) {
+                          return "رقم الجوال يجب أن يتكون من 10 أرقام ";
                         }
                         return null;
                       },
@@ -278,7 +281,7 @@ class InitState extends State<ParentSignUpScreen> {
                           Icons.phone_android,
                           color: Color(0xFFBBA68C8),
                         ),
-                        hintText: "رقم ولي الأمر",
+                        hintText: "رقم الجوال",
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
                       ),
@@ -301,11 +304,25 @@ class InitState extends State<ParentSignUpScreen> {
                     ),
                     child: TextFormField(
                       obscureText: true,
+
                       validator: (String value) {
+
+                        bool passValid = RegExp(
+                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+
+                            .hasMatch(value);
                         if (value.isEmpty) {
                           return 'كلمة المرور  مطلوبة';
+                        } else if(value.length < 8) {
+                          return "كلمة المرور يجب ألا تقل عن 8 أرقام ";
                         }
-                        return null;
+                           else if(passValid) {
+                           return "كلمة المرور يجب أن تحتوي على رموز مثل @ "
+                               ".-_ ";
+                        }
+                        else{
+                          return null;
+                        }
                       },
                       onSaved: (String value) {
                         _password = value;
@@ -371,7 +388,7 @@ class InitState extends State<ParentSignUpScreen> {
                                   MaterialPageRoute(
                                     builder: (context) => ParentLoginScreen(),)
 
-                        );})],
+                              );})],
                     ),
                   )],
               ),

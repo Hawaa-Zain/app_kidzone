@@ -28,6 +28,7 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
       _user = userData;
       print(userData.uid);
       print(userData.email);
+      print(userData.phoneNumber);
     });
   }
 
@@ -60,74 +61,95 @@ class _CenterProfileScreens extends State<CenterProfileScreens> {
                 return Text("Loading");
               }
               return ListView.builder(
-                  itemCount: 1, //snapshot.data.docs.length,
+                  itemCount:1, //snapshot.data.docs
+                  // .length,
                   itemBuilder: (context, index) {
                     //final _userDoc = snapshot.data;
-                    return Card(
-                              margin: EdgeInsets.only(
-                                  left: 20, right: 20, bottom: 5, top: 40),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Column(children: <Widget>[
-                                ListTile(
-                                  leading: Icon(
-                                    Icons.person_outlined,
-                                    color: Colors.purple[300],
-                                  ),
-                                  title: Text(snapshot.data['name']),
-                                  onTap: () {},
-                                ),
-                                ListTile(
-                                  leading: Icon(
-                                    Icons.email_outlined,
-                                    color: Colors.purple[300],
-                                  ),
-                                  title: Text(snapshot.data['email']),
-                                ),
-                                ListTile(
-                                  leading: Icon(
-                                    Icons.phone,
-                                    color: Colors.purple[300],
-                                  ),
-                                  title: Text(' رقم الجوال'),
-                                ),
-                                ListTile(
-                                  leading: Icon(
-                                    Icons.lock_outline,
-                                    color: Colors.purple[300],
-                                  ),
-                                  title: Text('تغيير كلمة المرور'),
-                                  trailing: Icon(Icons.keyboard_arrow_left),
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute<void>(
-                                        builder: (BuildContext context) =>
-                                            ResetPasswordScreen(),
 
-                                      ),
-                                    );
-                                  },
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(height: 20,),
+                        SizedBox(height: 130,width: 130,
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            fit: StackFit.expand,
+                            children: [
+                              CircleAvatar(
+                                radius: 200,
+                                backgroundColor: Colors.grey[200],),
+                              Positioned(bottom: -5,
+                                right: -10,
+                                child: TextButton.icon(
+                                  style: TextButton.styleFrom(
+                                    primary: Colors.purple[300],),
+                                  onPressed: (){},
+                                  icon: Icon(Icons.edit,
+                                      size: 30),
+                                  label: Text('',style: TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 6,),),
                                 ),
-                                ListTile(
-                                  leading: Icon(
-                                    Icons.logout_outlined,
-                                    color: Colors.purple[300],
-                                  ),
-                                  title: Text(' تسجيل خروج  '),
-                                  onTap: () {
-                                    _onLogoutpressed(context);
-                                  },
-                                ),
-                              ]
+                              ),],
+                          ),
+                        ),
+                        SizedBox(height:30),
+                        Card(
+                          margin: EdgeInsets.only(
+                              left: 20, right: 20, bottom: 5, top: 40),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Column(children: <Widget>[
+                            ListTile(
+                              leading: Icon(
+                                Icons.person_outlined,
+                                color: Colors.purple[300],),
+                              title: Text(snapshot.data['name']),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.email_outlined,
+                                color: Colors.purple[300],
                               ),
-                    );
-                  });
-            }),
+                              title: Text(snapshot.data['email']),
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.phone,
+                                color: Colors.purple[300],),
+                              title: Text(snapshot.data['phone']),
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.lock_outline,
+                                color: Colors.purple[300],),
+                              title: Text('تغيير كلمة المرور'),
+                              trailing: Icon(Icons.keyboard_arrow_left),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                    builder: (BuildContext context) =>
+                                        ResetPasswordScreen(),),);},
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.logout_outlined,
+                                color: Colors.purple[300],
+                              ),
+                              title: Text(' تسجيل خروج  '),
+                              onTap: () {
+                                _onLogOutpressed(context);},
+                            ),]
+                          ),
+                    )]);
+              });
+        }),
       );
 }
 
-void _onLogoutpressed(BuildContext context) {
+void _onLogOutpressed(BuildContext context) {
   showModalBottomSheet(
       context: context,
       builder: (context) {
