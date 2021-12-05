@@ -53,8 +53,8 @@ class ParentSeeAdvertisement extends StatelessWidget {
                                   child: Expanded(
                                       child: FittedBox(
                                     child: Image.network(doc['image_url'],
-                                      height: 200,
-                                      width: 200,
+                                      height: 100,
+                                      width: 100,
                                       fit: BoxFit.cover,),
                                   )),
                                 ),

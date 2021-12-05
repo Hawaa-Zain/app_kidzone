@@ -21,7 +21,6 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
     getUserData();
     super.initState();
   }
-
   getUserData() async {
     // async and await important
     User userData = FirebaseAuth.instance.currentUser; // current user
@@ -78,7 +77,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                         backgroundColor: Colors.grey[200],
                           // your data image here ,
                         //backgroundImage:,
-                        // if statment
+                        // if statement
                       ),
                       Positioned(
                         bottom: -5,

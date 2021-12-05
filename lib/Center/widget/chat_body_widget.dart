@@ -39,7 +39,7 @@ class ChatBodyWidget extends StatelessWidget {
             ));
           },
           leading: CircleAvatar(
-            radius: 25,
+            radius: 30,
             backgroundImage: NetworkImage(user.image_url),
           ),
           title: Text(user.name),

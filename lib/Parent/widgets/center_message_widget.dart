@@ -20,14 +20,17 @@ class CenterMessageWidget extends StatelessWidget {
       children: <Widget>[
         if (!isMe)
           CircleAvatar(
+            backgroundColor: Colors.purple.shade300,
             //radius: 16, backgroundImage: NetworkImage(message.image_url),
           ),
         Container(
+
           padding: EdgeInsets.all(16),
           margin: EdgeInsets.all(16),
           constraints: BoxConstraints(maxWidth: 140),
           decoration: BoxDecoration(
-            color: isMe ? Colors.grey[100] : Theme.of(context).accentColor,
+
+            color: isMe ? Colors.grey[100] : Theme.of(context).focusColor,
             borderRadius: isMe
                 ? borderRadius.subtract(BorderRadius.only(bottomRight: radius))
                 : borderRadius.subtract(BorderRadius.only(bottomLeft: radius)),
@@ -44,7 +47,7 @@ class CenterMessageWidget extends StatelessWidget {
     children: <Widget>[
       Text(
         message.message,
-        style: TextStyle(color: isMe ? Colors.black : Colors.white),
+        style: TextStyle(color: isMe ? Colors.black : Colors.black54),
         textAlign: isMe ? TextAlign.end : TextAlign.start,
       ),
     ],

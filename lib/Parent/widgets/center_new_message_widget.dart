@@ -41,11 +41,11 @@ class _CenterNewMessageWidgetState extends State<CenterNewMessageWidget> {
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey[100],
-              labelText: 'Type your message',
+              labelText: ' أكتب رسالتك هنا...',
               border: OutlineInputBorder(
                 borderSide: BorderSide(width: 0),
                 gapPadding: 10,
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
             onChanged: (value) => setState(() {

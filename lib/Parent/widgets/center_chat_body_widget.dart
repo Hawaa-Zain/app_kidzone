@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/chatting/center_chat_page.dart';
 import 'package:kidzone_app/Parent/model/center_user.dart';
 
+import '../parent_Bottom_Tab_screen.dart';
+
 class CenterChatBody extends StatelessWidget {
   final List<Centers> centers;
 
@@ -12,6 +14,9 @@ class CenterChatBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Expanded(
+
+
+
     child: Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -19,6 +24,7 @@ class CenterChatBody extends StatelessWidget {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25),
           topRight: Radius.circular(25),
+
         ),
       ),
       child: buildChats(),
@@ -39,7 +45,7 @@ class CenterChatBody extends StatelessWidget {
             ));
           },
           leading: CircleAvatar(
-            radius: 25,
+            radius: 30,
             backgroundImage: NetworkImage(user.image_url),
           ),
           title: Text(user.name),
