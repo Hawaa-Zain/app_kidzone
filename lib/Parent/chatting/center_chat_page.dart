@@ -20,7 +20,7 @@ class _CenterChatPageState extends State<CenterChatPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     extendBodyBehindAppBar: true,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.purple[300],
     body: SafeArea(
       child: Column(
         children: [
