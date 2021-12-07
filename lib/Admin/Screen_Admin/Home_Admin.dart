@@ -12,8 +12,11 @@ class HomeAdmin extends StatefulWidget {
 class _HomeAdmin extends State<HomeAdmin> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return DefaultTabController(  // Added
+        length: 2,  // Added
+        initialIndex: 0, //Added
+        child: Scaffold(
+        appBar: AppBar(
         title: Text('طلبات مراكز الحضانة '),
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -29,10 +32,35 @@ class _HomeAdmin extends State<HomeAdmin> {
             icon: Icon(Icons.power_settings_new_outlined),
             onPressed: () {_onLogOutPressed(context);},
           ),],
-      ),
-      body: OrderCenter(),
 
-    );
+        bottom:  TabBar(
+          unselectedLabelColor: Colors.black,
+          indicatorSize: TabBarIndicatorSize.label,
+          indicatorColor: Colors.white,
+          indicatorWeight: 3,
+          tabs: [
+            Tab(icon: Icon(
+              Icons.hourglass_bottom_outlined,
+              color:Colors.black,),
+                child:  Text('الطلبات الجديده',
+                  style:TextStyle(fontSize: 12) ,)
+            ),
+            Tab(icon: Icon(
+                Icons.hourglass_disabled_outlined ,
+                color: Colors.black),
+                child:  Text('الطلبات السابقة',
+                  style:TextStyle(fontSize: 12),)
+            ),],
+        ),
+
+      ),
+      body:  TabBarView(
+          children: [
+          OrderCenter(),
+            Icon(Icons.directions_car),
+          ]),
+
+    ));
   }
 }
 void _onLogOutPressed(BuildContext context){
