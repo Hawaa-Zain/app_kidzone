@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kidzone_app/Center/Screen/Center_Login.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
+import 'package:kidzone_app/Parent/welcome_Screen.dart';
 
 //User? user = FirebaseAuth.instance.currentUser;
 
@@ -33,7 +34,7 @@ class InitState extends State<SignUpCenter> {
   void pickImage() async {
     var image = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
+      imageQuality: 50, // from 0,100 .. to be more fast in storage and restore
       maxWidth: 150,
     );
     setState(() {
@@ -93,13 +94,13 @@ class InitState extends State<SignUpCenter> {
           //if (result != null) {
 
           Fluttertoast.showToast(
-            msg: "تم ارسال الطلب بنجاح",
+            msg: " تم ارسال الطلب بنجاح,انتظر الرد على طلبك",
             backgroundColor: Color(0xFFFFCC80),
             textColor: Colors.black,
             fontSize: 20.0,
           );
           var router = MaterialPageRoute(
-              builder: (BuildContext context) => LoginCenter());
+              builder: (BuildContext context) => WelcomeScreen());
           Navigator.of(context).push(router);
           //} else {
           //   setState(() => loading = false);
@@ -161,7 +162,7 @@ class InitState extends State<SignUpCenter> {
                           backgroundImage: _image != null
                               ? FileImage(_image)
                               : AssetImage('') as ImageProvider,
-                          // if statment
+                          // if statement
                       ),
                         Positioned(
                           bottom: -15,

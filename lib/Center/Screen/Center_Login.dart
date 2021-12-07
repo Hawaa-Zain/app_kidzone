@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_Signup.dart';
-import 'package:kidzone_app/Parent/parent_login_screen.dart';
 import '../../resetpassword.dart';
 
 class LoginCenter extends StatefulWidget {
@@ -59,21 +58,15 @@ class StartState extends State<LoginCenter> {
         setState(() => loading = true);
         dynamic state = await canLogin(_email);
         print('$state inside onpress function');
-        if (state == 'Active') { //should be active to log in (from the kidapp Admin)
+        if (state == 'Active') { //should be active to log in (from the kids
+          // app Admin)
           try {
             await auth.signInWithEmailAndPassword(
                 email: _email, password: _password);
 
-            //if (result.credential!.signInMethod.isNotEmpty) {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => CentersBottomTapsScreens()));
-              // var router = MaterialPageRoute(
-              //     builder: (BuildContext context) => ProfileScreen());
-              // Navigator.of(context).push(router);
-            // } else {
-            //   setState(() => loading = false);
-            //   print('user not found');
-            // }
+
           } catch (e) {
             print('Error: $e');
             setState(() {
@@ -93,7 +86,7 @@ class StartState extends State<LoginCenter> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => ParentLoginScreen(),
+              builder: (context) => LoginCenter(),
             ),
           );
 

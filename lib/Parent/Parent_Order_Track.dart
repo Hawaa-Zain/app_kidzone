@@ -28,6 +28,7 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
             return CircularProgressIndicator();
           }
 
+
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }
@@ -85,6 +86,9 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
                                 Text(" حالة الطلب",style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,)),
+                                SizedBox(width: 30),
+                                Text('', style: TextStyle(
+                                  fontSize: 15,),),
                               ],),],
                         ),],
                     ),

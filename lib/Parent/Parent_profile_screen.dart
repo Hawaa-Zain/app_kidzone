@@ -22,6 +22,8 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
     super.initState();
   }
   getUserData() async {
+
+
     // async and await important
     User userData = FirebaseAuth.instance.currentUser; // current user
     setState(() {
@@ -58,6 +60,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }
+
         return ListView.builder(
         itemCount: 1, //snapshot.data.docs.length,
         itemBuilder: (context, index) {
@@ -73,8 +76,9 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                     fit: StackFit.expand,
                     children: [
                       CircleAvatar(
-                        radius: 200,
-                        backgroundColor: Colors.grey[200],
+                          radius: 40,
+                          backgroundColor: Colors.grey[200],
+
                           // your data image here ,
                         //backgroundImage:,
                         // if statement
