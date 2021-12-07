@@ -78,6 +78,7 @@ class InitState extends State<SignUpCenter> {
             "state": "NotActive",
             'state2': 'في الانتظار',
             'name': _name,
+            "searchKey": '${_name[0]}',
             'role': 'Center',
             'email': _email,
             'phone':_phone,
