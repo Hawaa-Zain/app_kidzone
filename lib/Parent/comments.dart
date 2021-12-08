@@ -9,7 +9,6 @@ final DateTime timestamp = DateTime.now();
 final userReference =
 FirebaseFirestore.instance.collection('Parent').snapshots();
 User gCurrentUser = FirebaseAuth.instance.currentUser;
-//var voluntaryID = "vaateam2020@gmail.com";
 
 //User? currentUser;
 

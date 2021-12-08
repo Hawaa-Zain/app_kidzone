@@ -16,7 +16,7 @@ class _ParentBottomTabsScreen extends State<ParentBottomTabsScreen> {
   final screens = [
    CentersScreen(),
     ParentSeeAdvertisement(),
-    ParentChatsPage(),
+    //ParentChatsPage(),
     ParentProfileScreen(),
   ];
 

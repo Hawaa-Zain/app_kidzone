@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/model/message.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';
@@ -6,35 +7,59 @@ import 'package:kidzone_app/Parent/widgets/center_message_widget.dart';
 import '../../firebase_api.dart';
 import 'center_message_widget.dart';
 
-class CenterMessagesWidget extends StatelessWidget {
-  final String idUser;
+class CenterMessagesWidget extends StatefulWidget {
+  final String idUserformedoc;
 
   const CenterMessagesWidget({
-    @required this.idUser,
+    @required this.idUserformedoc,
     Key key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => StreamBuilder<List<Message>>(
-    stream: FirebaseApi.getMessages(idUser),
-    builder: (context, snapshot) {
-      switch (snapshot.connectionState) {
-        case ConnectionState.waiting:
-          return Center(child: CircularProgressIndicator());
-        default:
-          if (snapshot.hasError) {
-            return buildText('Something Went Wrong Try later');
-          } else {
-            final messages = snapshot.data;
+  State<CenterMessagesWidget> createState() => _CenterMessagesWidgetState();
+}
 
-            return messages.isEmpty
-                ? buildText('Say Hi..')
-                : ListView.builder(
+class _CenterMessagesWidgetState extends State<CenterMessagesWidget> {
+  User _user;
+
+  @override
+  void initState() {
+    getUserData();
+    super.initState();
+  }
+
+  getUserData() async {
+    // async and await important
+    User userData = FirebaseAuth.instance.currentUser; // current user
+    setState(() {
+      _user = userData;
+      print(userData.uid);
+      print(userData.email);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => StreamBuilder<QuerySnapshot>(
+    stream: FirebaseFirestore.instance.collection('chats').doc(widget.idUserformedoc)
+        .collection('message').snapshots(),
+
+    builder: (context, snapshot) {
+      if (!snapshot.hasData)
+      {
+        print(snapshot.data);
+        return CircularProgressIndicator();
+      }
+
+
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return Text("Loading");
+      }
+      return ListView.builder(
               physics: BouncingScrollPhysics(),
               reverse: true,
-              itemCount: messages.length,
-              itemBuilder: (context, index) {
-                final message = messages[index];
+        itemCount: snapshot.data.docs.length,
+        itemBuilder: (context, index) {
+          final message = snapshot.data.docs[index];
 
                 // final newMessage = Message(
                 //   userID: message.userID,
@@ -50,12 +75,12 @@ class CenterMessagesWidget extends StatelessWidget {
 
                 return CenterMessageWidget(
                   message: message,
-                  isMe: message.userID == user.uid,
+                  isMe: message['userID'] == _user,
                 );
               },
             );
-          }
-      }
+
+
     },
   );
 

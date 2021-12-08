@@ -61,7 +61,10 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
             "endTimeBooking": endTimeBookingController.text,
             'parentID' : user.uid,
             "childID": docID,
-            "checkReg": 'waiting',
+            "centerID": widget.cenDoc["userID"],
+            "centerName": widget.cenDoc["name"],
+            "centerEmail": widget.cenDoc["email"],
+            "checkReg": 'في الانتظار',
           });
           FirebaseFirestore.instance.collection('Centers').doc(widget.cenDoc["userID"]).collection('Registration').doc(docID).set(
               {
@@ -75,7 +78,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                 "endTimeBooking": endTimeBookingController.text,
                 "childID": docID,
                 'parentID' : user.uid,
-                "checkReg": 'waiting',
+                "checkReg": 'في الانتظار',
                 "centerID": widget.cenDoc["userID"],
                 "centerName": widget.cenDoc["name"],
                 "centerEmail": widget.cenDoc["email"],
@@ -180,6 +183,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                     ),
                     SizedBox(height: 10),
                     TextFormField(
+                      keyboardType: TextInputType.number,
                       validator: (String value) {
                         if (value.isEmpty) {
                           return ' رقم ولي الامر مطلوب';

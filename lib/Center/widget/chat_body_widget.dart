@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/chatting/chat_page.dart';
-import 'package:kidzone_app/Center/model/parents_forchat.dart';
+
 
 class ChatBodyWidget extends StatelessWidget {
-  final List<User> users;
+  final doc; //parent
 
   const ChatBodyWidget({
-    @required this.users,
+    @required this.doc,
     Key key,
   }) : super(key: key);
 
@@ -26,26 +26,27 @@ class ChatBodyWidget extends StatelessWidget {
   );
 
   Widget buildChats() => ListView.builder(
+      shrinkWrap: true,
     physics: BouncingScrollPhysics(),
     itemBuilder: (context, index) {
-      final user = users[index];
+      final parent = doc[index];
 
       return Container(
         height: 75,
         child: ListTile(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => ChatPage(user: user),
+              builder: (context) => ChatPage(parent: parent,),
             ));
           },
           leading: CircleAvatar(
-            radius: 25,
-            backgroundImage: NetworkImage(user.image_url),
+            radius: 30,
+            backgroundImage: NetworkImage(parent['image_url']),
           ),
-          title: Text(user.name),
+          title: Text(parent['name']),
         ),
       );
     },
-    itemCount: users.length,
+    itemCount: 1,
   );
 }

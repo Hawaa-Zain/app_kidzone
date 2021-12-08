@@ -1,13 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kidzone_app/Center/model/message.dart';
 import '../../firebase_api.dart';
 
 class NewMessageWidget extends StatefulWidget {
-  final String userID;
+  final String idUserformedoc;
+  final String image_url;
+  final String userName;
 
   const NewMessageWidget({
-    @required this.userID,
-    Key key,
+    @required this.idUserformedoc,
+    Key key, this.image_url, this.userName,
   }) : super(key: key);
 
   @override
@@ -17,11 +21,39 @@ class NewMessageWidget extends StatefulWidget {
 class _NewMessageWidgetState extends State<NewMessageWidget> {
   final _controller = TextEditingController();
   String message = '';
+  DateTime lastMessageTime;
+
+  static Future uploadMessage(String idUserformedoc, String message, String image_url, String userName) async {
+
+    FirebaseFirestore.instance.collection('chats/$idUserformedoc/messages')
+    .add({
+      'userID': idUserformedoc,
+      'image_url': image_url,
+      'name': userName,
+      'message': message,
+      "createdAt": DateTime.now(),
+    });
+
+
+    // final newMessage = Message(
+    //   idUser: myId,
+    //   urlAvatar: myUrlAvatar,
+    //   username: myUsername,
+    //   message: message,
+    //   createdAt: DateTime.now(),
+    // );
+    // await refMessages.add(newMessage.toJson());
+
+    final refUsers = FirebaseFirestore.instance.collection('Parent');
+    await refUsers
+        .doc(idUserformedoc)
+        .update({'lastMessageTime': DateTime.now()});
+  }
 
   void sendMessage() async {
     FocusScope.of(context).unfocus();
 
-    await FirebaseApi.uploadMessage(widget.userID, message);
+    await uploadMessage(widget.idUserformedoc, message, widget.image_url, widget.userName);
 
     _controller.clear();
   }
@@ -41,7 +73,7 @@ class _NewMessageWidgetState extends State<NewMessageWidget> {
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey[100],
-              labelText: 'Type your message',
+              labelText: 'أكتب رسالتك هنا...',
               border: OutlineInputBorder(
                 borderSide: BorderSide(width: 0),
                 gapPadding: 10,

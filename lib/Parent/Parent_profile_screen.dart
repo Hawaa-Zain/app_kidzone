@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kidzone_app/Parent/parent_chat_screen.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
+import 'package:kidzone_app/Parent/widgets/centers_item.dart';
 import 'package:kidzone_app/resetpassword.dart';
 
 
@@ -15,14 +20,46 @@ class ParentProfileScreen extends StatefulWidget {
 
 class _ParentProfileScreen extends State<ParentProfileScreen> {
    User _user;
+   File _image;
+   bool imageUpdateRequired = false;
 
-  @override
+
+   // method for pick image
+   void pickImage() async {
+     var image = await ImagePicker().getImage(
+       source: ImageSource.gallery,
+       imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
+       maxWidth: 150,
+     );
+     setState(() {
+       _image = File(image.path);
+       updateImageData();
+     });
+   }
+
+   void updateImageData() async {
+     final ref = FirebaseStorage.instance
+         .ref()
+         .child('parent_images')
+         .child(_user.uid + '.jpg');
+     await ref.putFile(_image);
+     final url = await ref.getDownloadURL();
+     FirebaseFirestore.instance
+         .collection('Centers')
+         .doc(user.uid)
+         .update({'image_url': url});
+     //Navigator.pop(context);
+   }
+
+
+   @override
   void initState() {
     getUserData();
     super.initState();
   }
-
   getUserData() async {
+
+
     // async and await important
     User userData = FirebaseAuth.instance.currentUser; // current user
     setState(() {
@@ -59,9 +96,11 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }
+
         return ListView.builder(
         itemCount: 1, //snapshot.data.docs.length,
         itemBuilder: (context, index) {
+          final _userDoc = snapshot.data;
           return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -76,9 +115,17 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                       CircleAvatar(
                         radius: 200,
                         backgroundColor: Colors.grey[200],
-                          // your data image here ,
-                        //backgroundImage:,
-                        // if statment
+                        backgroundImage: _image != null ? FileImage(_image) : null,
+                        child: ClipOval(
+                          child: SizedBox(
+                            width: 188.0,
+                            height: 188.0,
+                            child: Image.network(
+                              _userDoc['image_url'],
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
                       ),
                       Positioned(
                         bottom: -5,
@@ -87,7 +134,12 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
                          style: TextButton.styleFrom(
                             primary: Colors.purple[300],
                           ),
-                          onPressed: (){},
+                          onPressed: (){
+                            setState(() {
+                              imageUpdateRequired = true;
+                              pickImage();
+                            });
+                          },
                           icon: Icon(Icons.edit,
                               size: 30),
                           label: Text('',style: TextStyle(

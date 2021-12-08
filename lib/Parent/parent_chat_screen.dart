@@ -42,7 +42,7 @@ class _ParentChatScreen extends State<ParentChatScreen> {
               padding: EdgeInsets.all(35),
               decoration: BoxDecoration(
                 color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(40),),
+                borderRadius: BorderRadius.circular(10),),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.65,

@@ -90,23 +90,6 @@ class StartState extends State<WelcomeScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 150, vertical: 50),
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    LoginAdmin()));
-                      },
-                      child: Text("دخول الادمن", style: TextStyle(
-                        color: Colors.black38,
-                      ),),
-                    ),
-                  ),
                 ],
               ),
             ),],

@@ -1,13 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../firebase_api.dart';
 
 class CenterNewMessageWidget extends StatefulWidget {
-  final String userID;
+  final String idUserformedoc;
+  final String image_url;
+  final String userName;
 
   const CenterNewMessageWidget({
-    @required this.userID,
-    Key key,
+    @required this.idUserformedoc,
+    Key key, this.image_url, this.userName,
   }) : super(key: key);
 
   @override
@@ -17,14 +20,43 @@ class CenterNewMessageWidget extends StatefulWidget {
 class _CenterNewMessageWidgetState extends State<CenterNewMessageWidget> {
   final _controller = TextEditingController();
   String message = '';
+  DateTime lastMessageTime;
+
+  static Future uploadMessage(String idUserformedoc, String message, String image_url, String userName) async {
+
+    FirebaseFirestore.instance.collection('chats/$idUserformedoc/messages')
+        .add({
+      'userID': idUserformedoc,
+      'image_url': image_url,
+      'name': userName,
+      'message': message,
+      "createdAt": DateTime.now(),
+    });
+
+
+    // final newMessage = Message(
+    //   idUser: myId,
+    //   urlAvatar: myUrlAvatar,
+    //   username: myUsername,
+    //   message: message,
+    //   createdAt: DateTime.now(),
+    // );
+    // await refMessages.add(newMessage.toJson());
+
+    final refUsers = FirebaseFirestore.instance.collection('Parent');
+    await refUsers
+        .doc(idUserformedoc)
+        .update({'lastMessageTime': DateTime.now()});
+  }
 
   void sendMessage() async {
     FocusScope.of(context).unfocus();
 
-    await FirebaseApi.uploadMessage(widget.userID, message);
+    await uploadMessage(widget.idUserformedoc, message, widget.image_url, widget.userName);
 
     _controller.clear();
   }
+
 
   @override
   Widget build(BuildContext context) => Container(
@@ -41,11 +73,11 @@ class _CenterNewMessageWidgetState extends State<CenterNewMessageWidget> {
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey[100],
-              labelText: 'Type your message',
+              labelText: ' أكتب رسالتك هنا...',
               border: OutlineInputBorder(
                 borderSide: BorderSide(width: 0),
                 gapPadding: 10,
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
             onChanged: (value) => setState(() {

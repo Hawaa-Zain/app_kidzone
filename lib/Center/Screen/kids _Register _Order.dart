@@ -46,8 +46,8 @@ class KidsRegisterOrder extends StatelessWidget {
         body: TabBarView(
           children: [
             OrderKids(),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_car),
+            OrderAcceptedKids(),
+            OrderRejectedKids(),
           ],
         ),
       ),

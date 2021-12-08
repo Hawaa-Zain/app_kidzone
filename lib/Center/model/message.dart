@@ -21,19 +21,19 @@ class Message {
     @required this.createdAt,
   });
 
-  static Message fromJson(Map<String, dynamic> json) => Message(
-    userID: json['userID'],
-    image_url: json['image_url'],
-    username: json['username'],
-    message: json['message'],
-    createdAt: Utils.toDateTime(json['createdAt']),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'idUser': userID,
-    'urlAvatar': image_url,
-    'username': username,
-    'message': message,
-    'createdAt': Utils.fromDateTimeToJson(createdAt),
-  };
+  // static Message fromJson(Map<String, dynamic> json) => Message(
+  //   userID: json['userID'],
+  //   image_url: json['image_url'],
+  //   username: json['username'],
+  //   message: json['message'],
+  //   createdAt: Utils.toDateTime(json['createdAt']),
+  // );
+  //
+  // Map<String, dynamic> toJson() => {
+  //   'idUser': userID,
+  //   'urlAvatar': image_url,
+  //   'username': username,
+  //   'message': message,
+  //   'createdAt': Utils.fromDateTimeToJson(createdAt),
+  // };
 }

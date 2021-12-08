@@ -105,9 +105,9 @@ class _LoginAdmin extends State<LoginAdmin> {
                 borderRadius: BorderRadius.only(
                     bottomRight:Radius.circular(30),
                     bottomLeft: Radius.circular(30)),
-                color: new Color(0xFFFFFFFF),
+                color: Colors.lightGreen[200],
                 gradient: LinearGradient(
-                  colors: [(new Color(0xFF4DB6AC)), new Color(0xFF4DB6AC)],
+                  colors: [(new Color(0XFF9CCC65)), new Color(0XFFC5E1A5)],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
@@ -155,7 +155,7 @@ class _LoginAdmin extends State<LoginAdmin> {
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.email,
-                    color: Color(0xFF4DB6AC),
+                    color: Colors.lightGreen[300],
                   ),
                   hintText: "البريد الالكتروني ",
                   enabledBorder: InputBorder.none,
@@ -192,7 +192,7 @@ class _LoginAdmin extends State<LoginAdmin> {
                   focusColor: Color(0xFFBBA68C8),
                   icon: Icon(
                     Icons.lock_outline,
-                    color: Color(0xFF4DB6AC),
+                    color: Colors.lightGreen[300],
                   ),
                   hintText: "كلمة المرور ",
                   enabledBorder: InputBorder.none,
@@ -211,7 +211,7 @@ class _LoginAdmin extends State<LoginAdmin> {
                 height: 54,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [(new Color(0xFF4DB6AC)), new Color(0xFF4DB6AC)],
+                      colors: [(new Color(0XFFAED581)), new Color(0XFFC5E1A5)],
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight),
                   borderRadius: BorderRadius.circular(20),

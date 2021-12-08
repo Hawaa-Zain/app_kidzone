@@ -37,7 +37,7 @@ class _OrderCenter extends State<OrderCenter> {
                 padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
                 child: Card(
                   elevation: 5.0,
-                  color: Colors.teal.shade100,
+                  color: Colors.lightGreen[50],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(0.0),
                   ),
@@ -55,7 +55,7 @@ class _OrderCenter extends State<OrderCenter> {
                                 children: <Widget>[
                                   SizedBox(height: 15),
                                   Icon(Icons.group_outlined,
-                                    color: Colors.teal.shade300,
+                                    color: Colors.lightGreen[300],
                                     size: 30,),
                                   SizedBox(width: 5),
                                   Text(doc['name'],
@@ -69,7 +69,7 @@ class _OrderCenter extends State<OrderCenter> {
                                 children: <Widget>[
                                   SizedBox(height: 10),
                                   Icon(Icons.access_time_outlined,
-                                    color: Colors.teal.shade300, size: 30,),
+                                    color: Colors.lightGreen[300], size: 30,),
                                   SizedBox(width: 5),
                                   Text(doc['state2'],
                                     style: TextStyle(
@@ -97,7 +97,7 @@ class _OrderCenter extends State<OrderCenter> {
                                     padding: EdgeInsets.symmetric
                                       (vertical: 5, horizontal: 5),
                                     onPrimary: Colors.white,
-                                    primary: Colors.teal.shade300,
+                                    primary: Colors.lightGreen[400],
                                     onSurface: Colors.grey,
                                     elevation: 4,
                                     shape: RoundedRectangleBorder(

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/widget/profile_header_widget.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
 import 'package:kidzone_app/Parent/model/center_user.dart';
 import 'package:kidzone_app/Parent/widgets/center_messages_widget.dart';
 import 'package:kidzone_app/Parent/widgets/center_new_message_widget.dart';
+import 'package:kidzone_app/user_model.dart';
 
 
 class CenterChatPage extends StatefulWidget {
-  final Centers user;
+  final center;
 
   const CenterChatPage({
-    @required this.user,
+    @required this.center,
     Key key,
   }) : super(key: key);
 
@@ -21,7 +22,7 @@ class _CenterChatPageState extends State<CenterChatPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     extendBodyBehindAppBar: true,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.purple[300],
     body: SafeArea(
       child: Column(
         children: [
@@ -36,10 +37,11 @@ class _CenterChatPageState extends State<CenterChatPage> {
                   topRight: Radius.circular(25),
                 ),
               ),
-              child: CenterMessagesWidget(idUser: widget.user.userID),
+              child: CenterMessagesWidget(idUserformedoc: widget.center['userID'] +'${user.uid}',),
             ),
           ),
-          CenterNewMessageWidget(userID: widget.user.userID)
+          CenterNewMessageWidget(idUserformedoc: widget.center['userID'] +'${user.uid}',
+              image_url: widget.center['image_url'], userName: widget.center['name'])
         ],
       ),
     ),

@@ -10,9 +10,8 @@ final DateTime timestamp = DateTime.now();
 final userReference =
 FirebaseFirestore.instance.collection('Centers').snapshots();
 User gCurrentUser = FirebaseAuth.instance.currentUser;
-//var voluntaryID = "vaateam2020@gmail.com";
 
-//User? currentUser;
+
 
 class CenterComments extends StatefulWidget {
   // final String centerID; // for the center user
@@ -135,40 +134,7 @@ class _CenterCommentsState extends State<CenterComments> {
               child: retrieveComments(),
             ),
             Divider(),
-            ListTile(
-              title: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: commentTextEditingController,
-                  decoration: InputDecoration(
-                    labelText: 'اترك تعليقًا هنا...',
-                    labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.purple),
-                    ),
-                  ),
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              trailing: OutlineButton(
-                onPressed: saveComment,
-                borderSide: BorderSide.none,
-                child: Text(
-                  'نشر',
-                  style: TextStyle(
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0),
-                ),
-              ),
-            ),
+
           ],
         ),
       ),

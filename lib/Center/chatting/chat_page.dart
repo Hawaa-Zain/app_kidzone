@@ -3,12 +3,14 @@ import 'package:kidzone_app/Center/model/parents_forchat.dart';
 import 'package:kidzone_app/Center/widget/messages_widget.dart';
 import 'package:kidzone_app/Center/widget/new_message_widget.dart';
 import 'package:kidzone_app/Center/widget/profile_header_widget.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
+import 'package:kidzone_app/user_model.dart';
 
 class ChatPage extends StatefulWidget {
-  final User user;
+  final parent;
 
   const ChatPage({
-    @required this.user,
+    @required this.parent,
     Key key,
   }) : super(key: key);
 
@@ -20,11 +22,11 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     extendBodyBehindAppBar: true,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.purple[300],
     body: SafeArea(
       child: Column(
         children: [
-          ProfileHeaderWidget(name: widget.user.name),
+          //ProfileHeaderWidget(name: widget.user.name),
           Expanded(
             child: Container(
               padding: EdgeInsets.all(10),
@@ -35,10 +37,10 @@ class _ChatPageState extends State<ChatPage> {
                   topRight: Radius.circular(25),
                 ),
               ),
-              child: MessagesWidget(idUser: widget.user.userID),
+              child: MessagesWidget(idUserformedoc: widget.parent['userID'] +'${user.uid}'),
             ),
           ),
-          NewMessageWidget(userID: widget.user.userID)
+          NewMessageWidget(idUserformedoc: widget.parent['userID'] +'${user.uid}'),
         ],
       ),
     ),
