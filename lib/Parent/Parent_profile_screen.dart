@@ -44,8 +44,8 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
          .child(_user.uid + '.jpg');
      await ref.putFile(_image);
      final url = await ref.getDownloadURL();
-     FirebaseFirestore.instance
-         .collection('Centers')
+      FirebaseFirestore.instance
+         .collection('Parent')
          .doc(user.uid)
          .update({'image_url': url});
      //Navigator.pop(context);

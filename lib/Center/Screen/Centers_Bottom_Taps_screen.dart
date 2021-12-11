@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/Screen/center_comments.dart';
+import 'package:kidzone_app/Center/Screen/chatrooms.dart';
 import 'package:kidzone_app/Center/Screen/kids%20_Register%20_Order.dart';
 import 'package:kidzone_app/Center/Screen/Center_Post_Advertisement_Screen.dart';
 import 'package:kidzone_app/Center/Screen/Center_profile_screen.dart';
-import 'package:kidzone_app/Center/chatting/chats_page.dart';
+import 'package:kidzone_app/Parent/centers_screen.dart';
 
 class CentersBottomTapsScreens extends StatefulWidget {
   @override
@@ -12,19 +14,25 @@ class CentersBottomTapsScreens extends StatefulWidget {
 
 class _CentersBottomTapsScreens extends State<CentersBottomTapsScreens> {
   int currentIndex = 0;
-  final screens = [
-    KidsRegisterOrder(),
-    CenterPostAdvertisementScreens(),
-    ChatsPage(),
-    CenterComments(),
-    CenterProfileScreens(),
-  ];
+  List<Widget> list = [];
+
+  @override
+  void initState()   {
+    super.initState();
+    getList();
+  }
+
+  getList () async {
+    list = await getUserName();
+  }
+
+
 
   @override
   Widget build(BuildContext context) => Scaffold(
         body: IndexedStack(
           index: currentIndex,
-          children: screens,
+          children: list,
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -63,4 +71,29 @@ class _CentersBottomTapsScreens extends State<CentersBottomTapsScreens> {
               backgroundColor: Colors.purple.shade300,),],
         ),
   );
+  Future<List<Widget>> getUserName()  async {
+    String userName;
+    //User currentUser = FirebaseAuth.instance.currentUser;
+    await FirebaseFirestore.instance
+        .collection('Centers')
+        .where('userID', isEqualTo: user.uid)
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        userName = doc['name'];
+        print('this is the center nammmme:$userName');
+      });
+    });
+    final screens = [
+      KidsRegisterOrder(),
+      CenterPostAdvertisementScreens(),
+      ChatRoom(userName: userName,),
+      CenterComments(),
+      CenterProfileScreens(),
+    ];
+    return screens;
+  }
 }
+
+
+
