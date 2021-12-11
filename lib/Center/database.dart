@@ -19,15 +19,15 @@ class DatabaseMethods {
   //       .getDocuments();
   // }
 
-  Future<bool> addChatRoom(chatRoom, chatRoomId) {
-    FirebaseFirestore.instance
-        .collection("chatRoom")
-        .doc(chatRoomId)
-        .set(chatRoom) //map
-        .catchError((e) {
-      print(e);
-    });
-  }
+  // Future<bool> addChatRoom(chatRoom, chatRoomId) {
+  //   FirebaseFirestore.instance
+  //       .collection("chatRoom")
+  //       .doc(chatRoomId)
+  //       .set(chatRoom) //map
+  //       .catchError((e) {
+  //     print(e);
+  //   });
+  // }
 
   getChats(String chatRoomId) async{
     return FirebaseFirestore.instance

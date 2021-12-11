@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kidzone_app/Center/Constants.dart';
 import 'package:kidzone_app/Center/database.dart';
 import 'package:kidzone_app/Center/widget/decoration.dart';
 import 'package:kidzone_app/Parent/centers_screen.dart';

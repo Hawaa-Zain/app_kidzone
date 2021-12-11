@@ -1,11 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Center/Screen/chat.dart';
-import 'package:kidzone_app/Center/database.dart';
-import 'package:kidzone_app/Center/helperfunctions.dart';
-import 'package:kidzone_app/Parent/centers_screen.dart';
 
-import '../Constants.dart';
 
 class ChatRoom extends StatefulWidget {
   final userName;
@@ -47,23 +43,7 @@ class _ChatRoomState extends State<ChatRoom> {
       },
     );
   }
-  //
-  // @override
-  // void initState() {
-  //   getUserInfogetChats();
-  //   super.initState();
-  // }
-  //
-  // getUserInfogetChats() async {
-  //   Constants.myName = await HelperFunctions.getUserNameSharedPreference();
-  //   //DatabaseMethods().getUserChats(Constants.myName).then((snapshots) {
-  //   //   setState(() {
-  //   //     chatRooms = snapshots;
-  //   //     print(
-  //   //         "we got the data + ${chatRooms.toString()} this is name  ${Constants.myName}");
-  //   //   });
-  //   // });
-  // }
+
 
   @override
   Widget build(BuildContext context) {

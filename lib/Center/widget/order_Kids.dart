@@ -17,7 +17,7 @@ class _OrderKidsState extends State<OrderKids> {
               .collection("Centers")
               .doc(user.uid)
               .collection("Registration")
-          .where('checkReg',isEqualTo: 'في الانتظار')
+          .where('checkReg',isEqualTo: "في الانتظار")
               .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
@@ -134,6 +134,10 @@ class _OrderKidsState extends State<OrderKids> {
                                                 {
                                                   'checkReg': 'مقبول',
                                                 });
+                                            FirebaseFirestore.instance.collection("Parent").doc(doc['parentID'])
+                                                .collection("Children").doc(doc['childID']).update({
+                                              'checkReg': 'مقبول',
+                                            });
                                             print('check ${doc['checkReg']}');
                                           } else {
                                             print('Somthing wrong');
@@ -166,6 +170,11 @@ class _OrderKidsState extends State<OrderKids> {
                                                 {
                                                   'checkReg': 'مرفوض',
                                                 });
+                                          FirebaseFirestore.instance.collection("Parent").doc(doc['parentID'])
+                                              .collection("Children").doc(doc['childID']).update({
+                                            'checkReg': 'مرفوض',
+                                          });
+
                                           print(doc['checkReg']);
                                           setState(() {
                                             isButtonActive = false;

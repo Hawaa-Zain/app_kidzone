@@ -48,8 +48,7 @@ bool isVisible = true;
       body:StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection("ads")
-        .doc(user.uid)
-        .collection('posts')
+        .where('centerID', isEqualTo: user.uid)
             .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData)
@@ -123,13 +122,13 @@ bool isVisible = true;
         await ref.putFile(_image);
         final url = await ref.getDownloadURL();
 
-        final doc = FirebaseFirestore.instance.collection('ads').doc(user.uid).collection('posts').doc().id;
-        FirebaseFirestore.instance.collection('ads').doc(user.uid).collection('posts').doc(doc).set({
+        final doc = FirebaseFirestore.instance.collection('ads').doc().id;
+        FirebaseFirestore.instance.collection('ads').doc("${user.uid}_$doc").set({
           'image_url': url,
           "time": DateTime.now(),
           'title': '',
           'centerID': user.uid,
-          'docID': doc,
+          'docID': "${user.uid}_$doc",
         });
         Navigator.pop(context);
       },
