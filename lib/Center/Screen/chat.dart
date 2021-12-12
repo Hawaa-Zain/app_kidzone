@@ -68,9 +68,9 @@ class _ChatState extends State<Chat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple[300],
         title: Text(widget.chatRoomId.toString()
-     //.replaceAll("_", "")
-    //.replaceAll(widget.userName, " ")
+
     ),
       ),
       body: Container(
@@ -92,10 +92,11 @@ class _ChatState extends State<Chat> {
                           controller: messageEditingController,
                           style: simpleTextStyle(),
                           decoration: InputDecoration(
-                              hintText: "Message ...",
+                              hintText: "اكتب رسالتك ...",
                               hintStyle: TextStyle(
-                                color: Colors.purple.shade200,
+                                color: Colors.purple.shade300,
                                 fontSize: 16,
+                                fontWeight: FontWeight.bold,
                               ),
                               border: InputBorder.none
                           ),
@@ -120,7 +121,8 @@ class _ChatState extends State<Chat> {
                               borderRadius: BorderRadius.circular(40)
                           ),
                           padding: EdgeInsets.all(12),
-                          child: Icon(Icons.arrow_forward_rounded, size: 25, color: Colors.purple.shade200,),
+                          child: Icon(Icons.arrow_forward_rounded, size: 25,
+                            color: Colors.purple.shade300,),
                            ),
                     ),
                   ],
@@ -169,19 +171,21 @@ class MessageTile extends StatelessWidget {
                 bottomRight: Radius.circular(23)),
             gradient: LinearGradient(
               colors: sendByMe ? [
-                const Color(0xfffA89BA),
-                const Color(0xfffA89BA)
+                const Color(0xffCE93D8), //COLOR IS PURPLE 100
+                const Color(0xffCE93D8) // COLOR PURPLE 300
               ]
                   : [
-                const Color(0xff8726d6),
-                const Color(0xffa05bd8)
+                const Color(0xffECEFF1), // COLOR IS GREY 50
+                const Color(0xffECEFF1) // COLOR IS GREY 50
               ],
+
+
             )
         ),
         child: Text(message,
             textAlign: TextAlign.start,
             style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 16,
                 fontFamily: 'OverpassRegular',
                 fontWeight: FontWeight.w300)),

@@ -35,8 +35,8 @@ class InitState extends State<ParentSignUpScreen> {
   void pickImage() async {
     var image = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
-      maxWidth: 150,
+      imageQuality: 100, // from 0,100 .. to be more fast in stoarge and restore
+      maxWidth: 1080,
     );
     setState(() {
       _image = File(image.path);

@@ -1,5 +1,4 @@
 // @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/splash_screen.dart';
 import 'package:kidzone_app/providers/centers.dart';
@@ -35,7 +34,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'kidZone',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple
+                )
                 .copyWith(secondary: Colors.deepPurpleAccent),
           ),
           home: SplashScreen(),

@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kidzone_app/Parent/parent_chat_screen.dart';
+import 'package:kidzone_app/Parent/parent_chatroom.dart';
 import 'package:kidzone_app/Parent/welcome_Screen.dart';
 import 'package:kidzone_app/Parent/widgets/centers_item.dart';
 import 'package:kidzone_app/resetpassword.dart';
@@ -28,8 +28,9 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
    void pickImage() async {
      var image = await ImagePicker().getImage(
        source: ImageSource.gallery,
-       imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
-       maxWidth: 150,
+       imageQuality: 100, // from 0,100 .. to be more fast in stoarge and
+       // restore
+       maxWidth: 1080,
      );
      setState(() {
        _image = File(image.path);
@@ -78,7 +79,7 @@ class _ParentProfileScreen extends State<ParentProfileScreen> {
         icon: Icon(Icons.arrow_back),
         onPressed: (){
           Navigator.pop(context, MaterialPageRoute(builder: (_)=>
-              ParentChatScreen()
+              ParentChatroom()
           ));
         },
       ),

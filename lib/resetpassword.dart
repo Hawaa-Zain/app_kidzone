@@ -118,7 +118,7 @@ class ResetPasswordScreen extends StatelessWidget {
   void resetPassword(BuildContext context) async {
     if (editController.text.length == 0 || !editController.text.contains("@")) {
       Fluttertoast.showToast(
-        msg: "الإيميل غير صحيح",
+        msg: "البريد الالكتروني غير صحيح",
         backgroundColor: Colors.purple[300],
         textColor: Colors.black,
         fontSize: 20.0,

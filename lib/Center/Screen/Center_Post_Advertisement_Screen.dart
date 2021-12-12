@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
@@ -19,8 +20,8 @@ class _CenterPostAdvertisementScreensState extends State<CenterPostAdvertisement
   void pickImage() async {
     var image = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      imageQuality: 50, // from 0,100 .. to be more fast in stoarge and restore
-      maxWidth: 150,
+      imageQuality: 100, // from 0,100 .. to be more fast in stoarge and restore
+      maxWidth: 1080,
     );
     setState(() {
       _image = File(image.path);
@@ -89,6 +90,13 @@ bool isVisible = true;
                             onPressed: () {
                               FirebaseFirestore.instance.collection('ads').doc(user.uid).collection('posts')
                                   .doc(doc['docID']).delete();
+
+                              Fluttertoast.showToast(
+                                msg: " تم حذف الاعلان بنجاح",
+                                backgroundColor: Colors.red,
+                                textColor: Colors.black,
+                                fontSize: 20.0,
+                              );
                             },
                           ),
                         ),
@@ -131,6 +139,13 @@ bool isVisible = true;
           'docID': "${user.uid}_$doc",
         });
         Navigator.pop(context);
+
+        Fluttertoast.showToast(
+          msg: " تم نشر الاعلان بنجاح",
+          backgroundColor: Colors.green,
+          textColor: Colors.black,
+          fontSize: 20.0,
+        );
       },
     );
     Widget continueButton = TextButton(

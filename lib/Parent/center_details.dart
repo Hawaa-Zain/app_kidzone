@@ -140,11 +140,13 @@ class _CenterDetailsState extends State<CenterDetails> {
                               SizedBox(height: 5),
                               Row(
                                   children: <Widget>[
-                                    SizedBox(width: 20),
+                                    SizedBox(width: 10),
                                     Text(widget.cendoc['email'], style:
                                     TextStyle(fontSize: 17,),),
 
-                                    SizedBox(width: 50),
+                                    SizedBox(width: 36
+
+                                    ),
                                     Text(widget.cendoc['phone'], style: TextStyle(fontSize:
                                     17,),),
                                   ]
@@ -168,11 +170,11 @@ class _CenterDetailsState extends State<CenterDetails> {
                               SizedBox(height: 5),
                               Row(
                                   children: <Widget>[
-                                    SizedBox(width: 20),
+                                    SizedBox(width: 10),
                                     Text(widget.cendoc['kidsAge'], style:
                                     TextStyle(fontSize: 17,)),
 
-                                    SizedBox(width: 90),
+                                    SizedBox(width: 60),
                                     Text(widget.cendoc['price'], style: TextStyle
                                       (fontSize:
                                     17,),),

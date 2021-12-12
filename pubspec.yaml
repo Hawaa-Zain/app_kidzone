@@ -51,16 +51,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/kidzone.png
-    - assets/images/adv hugs nursery.jpeg
-    - assets/images/adv kids train.jpeg
-    - assets/images/adv wonderful.jpeg
-    - assets/images/bear hugs nursery.jpeg
-    - assets/images/kids train.jpeg
-    - assets/images/wonderful day.jpeg
-    - assets/images/kidzone00.png
-    - assets/images/kidzoneLogo.png
+
     - assets/images/kidzoneLogo0.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

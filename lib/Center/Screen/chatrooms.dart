@@ -52,16 +52,7 @@ class _ChatRoomState extends State<ChatRoom> {
         title: Text('المحادثات'),
         elevation: 0.0,
         centerTitle: false,
-        actions: [
-          GestureDetector(
-            onTap: () {
-
-            },
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Icon(Icons.exit_to_app)),
-          )
-        ],
+        backgroundColor: Colors.purple[300],
       ),
       body: Container(
         child: chatRoomsList(),
@@ -89,7 +80,7 @@ class ChatRoomsTile extends StatelessWidget {
         ));
       },
       child: Container(
-        color: Colors.black26,
+        color: Colors.grey[50],
         padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
         child: Row(
           children: [
@@ -97,7 +88,7 @@ class ChatRoomsTile extends StatelessWidget {
               height: 30,
               width: 30,
               decoration: BoxDecoration(
-                  color: Colors.purple,
+                  color: Colors.purple[200],
                   borderRadius: BorderRadius.circular(30)),
               child: Text(userName.substring(0, 1),
                   textAlign: TextAlign.center,
@@ -113,7 +104,7 @@ class ChatRoomsTile extends StatelessWidget {
             Text(userName,
                 textAlign: TextAlign.start,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 16,
                     fontFamily: 'OverpassRegular',
                     fontWeight: FontWeight.w300))

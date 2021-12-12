@@ -72,8 +72,9 @@ class CentersScreenState extends State<CentersScreen> {
           controller: searchWordController,
           cursorColor: const Color(0xFFBBA68C8),
           decoration: const InputDecoration(
-            hintText: "البحث ",
-            hintStyle: TextStyle(color:Colors.white),
+            hintText: " ابحث بإسم مركز الحضانة ",
+            hintStyle: TextStyle(color:Colors.white, fontSize: 15,
+                fontWeight:FontWeight.bold),
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
           ),
@@ -134,7 +135,7 @@ class CentersScreenState extends State<CentersScreen> {
           Container(
               padding: const EdgeInsets.fromLTRB(0, 0.0, 5.0, 0.0),
               child: SizedBox(
-                width: showTextField ? 300 : 40,
+                width: showTextField ? 300 : 30,
                 child: Row(
                   children: <Widget>[
                     showTextField ? _buildTextField() : Container(),

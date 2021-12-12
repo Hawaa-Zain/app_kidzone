@@ -92,7 +92,7 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
           );
           var router = MaterialPageRoute(
               builder: (BuildContext context) => CentersScreen());
-          Navigator.of(context).push(router);
+          Navigator.of(context).pop(router);
         } catch (e) {
       print('Error: $e');
       }
@@ -187,6 +187,8 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                       validator: (String value) {
                         if (value.isEmpty) {
                           return ' رقم ولي الامر مطلوب';
+                        }else if(value.length < 10) {
+                          return "رقم الجوال يجب أن يتكون من 10 أرقام ";
                         }
                         return null;
                       },
