@@ -11,7 +11,6 @@ class  ParentOrderTrackPage extends StatefulWidget {
   @override
   _ParentOrderTrackPage createState() => _ParentOrderTrackPage();
 }
-
 class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
   @override
   Widget build(BuildContext context) {
@@ -28,8 +27,6 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
             print(snapshot.data);
             return CircularProgressIndicator();
           }
-
-
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }
@@ -100,7 +97,6 @@ class _ParentOrderTrackPage extends State< ParentOrderTrackPage> {
     );
   }
 }
-
 class  ParentOldOrderPage extends StatefulWidget {
   const  ParentOldOrderPage({Key key}) : super(key: key);
 
@@ -124,8 +120,6 @@ class _ParentOldOrderPage extends State< ParentOldOrderPage> {
             print(snapshot.data);
             return CircularProgressIndicator();
           }
-
-
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }

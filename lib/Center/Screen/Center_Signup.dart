@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kidzone_app/Center/Screen/Center_Login.dart';
-import 'package:kidzone_app/Parent/centers_screen.dart';
-import 'package:kidzone_app/Parent/welcome_Screen.dart';
+import 'package:kidzone_app/Parent/Centers_screen.dart';
+import 'package:kidzone_app/Parent/Welcome_Screen.dart';
 
 //User? user = FirebaseAuth.instance.currentUser;
 

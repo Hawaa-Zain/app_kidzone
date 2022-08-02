@@ -9,7 +9,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class StartState extends State<WelcomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +85,6 @@ class StartState extends State<WelcomeScreen> {
                               context,
                               MaterialPageRoute(builder: (context) => ParentLoginScreen()),
                             );},),
-
                       ],
                     ),
                   ),

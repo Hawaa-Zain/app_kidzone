@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kidzone_app/Parent/parent_login_screen.dart';
+import 'package:kidzone_app/Parent/Parent_Login_screen.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   TextEditingController editController = TextEditingController();

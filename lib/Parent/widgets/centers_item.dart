@@ -1,24 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kidzone_app/Parent/center_details.dart';
-import 'package:kidzone_app/Parent/comments.dart';
+import 'package:kidzone_app/Parent/Center_details.dart';
+import 'package:kidzone_app/Parent/Comments.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 User user = FirebaseAuth.instance.currentUser;
-
 class CentersItem extends StatefulWidget {
   final cendoc;
-
   CentersItem(
     this.cendoc,
   );
-
   @override
   State<CentersItem> createState() => _CentersItemState();
 }
-
 class _CentersItemState extends State<CentersItem> {
   double rating = 0.0;
   @override
@@ -26,12 +21,10 @@ class _CentersItemState extends State<CentersItem> {
     // TODO: implement initState
     super.initState();
   }
-
   User userAu = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
-    //final center =  Provider.of<Centerss>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(40),
       child: GridTile(
@@ -149,7 +142,6 @@ class _CentersItemState extends State<CentersItem> {
     }
     return exists;
   }
-
   Future<double> calculateAvg(QueryDocumentSnapshot document) async {
     var counter = 0;
     var star = 0.0;
@@ -180,8 +172,6 @@ class _CentersItemState extends State<CentersItem> {
     print('inside calculateAva avg is: $average');
     return average;
   }
-
-
   displayComments(context, {centerID, userId, centerUrl, isReq}) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return CommentsPage(
@@ -191,7 +181,5 @@ class _CentersItemState extends State<CentersItem> {
           isReq: isReq);
     }));
   }
-
-  //setState(Null Function() param0) {}
 }
 

@@ -9,9 +9,7 @@ final DateTime timestamp = DateTime.now();
 final userReference =
 FirebaseFirestore.instance.collection('Parent').snapshots();
 User gCurrentUser = FirebaseAuth.instance.currentUser;
-
 //User? currentUser;
-
 class CommentsPage extends StatefulWidget {
   final String centerID;
   final String userId;
@@ -29,7 +27,6 @@ class CommentsPage extends StatefulWidget {
   _CommentsPageState createState() => _CommentsPageState(
       centerID: centerID, userId: userId, centerUrl: centerUrl, isReq: isReq);
 }
-
 class _CommentsPageState extends State<CommentsPage> {
   final String centerID;
   final String userId; //postOwnerId
@@ -41,7 +38,6 @@ class _CommentsPageState extends State<CommentsPage> {
     @required this.userId,
     @required this.centerUrl,
     @required this.isReq});
-
   //return the comments by timestamp order and send them to Comment class
   retrieveComments() {
     return StreamBuilder<QuerySnapshot>(
@@ -71,7 +67,6 @@ class _CommentsPageState extends State<CommentsPage> {
           );
         });
   }
-
   //this function is to save the comments in firebase
   saveComment() async {
     //User currentUser = FirebaseAuth.instance.currentUser;
@@ -90,7 +85,6 @@ class _CommentsPageState extends State<CommentsPage> {
         user_id = doc['userID'];
       });
     });
-
     await FirebaseFirestore.instance
         .collection('Centers')
         .doc(centerID)
@@ -120,7 +114,6 @@ class _CommentsPageState extends State<CommentsPage> {
     }
     commentTextEditingController.clear();
   }
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -178,7 +171,6 @@ class _CommentsPageState extends State<CommentsPage> {
     );
   }
 }
-
 //in this class we retrieve the data from the firebase and display them..
 class Comment extends StatelessWidget {
   final String userName;

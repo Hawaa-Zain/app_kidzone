@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-import 'centers_screen.dart';
+import 'Centers_screen.dart';
 
 
 User user = FirebaseAuth.instance.currentUser;
@@ -13,18 +13,13 @@ TextEditingController birthDateController = TextEditingController();
 TextEditingController  dateBookingController = TextEditingController();
 TextEditingController  startTimeBookingController = TextEditingController();
 TextEditingController endTimeBookingController = TextEditingController();
-
 class KidsRegisterScreen extends StatefulWidget {
   final cenDoc;
   KidsRegisterScreen(this.cenDoc);
-
-
   @override
   State<KidsRegisterScreen> createState() => _KidsRegisterScreen();
 }
-
 class _KidsRegisterScreen extends State<KidsRegisterScreen> {
-
    String _name;
    String _gender;
    String _phoneNumber;
@@ -32,10 +27,8 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
    bool _checkReg;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
-
     bool validateAndSave() {
       final form = _formKey.currentState;
       if (form.validate()) {
@@ -45,12 +38,13 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
       }
       return false;
     }
-
     void validateAndSubmit() async {
       if(validateAndSave()){
         try{
-          final docID = FirebaseFirestore.instance.collection('Parent').doc(user.uid).collection("Children").doc().id;
-          FirebaseFirestore.instance.collection('Parent').doc(user.uid).collection("Children").doc(docID).set({
+          final docID = FirebaseFirestore.instance.collection('Parent').
+          doc(user.uid).collection("Children").doc().id;
+          FirebaseFirestore.instance.collection('Parent').
+          doc(user.uid).collection("Children").doc(docID).set({
             "name": _name,
             "gender": _gender,
             "birthDate": birthDateController.text,
@@ -66,7 +60,8 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
             "centerEmail": widget.cenDoc["email"],
             "checkReg": 'في الانتظار',
           });
-          FirebaseFirestore.instance.collection('Centers').doc(widget.cenDoc["userID"]).collection('Registration').doc(docID).set(
+          FirebaseFirestore.instance.collection('Centers').
+          doc(widget.cenDoc["userID"]).collection('Registration').doc(docID).set(
               {
                 "name": _name,
                 "gender": _gender,
@@ -82,7 +77,6 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                 "centerID": widget.cenDoc["userID"],
                 "centerName": widget.cenDoc["name"],
                 "centerEmail": widget.cenDoc["email"],
-
               });
           Fluttertoast.showToast(
             msg: "تم إرسال الطلب بنجاح",
@@ -215,7 +209,6 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                           horizontal: 10,
                         ),
                       ),
-
                       value: 'التسجيل',
                       icon: const Icon(
                           Icons.arrow_drop_down, color: Colors.purple),
@@ -236,7 +229,6 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
                             );
                           }).toList(),
                     ),
-
                     SizedBox(height: 10),
                     Column(
                         children: <Widget>[
@@ -388,8 +380,6 @@ class _KidsRegisterScreen extends State<KidsRegisterScreen> {
         )
     );
   }
-
-
   void _showBirthDatePicker() {
     showDatePicker(
         context: context,

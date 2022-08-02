@@ -5,12 +5,10 @@ import 'package:kidzone_app/Parent/centers_screen.dart';
 import 'package:kidzone_app/Parent/Parent_profile_screen.dart';
 import 'package:kidzone_app/Parent/parent_chatroom.dart';
 
-
 class ParentBottomTabsScreen extends StatefulWidget {
   @override
   _ParentBottomTabsScreen createState() => _ParentBottomTabsScreen();
 }
-
 class _ParentBottomTabsScreen extends State<ParentBottomTabsScreen> {
   int currentIndex = 0;
   List<Widget> list = [];
@@ -20,11 +18,9 @@ class _ParentBottomTabsScreen extends State<ParentBottomTabsScreen> {
     super.initState();
     getList();
   }
-
   getList ()  async {
       list = await getUserName();
   }
-
   @override
   Widget build(BuildContext context)
     {
@@ -40,8 +36,6 @@ class _ParentBottomTabsScreen extends State<ParentBottomTabsScreen> {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white30,
           iconSize: 20,
-          //selectedFontSize: 25,
-          //unselectedFontSize: 16,
           showSelectedLabels: true,
           showUnselectedLabels: false,
           currentIndex: currentIndex,

@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:kidzone_app/Center/Screen/Centers_Bottom_Taps_screen.dart';
-import 'package:kidzone_app/Parent/centers_screen.dart';
+import 'package:kidzone_app/Parent/Centers_screen.dart';
 
 
 class CenterPostAdvertisementScreens extends StatefulWidget {
@@ -117,7 +117,6 @@ bool isVisible = true;
     );
   }
 
-
   showAdsDialog(BuildContext context) {
     // set up the buttons
     Widget cancelButton = TextButton(
@@ -156,7 +155,6 @@ bool isVisible = true;
         ));
       },
     );
-
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("نشر إعلان", style: TextStyle(fontSize: 20, color: Colors
@@ -171,7 +169,6 @@ bool isVisible = true;
           onPressed: pickImage,
         ),
       ],),
-
       actions: [
         cancelButton,
         continueButton,

@@ -20,8 +20,7 @@ class ParentSeeAdvertisement extends StatelessWidget {
       ),
     ),
     body:  StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection("ads")
-            .snapshots(),
+        stream: FirebaseFirestore.instance.collection("ads").snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             print(snapshot.data);

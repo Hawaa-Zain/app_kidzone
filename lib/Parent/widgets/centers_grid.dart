@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Parent/widgets/centers_item.dart';
@@ -7,11 +6,8 @@ class CentersGrid extends StatelessWidget {
   final String searchWord;
 
   const CentersGrid({Key key, this.searchWord}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    //final centersData = Provider.of<Centers>(context);
-    //final centerss = centersData.items;
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection("Centers")
@@ -22,7 +18,6 @@ class CentersGrid extends StatelessWidget {
             print(snapshot.data);
             return CircularProgressIndicator();
           }
-
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }
@@ -50,16 +45,6 @@ class CentersGrid extends StatelessWidget {
                 print('----->    ${cendoc.get('name')}    <------');
 
                 return CentersItem(cendoc);
-                // itemCount: centerss.length,
-                // itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-                //value: centerss[i],
-                //child: CentersItem(
-                //Centerss[i].title,
-                //Centerss[i].description,
-                //Centerss[i].price,
-                //Centerss[i].imageAssets,
-                //       ),
-                // ),
               });
         });
   }

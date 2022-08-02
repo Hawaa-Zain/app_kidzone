@@ -57,7 +57,13 @@ class StartState extends State<ParentLoginScreen> {
             //if (result.credential!.signInMethod.isNotEmpty) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => ParentBottomTabsScreen()));
-
+            // var router = MaterialPageRoute(
+            //     builder: (BuildContext context) => ProfileScreen());
+            // Navigator.of(context).push(router);
+            // } else {
+            //   setState(() => loading = false);
+            //   print('user not found');
+            // }
           } catch (e) {
             print('Error: $e');
             setState(() {
@@ -142,13 +148,8 @@ class StartState extends State<ParentLoginScreen> {
                       validator: (String value) {
                         if (value.isEmpty) {
                           return 'البريد الإلكتروني مطلوب';
-
-                        } //else if (!RegExp(r'\s+@\s+\.\s+').hasMatch(value)){
-
-                         // return 'البريد الالكتروني غير صالح';
-                       // }
-                        else{
-                        return null;}
+                        }
+                        return null;
                       },
                       onSaved: (String value) {
                         _email = value;

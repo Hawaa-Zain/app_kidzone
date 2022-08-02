@@ -5,22 +5,12 @@ import 'package:kidzone_app/Parent/kids_register_screen.dart';
 
 class CenterDetails extends StatefulWidget {
   final cendoc;
-
   CenterDetails(this.cendoc);
-
-  //late final String title;
-  // CentersDetailScreen(this.title);
   static String routName = '/centers-detail';
-
-
   @override
   State<CenterDetails> createState() => _CenterDetailsState();
 }
-
 class _CenterDetailsState extends State<CenterDetails> {
-
-
-
   Widget buildSectionTitle(BuildContext context, String titleText) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -31,7 +21,6 @@ class _CenterDetailsState extends State<CenterDetails> {
       ),
     );
   }
-
   Widget buildListViewContainer(Widget child) {
     return Container(
       decoration: BoxDecoration(
@@ -48,32 +37,6 @@ class _CenterDetailsState extends State<CenterDetails> {
 
   @override
   Widget build(BuildContext context) {
-
-    // //to check the status of the registration of the user
-    // checkRegistration() async {
-    //   //User currentUser = FirebaseAuth.instance.currentUser;
-    //   String checkReg;
-    //   await FirebaseFirestore.instance
-    //       .collection('Parent')
-    //       .doc(user!.uid)
-    //   .collection("Children")
-    //       .get()
-    //       .then((QuerySnapshot querySnapshot) {
-    //     querySnapshot.docs.forEach((doc) {
-    //       checkReg = doc['checkReg'];
-    //
-    //     });
-    //   });
-    // }
-
-    // final centersTitle = ModalRoute
-    //     .of(context)!
-    //     .settings
-    //     .arguments as String;
-    // final loadedCenter = Provider.of<Centers>(
-    //   context,
-    //   listen: false,
-    // ).findByTitle(centersTitle);
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection("Centers")
@@ -86,7 +49,6 @@ class _CenterDetailsState extends State<CenterDetails> {
             print(snapshot.data);
             return CircularProgressIndicator();
           }
-
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Text("Loading");
           }
@@ -242,6 +204,7 @@ class _CenterDetailsState extends State<CenterDetails> {
             ),
 
           ),
+          
 
         );}
     );

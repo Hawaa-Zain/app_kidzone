@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kidzone_app/Admin/widget_Admin/order_center.dart';
-import 'package:kidzone_app/Parent/welcome_Screen.dart';
+import 'package:kidzone_app/Parent/Welcome_Screen.dart';
 
 
 class HomeAdmin extends StatefulWidget {

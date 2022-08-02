@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kidzone_app/Admin/Screen_Admin/Home_Admin.dart';
-import 'package:kidzone_app/Parent/welcome_Screen.dart';
+import 'package:kidzone_app/Parent/Welcome_Screen.dart';
 
 class LoginAdmin extends StatefulWidget {
   @override

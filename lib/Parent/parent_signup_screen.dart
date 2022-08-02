@@ -42,7 +42,6 @@ class InitState extends State<ParentSignUpScreen> {
       _image = File(image.path);
     });
   }
-
   bool validateAndSave() {
     final form = _formKey.currentState;
     if (form.validate()) {
